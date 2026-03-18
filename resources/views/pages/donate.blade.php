@@ -1,11 +1,11 @@
 <x-layouts::public title="Donar" description="Tu donación hace posible que más jóvenes hondureños accedan a educación de calidad.">
 
     {{-- Hero --}}
-    <section class="bg-gradient-to-br from-blue-800 to-blue-600 text-white py-20">
+    <section class="bg-linear-to-br from-primary-700 to-primary-600 text-white py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-blue-200 font-semibold uppercase tracking-widest text-sm mb-3">Apoya Nuestra Causa</p>
+            <p class="text-primary-200 font-semibold uppercase tracking-widest text-sm mb-3">Apoya Nuestra Causa</p>
             <h1 class="text-4xl sm:text-5xl font-bold leading-tight mb-4">Tu donación cambia vidas</h1>
-            <p class="text-blue-100 max-w-2xl mx-auto text-lg">
+            <p class="text-primary-100 max-w-2xl mx-auto text-lg">
                 Cada aporte —grande o pequeño— permite que un joven hondureño tenga acceso a educación
                 de calidad y construya un mejor futuro para sí mismo y su comunidad.
             </p>
@@ -39,88 +39,13 @@
     <section class="py-20 bg-zinc-50">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-white border border-zinc-200 rounded-2xl shadow-sm overflow-hidden">
-                <div class="bg-blue-700 text-white p-8 text-center">
+                <div class="bg-primary-600 text-white p-8 text-center">
                     <h2 class="text-2xl font-bold mb-2">Hacer una donación</h2>
-                    <p class="text-blue-200 text-sm">Proceso seguro · 100% del dinero va a los becarios</p>
+                    <p class="text-primary-200 text-sm">Proceso seguro · 100% del dinero va a los becarios</p>
                 </div>
 
                 <div class="p-8">
-                    <form action="#" method="POST" class="space-y-6">
-                        @csrf
-
-                        {{-- Montos sugeridos --}}
-                        <div>
-                            <label class="block text-sm font-medium text-zinc-700 mb-3">Selecciona un monto (Lempiras)</label>
-                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" x-data="{ selected: null }">
-                                @foreach(['200', '500', '1000', '2000'] as $amount)
-                                <button type="button"
-                                    @click="selected = '{{ $amount }}'; $refs.amount.value = '{{ $amount }}'"
-                                    :class="selected === '{{ $amount }}' ? 'border-blue-700 bg-blue-50 text-blue-700' : 'border-zinc-200 text-zinc-700 hover:border-blue-300'"
-                                    class="border-2 rounded-xl py-3 font-bold text-sm transition">
-                                    L. {{ number_format((int)$amount) }}
-                                </button>
-                                @endforeach
-                            </div>
-                        </div>
-
-                        {{-- Monto personalizado --}}
-                        <div>
-                            <label class="block text-sm font-medium text-zinc-700 mb-1.5">O ingresa un monto personalizado</label>
-                            <div class="relative">
-                                <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 text-sm font-semibold">L.</span>
-                                <input type="number" name="amount" x-ref="amount" min="50" step="1" placeholder="Otro monto"
-                                    class="w-full border border-zinc-300 rounded-lg pl-9 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
-                            </div>
-                        </div>
-
-                        {{-- Frecuencia --}}
-                        <div>
-                            <label class="block text-sm font-medium text-zinc-700 mb-3">Frecuencia de donación</label>
-                            <div class="grid grid-cols-3 gap-3">
-                                @foreach(['Única vez' => 'once', 'Mensual' => 'monthly', 'Anual' => 'yearly'] as $label => $value)
-                                <label class="cursor-pointer">
-                                    <input type="radio" name="frequency" value="{{ $value }}" class="sr-only peer" {{ $value === 'once' ? 'checked' : '' }}>
-                                    <div class="text-center border-2 border-zinc-200 rounded-xl py-3 text-sm font-medium text-zinc-700 peer-checked:border-blue-700 peer-checked:bg-blue-50 peer-checked:text-blue-700 transition">
-                                        {{ $label }}
-                                    </div>
-                                </label>
-                                @endforeach
-                            </div>
-                        </div>
-
-                        <hr class="border-zinc-100">
-
-                        {{-- Datos del donante --}}
-                        <div class="grid sm:grid-cols-2 gap-5">
-                            <div>
-                                <label class="block text-sm font-medium text-zinc-700 mb-1.5">Nombre completo</label>
-                                <input type="text" name="donor_name" placeholder="Tu nombre"
-                                    class="w-full border border-zinc-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-zinc-700 mb-1.5">Correo electrónico</label>
-                                <input type="email" name="donor_email" placeholder="pararecibo@correo.com"
-                                    class="w-full border border-zinc-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-3">
-                            <input type="checkbox" id="anonymous" name="anonymous" class="mt-0.5 rounded border-zinc-300 text-blue-600 focus:ring-blue-500">
-                            <label for="anonymous" class="text-sm text-zinc-600">Quiero que mi donación sea anónima</label>
-                        </div>
-
-                        <button type="submit"
-                            class="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-xl transition shadow-sm">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-                            Confirmar donación
-                        </button>
-
-                        <p class="text-xs text-zinc-400 text-center">
-                            Al confirmar, aceptas nuestros
-                            <a href="#" class="underline hover:text-zinc-600">términos y condiciones</a>.
-                            Tu información está segura y protegida.
-                        </p>
-                    </form>
+                    <livewire:donation-form />
                 </div>
             </div>
         </div>
@@ -142,7 +67,7 @@
                 <div class="bg-zinc-50 border border-zinc-100 rounded-2xl p-7">
                     <p class="text-zinc-700 italic leading-relaxed mb-5">{{ $t['quote'] }}</p>
                     <div class="flex items-center gap-3">
-                        <div class="w-9 h-9 rounded-full bg-blue-200 flex items-center justify-center text-blue-700 font-bold text-sm">
+                        <div class="w-9 h-9 rounded-full bg-primary-200 flex items-center justify-center text-primary-600 font-bold text-sm">
                             {{ substr($t['name'], 0, 1) }}
                         </div>
                         <div>

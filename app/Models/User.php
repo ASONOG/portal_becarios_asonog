@@ -2,28 +2,33 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
-use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 
-#[Fillable(['name', 'email', 'password'])]
 #[Hidden(['password', 'two_factor_secret', 'two_factor_recovery_codes', 'remember_token'])]
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable, TwoFactorAuthenticatable;
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'role',
+        'phone',
+        'national_id',
+        'institution',
+        'career',
+        'bio',
+    ];
+
     protected function casts(): array
     {
         return [
@@ -32,9 +37,28 @@ class User extends Authenticatable
         ];
     }
 
-    /**
-     * Get the user's initials
-     */
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isBecario(): bool
+    {
+        return $this->role === 'becario';
+    }
+
+    public function documents(): HasMany
+    {
+        return $this->hasMany(Document::class);
+    }
+
+    public function profileCompletionPercentage(): int
+    {
+        $fields = ['name', 'email', 'phone', 'national_id', 'institution', 'career'];
+        $filled = collect($fields)->filter(fn ($f) => ! empty($this->$f))->count();
+        return (int) round(($filled / count($fields)) * 100);
+    }
+
     public function initials(): string
     {
         return Str::of($this->name)
@@ -44,3 +68,4 @@ class User extends Authenticatable
             ->implode('');
     }
 }
+

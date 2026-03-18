@@ -1,11 +1,11 @@
 <x-layouts::public title="Nosotros" description="Conoce la misión, visión y trayectoria de ASONOG y su programa de becas.">
 
     {{-- Hero --}}
-    <section class="bg-gradient-to-br from-blue-800 to-blue-600 text-white py-20">
+    <section class="bg-linear-to-br from-primary-700 to-primary-600 text-white py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-blue-200 font-semibold uppercase tracking-widest text-sm mb-3">Quiénes Somos</p>
+            <p class="text-primary-200 font-semibold uppercase tracking-widest text-sm mb-3">Quiénes Somos</p>
             <h1 class="text-4xl sm:text-5xl font-bold leading-tight mb-4">Asociación de Organismos<br>No Gubernamentales de Honduras</h1>
-            <p class="text-blue-100 max-w-2xl mx-auto text-lg">
+            <p class="text-primary-100 max-w-2xl mx-auto text-lg">
                 Desde 1992 articulamos y fortalecemos el trabajo de las organizaciones de la sociedad civil hondureña,
                 promoviendo el desarrollo humano sostenible a través de programas de educación y becas.
             </p>
@@ -18,8 +18,8 @@
             <div class="grid md:grid-cols-3 gap-10">
 
                 <div class="text-center">
-                    <div class="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center mx-auto mb-5">
-                        <svg class="w-7 h-7 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="w-14 h-14 rounded-2xl bg-primary-50 flex items-center justify-center mx-auto mb-5">
+                        <svg class="w-7 h-7 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                         </svg>
                     </div>
@@ -44,8 +44,8 @@
                 </div>
 
                 <div class="text-center">
-                    <div class="w-14 h-14 rounded-2xl bg-yellow-50 flex items-center justify-center mx-auto mb-5">
-                        <svg class="w-7 h-7 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="w-14 h-14 rounded-2xl bg-secondary-50 flex items-center justify-center mx-auto mb-5">
+                        <svg class="w-7 h-7 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
                         </svg>
                     </div>
@@ -70,17 +70,17 @@
 
             <div class="relative">
                 {{-- Línea central --}}
-                <div class="hidden md:block absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-blue-100"></div>
+                <div class="hidden md:block absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-primary-100"></div>
 
                 <div class="space-y-12">
 
                     <div class="md:flex items-start gap-8">
                         <div class="md:w-1/2 md:text-right md:pr-10">
-                            <span class="inline-block bg-blue-700 text-white px-3 py-1 rounded-full text-sm font-semibold mb-2">1992</span>
+                            <span class="inline-block bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-semibold mb-2">1992</span>
                             <h3 class="text-lg font-bold text-zinc-900">Fundación de ASONOG</h3>
                             <p class="text-zinc-500 text-sm mt-1">Creación de la red para articular las OSC hondureñas ante un contexto de crecimiento del sector no gubernamental en el país.</p>
                         </div>
-                        <div class="hidden md:flex w-8 h-8 rounded-full bg-blue-700 ring-4 ring-white mt-1 shrink-0 items-center justify-center mx-auto">
+                        <div class="hidden md:flex w-8 h-8 rounded-full bg-primary-600 ring-4 ring-white mt-1 shrink-0 items-center justify-center mx-auto">
                             <div class="w-3 h-3 rounded-full bg-white"></div>
                         </div>
                         <div class="md:w-1/2 md:pl-10 hidden md:block"></div>
@@ -88,11 +88,11 @@
 
                     <div class="md:flex items-start gap-8">
                         <div class="md:w-1/2 md:pr-10 hidden md:block"></div>
-                        <div class="hidden md:flex w-8 h-8 rounded-full bg-blue-600 ring-4 ring-white mt-1 shrink-0 items-center justify-center mx-auto">
+                        <div class="hidden md:flex w-8 h-8 rounded-full bg-primary-600 ring-4 ring-white mt-1 shrink-0 items-center justify-center mx-auto">
                             <div class="w-3 h-3 rounded-full bg-white"></div>
                         </div>
                         <div class="md:w-1/2 md:pl-10">
-                            <span class="inline-block bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold mb-2">2005</span>
+                            <span class="inline-block bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-semibold mb-2">2005</span>
                             <h3 class="text-lg font-bold text-zinc-900">Programa de Becas</h3>
                             <p class="text-zinc-500 text-sm mt-1">Lanzamiento del primer programa de becas educativas para jóvenes en situación de vulnerabilidad, con el apoyo de cooperación internacional.</p>
                         </div>
@@ -100,11 +100,11 @@
 
                     <div class="md:flex items-start gap-8">
                         <div class="md:w-1/2 md:text-right md:pr-10">
-                            <span class="inline-block bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold mb-2">2015</span>
+                            <span class="inline-block bg-primary-500 text-white px-3 py-1 rounded-full text-sm font-semibold mb-2">2015</span>
                             <h3 class="text-lg font-bold text-zinc-900">Expansión Nacional</h3>
                             <p class="text-zinc-500 text-sm mt-1">Ampliación del programa a los 18 departamentos del país, alcanzando comunidades rurales y poblaciones históricamente excluidas.</p>
                         </div>
-                        <div class="hidden md:flex w-8 h-8 rounded-full bg-blue-500 ring-4 ring-white mt-1 shrink-0 items-center justify-center mx-auto">
+                        <div class="hidden md:flex w-8 h-8 rounded-full bg-primary-500 ring-4 ring-white mt-1 shrink-0 items-center justify-center mx-auto">
                             <div class="w-3 h-3 rounded-full bg-white"></div>
                         </div>
                         <div class="md:w-1/2 md:pl-10 hidden md:block"></div>
@@ -128,24 +128,24 @@
     </section>
 
     {{-- Stats --}}
-    <section class="py-16 bg-blue-700 text-white">
+    <section class="py-16 bg-primary-600 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 <div>
                     <p class="text-4xl font-bold">+200</p>
-                    <p class="text-blue-200 text-sm mt-1">Organizaciones afiliadas</p>
+                    <p class="text-primary-200 text-sm mt-1">Organizaciones afiliadas</p>
                 </div>
                 <div>
                     <p class="text-4xl font-bold">+5,000</p>
-                    <p class="text-blue-200 text-sm mt-1">Becas otorgadas</p>
+                    <p class="text-primary-200 text-sm mt-1">Becas otorgadas</p>
                 </div>
                 <div>
                     <p class="text-4xl font-bold">18</p>
-                    <p class="text-blue-200 text-sm mt-1">Departamentos cubiertos</p>
+                    <p class="text-primary-200 text-sm mt-1">Departamentos cubiertos</p>
                 </div>
                 <div>
                     <p class="text-4xl font-bold">30+</p>
-                    <p class="text-blue-200 text-sm mt-1">Años de experiencia</p>
+                    <p class="text-primary-200 text-sm mt-1">Años de experiencia</p>
                 </div>
             </div>
         </div>
@@ -157,7 +157,7 @@
             <h2 class="text-3xl font-bold text-zinc-900 mb-4">¿Deseas ser parte del cambio?</h2>
             <p class="text-zinc-500 mb-8">Conoce nuestros programas de becas disponibles o ponte en contacto con nosotros.</p>
             <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="{{ route('programs') }}" class="inline-flex items-center justify-center px-6 py-3 bg-blue-700 text-white font-semibold rounded-lg hover:bg-blue-800 transition">
+                <a href="{{ route('programs') }}" class="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition">
                     Ver programas
                 </a>
                 <a href="{{ route('contact') }}" class="inline-flex items-center justify-center px-6 py-3 border border-zinc-300 text-zinc-700 font-semibold rounded-lg hover:bg-zinc-50 transition">

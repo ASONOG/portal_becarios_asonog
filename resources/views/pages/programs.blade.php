@@ -1,16 +1,16 @@
 <x-layouts::public title="Programas de Becas" description="Descubre los programas de becas disponibles ofrecidos por ASONOG para jóvenes hondureños.">
 
     {{-- Hero --}}
-    <section class="bg-gradient-to-br from-blue-800 to-blue-600 text-white py-20">
+    <section class="bg-linear-to-br from-primary-700 to-primary-600 text-white py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-blue-200 font-semibold uppercase tracking-widest text-sm mb-3">Programas de Becas</p>
+            <p class="text-primary-200 font-semibold uppercase tracking-widest text-sm mb-3">Programas de Becas</p>
             <h1 class="text-4xl sm:text-5xl font-bold leading-tight mb-4">Invirtiendo en el<br>Futuro de Honduras</h1>
-            <p class="text-blue-100 max-w-2xl mx-auto text-lg">
+            <p class="text-primary-100 max-w-2xl mx-auto text-lg">
                 Ofrecemos distintos tipos de becas para apoyar a jóvenes talentosos con necesidad económica
                 en su trayectoria educativa, desde básica hasta educación superior.
             </p>
             <div class="mt-8">
-                <a href="{{ route('login') }}" class="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-blue-700 font-bold rounded-xl shadow-lg hover:bg-blue-50 transition">
+                <a href="{{ route('login') }}" class="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-primary-600 font-bold rounded-xl shadow-lg hover:bg-primary-50 transition">
                     Solicitar una beca
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                 </a>
@@ -30,15 +30,15 @@
 
                 {{-- Beca Educación Básica --}}
                 <div class="border border-zinc-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
-                    <div class="h-2 bg-blue-700"></div>
+                    <div class="h-2 bg-primary-600"></div>
                     <div class="p-7">
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
-                                <svg class="w-6 h-6 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                            <div class="w-11 h-11 rounded-xl bg-primary-50 flex items-center justify-center shrink-0">
+                                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
                             </div>
                             <div>
                                 <h3 class="font-bold text-zinc-900">Beca Educación Básica</h3>
-                                <span class="text-xs font-medium text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full">Niveles 1–9</span>
+                                <span class="text-xs font-medium text-primary-600 bg-primary-50 px-2 py-0.5 rounded-full">Niveles 1–9</span>
                             </div>
                         </div>
                         <p class="text-zinc-500 text-sm leading-relaxed mb-5">
@@ -52,7 +52,7 @@
                         </ul>
                         <div class="flex items-center justify-between pt-4 border-t border-zinc-100">
                             <span class="text-xs text-zinc-400">Plazo: Anual</span>
-                            <a href="{{ route('login') }}" class="text-sm font-semibold text-blue-700 hover:text-blue-800 transition">Aplicar →</a>
+                            <a href="{{ route('login') }}" class="text-sm font-semibold text-primary-600 hover:text-primary-700 transition">Aplicar →</a>
                         </div>
                     </div>
                 </div>
@@ -87,19 +87,19 @@
                 </div>
 
                 {{-- Beca Universitaria --}}
-                <div class="border-2 border-blue-700 rounded-2xl overflow-hidden hover:shadow-xl transition-shadow relative">
+                <div class="border-2 border-primary-600 rounded-2xl overflow-hidden hover:shadow-xl transition-shadow relative">
                     <div class="absolute top-4 right-4">
-                        <span class="bg-blue-700 text-white text-xs font-bold px-3 py-1 rounded-full">⭐ Destacada</span>
+                        <span class="bg-primary-600 text-white text-xs font-bold px-3 py-1 rounded-full">⭐ Destacada</span>
                     </div>
-                    <div class="h-2 bg-blue-700"></div>
+                    <div class="h-2 bg-primary-600"></div>
                     <div class="p-7">
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-11 h-11 rounded-xl bg-blue-700 flex items-center justify-center shrink-0">
+                            <div class="w-11 h-11 rounded-xl bg-primary-600 flex items-center justify-center shrink-0">
                                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
                             </div>
                             <div>
                                 <h3 class="font-bold text-zinc-900">Beca Universitaria</h3>
-                                <span class="text-xs font-medium text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full">Educación Superior</span>
+                                <span class="text-xs font-medium text-primary-600 bg-primary-50 px-2 py-0.5 rounded-full">Educación Superior</span>
                             </div>
                         </div>
                         <p class="text-zinc-500 text-sm leading-relaxed mb-5">
@@ -113,7 +113,7 @@
                         </ul>
                         <div class="flex items-center justify-between pt-4 border-t border-zinc-100">
                             <span class="text-xs text-zinc-400">Plazo: Duración de carrera</span>
-                            <a href="{{ route('login') }}" class="text-sm font-semibold text-blue-700 hover:text-blue-800 transition">Aplicar →</a>
+                            <a href="{{ route('login') }}" class="text-sm font-semibold text-primary-600 hover:text-primary-700 transition">Aplicar →</a>
                         </div>
                     </div>
                 </div>
@@ -177,11 +177,11 @@
                 </div>
 
                 {{-- CTA Card --}}
-                <div class="bg-blue-50 border border-blue-100 rounded-2xl p-7 flex flex-col justify-center items-center text-center">
-                    <svg class="w-12 h-12 text-blue-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <div class="bg-primary-50 border border-primary-100 rounded-2xl p-7 flex flex-col justify-center items-center text-center">
+                    <svg class="w-12 h-12 text-primary-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                     <h3 class="font-bold text-zinc-900 mb-2">¿No encuentras tu programa?</h3>
                     <p class="text-zinc-500 text-sm mb-5">Escríbenos y te ayudaremos a encontrar la opción más adecuada para tu perfil.</p>
-                    <a href="{{ route('contact') }}" class="inline-flex items-center px-5 py-2.5 bg-blue-700 text-white font-semibold text-sm rounded-lg hover:bg-blue-800 transition">
+                    <a href="{{ route('contact') }}" class="inline-flex items-center px-5 py-2.5 bg-primary-600 text-white font-semibold text-sm rounded-lg hover:bg-primary-700 transition">
                         Contáctanos
                     </a>
                 </div>
@@ -207,8 +207,8 @@
                     ['icon' => 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2', 'title' => 'Inscripción en línea', 'desc' => 'Completar el formulario de solicitud antes de la fecha límite de convocatoria.'],
                 ] as $req)
                 <div class="bg-white border border-zinc-100 rounded-xl p-5 flex gap-4">
-                    <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center shrink-0">
-                        <svg class="w-5 h-5 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="w-10 h-10 rounded-lg bg-primary-50 flex items-center justify-center shrink-0">
+                        <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $req['icon'] }}"/>
                         </svg>
                     </div>
@@ -223,15 +223,15 @@
     </section>
 
     {{-- CTA Final --}}
-    <section class="py-20 bg-blue-700 text-white text-center">
+    <section class="py-20 bg-primary-600 text-white text-center">
         <div class="max-w-2xl mx-auto px-4">
             <h2 class="text-3xl font-bold mb-4">¡Da el primer paso hoy!</h2>
-            <p class="text-blue-100 mb-8">Crea tu cuenta gratuita y completa tu solicitud de beca en minutos.</p>
+            <p class="text-primary-100 mb-8">Crea tu cuenta gratuita y completa tu solicitud de beca en minutos.</p>
             <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="{{ route('register') }}" class="inline-flex items-center justify-center px-7 py-3.5 bg-white text-blue-700 font-bold rounded-xl shadow hover:bg-blue-50 transition">
+                <a href="{{ route('register') }}" class="inline-flex items-center justify-center px-7 py-3.5 bg-white text-primary-600 font-bold rounded-xl shadow hover:bg-primary-50 transition">
                     Crear cuenta gratis
                 </a>
-                <a href="{{ route('login') }}" class="inline-flex items-center justify-center px-7 py-3.5 border border-blue-400 text-white font-semibold rounded-xl hover:bg-blue-600 transition">
+                <a href="{{ route('login') }}" class="inline-flex items-center justify-center px-7 py-3.5 border border-primary-400 text-white font-semibold rounded-xl hover:bg-primary-600 transition">
                     Ya tengo cuenta
                 </a>
             </div>

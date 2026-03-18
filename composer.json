@@ -1,11 +1,12 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/livewire-starter-kit",
+    "name": "asonog/portal-becarios",
     "type": "project",
-    "description": "The official Laravel starter kit for Livewire.",
+    "description": "Portal de gestión de becarios ASONOG.",
     "keywords": [
-        "laravel",
-        "framework"
+        "asonog",
+        "becarios",
+        "laravel"
     ],
     "license": "MIT",
     "require": {
