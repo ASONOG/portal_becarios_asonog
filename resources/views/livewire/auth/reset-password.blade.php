@@ -1,52 +1,64 @@
-<x-layouts::auth :title="__('Reset password')">
+<x-layouts::auth :title="__('Restablecer contraseña')">
     <div class="flex flex-col gap-6">
-        <x-auth-header :title="__('Reset password')" :description="__('Please enter your new password below')" />
+        <x-auth-header
+            :title="__('Nueva contraseña')"
+            :description="__('Ingresa y confirma tu nueva contraseña para recuperar el acceso')"
+        />
 
         <!-- Session Status -->
         <x-auth-session-status class="text-center" :status="session('status')" />
 
-        <form method="POST" action="{{ route('password.update') }}" class="flex flex-col gap-6">
+        <form method="POST" action="{{ route('password.update') }}" class="flex flex-col gap-5">
             @csrf
-            <!-- Token -->
             <input type="hidden" name="token" value="{{ request()->route('token') }}">
 
-            <!-- Email Address -->
-            <flux:input
-                name="email"
-                value="{{ request('email') }}"
-                :label="__('Email')"
-                type="email"
-                required
-                autocomplete="email"
-            />
-
-            <!-- Password -->
-            <flux:input
-                name="password"
-                :label="__('Password')"
-                type="password"
-                required
-                autocomplete="new-password"
-                :placeholder="__('Password')"
-                viewable
-            />
-
-            <!-- Confirm Password -->
-            <flux:input
-                name="password_confirmation"
-                :label="__('Confirm password')"
-                type="password"
-                required
-                autocomplete="new-password"
-                :placeholder="__('Confirm password')"
-                viewable
-            />
-
-            <div class="flex items-center justify-end">
-                <flux:button type="submit" variant="primary" class="w-full" data-test="reset-password-button">
-                    {{ __('Reset password') }}
-                </flux:button>
+            <div>
+                <label class="block text-sm font-medium text-zinc-700 mb-1.5">Correo electrónico</label>
+                <input
+                    name="email"
+                    type="email"
+                    value="{{ request('email') }}"
+                    required
+                    autocomplete="email"
+                    class="w-full border border-zinc-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition @error('email') border-red-400 @enderror"
+                >
+                @error('email')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
             </div>
+
+            <div>
+                <label class="block text-sm font-medium text-zinc-700 mb-1.5">Nueva contraseña</label>
+                <input
+                    name="password"
+                    type="password"
+                    required
+                    autocomplete="new-password"
+                    placeholder="Mínimo 8 caracteres"
+                    class="w-full border border-zinc-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition @error('password') border-red-400 @enderror"
+                >
+                @error('password')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-zinc-700 mb-1.5">Confirmar contraseña</label>
+                <input
+                    name="password_confirmation"
+                    type="password"
+                    required
+                    autocomplete="new-password"
+                    placeholder="Repite tu contraseña"
+                    class="w-full border border-zinc-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                >
+            </div>
+
+            <button type="submit"
+                class="w-full py-3 bg-blue-700 text-white font-semibold rounded-lg hover:bg-blue-800 transition text-sm"
+                data-test="reset-password-button">
+                Restablecer contraseña
+            </button>
         </form>
     </div>
 </x-layouts::auth>

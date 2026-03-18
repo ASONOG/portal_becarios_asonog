@@ -1,28 +1,37 @@
-<x-layouts::auth :title="__('Email verification')">
-    <div class="mt-4 flex flex-col gap-6">
-        <flux:text class="text-center">
-            {{ __('Please verify your email address by clicking on the link we just emailed to you.') }}
-        </flux:text>
+<x-layouts::auth :title="__('Verificar correo')">
+    <div class="flex flex-col gap-6">
+        <x-auth-header
+            :title="__('Verifica tu correo')"
+            :description="__('')"
+        />
+
+        <p class="text-sm text-zinc-500 leading-relaxed">
+            Hemos enviado un enlace de verificación a tu correo electrónico.
+            Por favor revisa tu bandeja de entrada y haz clic en el enlace para activar tu cuenta.
+        </p>
 
         @if (session('status') == 'verification-link-sent')
-            <flux:text class="text-center font-medium !dark:text-green-400 !text-green-600">
-                {{ __('A new verification link has been sent to the email address you provided during registration.') }}
-            </flux:text>
+            <div class="bg-green-50 border border-green-200 text-green-700 text-sm px-4 py-3 rounded-lg">
+                Se ha enviado un nuevo enlace de verificación a tu correo.
+            </div>
         @endif
 
-        <div class="flex flex-col items-center justify-between space-y-3">
+        <div class="flex flex-col gap-3">
             <form method="POST" action="{{ route('verification.send') }}">
                 @csrf
-                <flux:button type="submit" variant="primary" class="w-full">
-                    {{ __('Resend verification email') }}
-                </flux:button>
+                <button type="submit"
+                    class="w-full py-3 bg-blue-700 text-white font-semibold rounded-lg hover:bg-blue-800 transition text-sm">
+                    Reenviar correo de verificación
+                </button>
             </form>
 
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
-                <flux:button variant="ghost" type="submit" class="text-sm cursor-pointer" data-test="logout-button">
-                    {{ __('Log out') }}
-                </flux:button>
+                <button type="submit"
+                    class="w-full py-2.5 text-sm text-zinc-500 hover:text-zinc-700 transition"
+                    data-test="logout-button">
+                    Cerrar sesión
+                </button>
             </form>
         </div>
     </div>
