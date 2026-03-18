@@ -1,4 +1,4 @@
-<x-layouts.public title="Inicio">
+<x-layouts::public title="Inicio">
 
 {{-- ===================== HERO ===================== --}}
 <section class="relative bg-gradient-to-br from-blue-800 to-blue-600 text-white overflow-hidden">
@@ -163,4 +163,4 @@
     </div>
 </section>
 
-</x-layouts.public>
+</x-layouts::public>
