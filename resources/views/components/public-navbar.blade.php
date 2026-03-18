@@ -7,30 +7,30 @@
 
             {{-- Logo --}}
             <a href="{{ route('home') }}" class="flex items-center gap-2 shrink-0">
-                <span class="flex items-center justify-center w-8 h-8 rounded-md bg-blue-700 text-white font-bold text-sm select-none">A</span>
+                <span class="flex items-center justify-center w-8 h-8 rounded-md bg-primary-600 text-white font-bold text-sm select-none">A</span>
                 <span class="font-semibold text-zinc-900 text-base tracking-tight">ASONOG</span>
             </a>
 
             {{-- Desktop navigation links --}}
             <div class="hidden md:flex items-center gap-6 text-sm font-medium">
                 <a href="{{ route('home') }}"
-                   class="text-zinc-600 hover:text-blue-700 transition-colors {{ request()->routeIs('home') ? 'text-blue-700' : '' }}">
+                   class="text-zinc-600 hover:text-primary-600 transition-colors {{ request()->routeIs('home') ? 'text-primary-600' : '' }}">
                     Inicio
                 </a>
                 <a href="{{ route('about') }}"
-                   class="text-zinc-600 hover:text-blue-700 transition-colors {{ request()->routeIs('about') ? 'text-blue-700' : '' }}">
+                   class="text-zinc-600 hover:text-primary-600 transition-colors {{ request()->routeIs('about') ? 'text-primary-600' : '' }}">
                     Nosotros
                 </a>
                 <a href="{{ route('programs') }}"
-                   class="text-zinc-600 hover:text-blue-700 transition-colors {{ request()->routeIs('programs') ? 'text-blue-700' : '' }}">
+                   class="text-zinc-600 hover:text-primary-600 transition-colors {{ request()->routeIs('programs') ? 'text-primary-600' : '' }}">
                     Programas
                 </a>
                 <a href="{{ route('donate') }}"
-                   class="text-zinc-600 hover:text-blue-700 transition-colors {{ request()->routeIs('donate') ? 'text-blue-700' : '' }}">
+                   class="text-zinc-600 hover:text-primary-600 transition-colors {{ request()->routeIs('donate') ? 'text-primary-600' : '' }}">
                     Donar
                 </a>
                 <a href="{{ route('contact') }}"
-                   class="text-zinc-600 hover:text-blue-700 transition-colors {{ request()->routeIs('contact') ? 'text-blue-700' : '' }}">
+                   class="text-zinc-600 hover:text-primary-600 transition-colors {{ request()->routeIs('contact') ? 'text-primary-600' : '' }}">
                     Contacto
                 </a>
             </div>
@@ -39,7 +39,7 @@
             <div class="hidden md:flex items-center gap-3">
                 @auth
                     <a href="{{ route('dashboard') }}"
-                       class="text-sm font-medium px-4 py-2 rounded-md bg-blue-700 text-white hover:bg-blue-800 transition-colors">
+                       class="text-sm font-medium px-4 py-2 rounded-md bg-primary-600 text-white hover:bg-primary-700 transition-colors">
                         Mi cuenta
                     </a>
                 @else
@@ -70,15 +70,15 @@
     {{-- Mobile menu --}}
     <div x-show="open" x-transition class="md:hidden border-t border-zinc-100 bg-white">
         <div class="px-4 py-3 space-y-1 text-sm font-medium">
-            <a href="{{ route('home') }}" class="block py-2 text-zinc-700 hover:text-blue-700">Inicio</a>
-            <a href="{{ route('about') }}" class="block py-2 text-zinc-700 hover:text-blue-700">Nosotros</a>
-            <a href="{{ route('programs') }}" class="block py-2 text-zinc-700 hover:text-blue-700">Programas</a>
-            <a href="{{ route('donate') }}" class="block py-2 text-zinc-700 hover:text-blue-700">Donar</a>
-            <a href="{{ route('contact') }}" class="block py-2 text-zinc-700 hover:text-blue-700">Contacto</a>
+            <a href="{{ route('home') }}" class="block py-2 text-zinc-700 hover:text-primary-600">Inicio</a>
+            <a href="{{ route('about') }}" class="block py-2 text-zinc-700 hover:text-primary-600">Nosotros</a>
+            <a href="{{ route('programs') }}" class="block py-2 text-zinc-700 hover:text-primary-600">Programas</a>
+            <a href="{{ route('donate') }}" class="block py-2 text-zinc-700 hover:text-primary-600">Donar</a>
+            <a href="{{ route('contact') }}" class="block py-2 text-zinc-700 hover:text-primary-600">Contacto</a>
             @auth
-                <a href="{{ route('dashboard') }}" class="block py-2 text-blue-700 font-semibold">Mi cuenta</a>
+                <a href="{{ route('dashboard') }}" class="block py-2 text-primary-600 font-semibold">Mi cuenta</a>
             @else
-                <a href="{{ route('login') }}" class="block py-2 text-zinc-700 hover:text-blue-700">Iniciar sesión</a>
+                <a href="{{ route('login') }}" class="block py-2 text-zinc-700 hover:text-primary-600">Iniciar sesión</a>
             @endauth
         </div>
     </div>

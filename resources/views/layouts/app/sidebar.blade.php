@@ -1,34 +1,71 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         @include('partials.head')
     </head>
-    <body class="min-h-screen bg-white dark:bg-zinc-800">
-        <flux:sidebar sticky collapsible="mobile" class="border-e border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
-            <flux:sidebar.header>
-                <x-app-logo :sidebar="true" href="{{ route('dashboard') }}" wire:navigate />
+    <body class="min-h-screen bg-zinc-50">
+        <flux:sidebar sticky collapsible="mobile" class="border-e border-zinc-200 bg-white">
+            <flux:sidebar.header class="border-b border-zinc-100 py-4">
+                <a href="{{ route('dashboard') }}" wire:navigate class="flex items-center gap-2 px-1">
+                    <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-600 text-white font-bold text-sm">A</div>
+                    <span class="font-semibold text-zinc-800 text-sm">ASONOG Becas</span>
+                </a>
                 <flux:sidebar.collapse class="lg:hidden" />
             </flux:sidebar.header>
 
             <flux:sidebar.nav>
-                <flux:sidebar.group :heading="__('Platform')" class="grid">
-                    <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
-                        {{ __('Dashboard') }}
-                    </flux:sidebar.item>
-                </flux:sidebar.group>
+                @auth
+                    @if (auth()->user()->isAdmin())
+                        {{-- Nav: Administrador --}}
+                        <flux:sidebar.group heading="Administración" class="grid">
+                            <flux:sidebar.item icon="home" :href="route('admin.dashboard')" :current="request()->routeIs('admin.dashboard')" wire:navigate>
+                                Dashboard
+                            </flux:sidebar.item>
+                            <flux:sidebar.item icon="users" :href="route('admin.becarios.index')" :current="request()->routeIs('admin.becarios.*')" wire:navigate>
+                                Becarios
+                            </flux:sidebar.item>
+                            <flux:sidebar.item icon="document-text" :href="route('admin.documents.index')" :current="request()->routeIs('admin.documents.*')" wire:navigate>
+                                Documentos
+                            </flux:sidebar.item>
+                            <flux:sidebar.item icon="clipboard-document-list" :href="route('admin.assignments.index')" :current="request()->routeIs('admin.assignments.*')" wire:navigate>
+                                Solicitudes
+                            </flux:sidebar.item>
+                        </flux:sidebar.group>
+                        <flux:sidebar.group heading="Cuenta" class="grid">
+                            <flux:sidebar.item icon="user" :href="route('profile.edit')" :current="request()->routeIs('profile.edit')" wire:navigate>
+                                Mi Perfil
+                            </flux:sidebar.item>
+                        </flux:sidebar.group>
+                    @else
+                        {{-- Nav: Becario --}}
+                        <flux:sidebar.group heading="Mi Portal" class="grid">
+                            <flux:sidebar.item icon="home" :href="route('becario.dashboard')" :current="request()->routeIs('becario.dashboard')" wire:navigate>
+                                Inicio
+                            </flux:sidebar.item>
+                            <flux:sidebar.item icon="document-arrow-up" :href="route('becario.documents')" :current="request()->routeIs('becario.documents')" wire:navigate>
+                                Mis Documentos
+                            </flux:sidebar.item>
+                        </flux:sidebar.group>
+                        <flux:sidebar.group heading="Cuenta" class="grid">
+                            <flux:sidebar.item icon="user" :href="route('profile.edit')" :current="request()->routeIs('profile.edit')" wire:navigate>
+                                Mi Perfil
+                            </flux:sidebar.item>
+                            <flux:sidebar.item icon="cog-6-tooth" :href="route('appearance.edit')" :current="request()->routeIs('appearance.edit')" wire:navigate>
+                                Configuración
+                            </flux:sidebar.item>
+                        </flux:sidebar.group>
+                    @endif
+                @endauth
             </flux:sidebar.nav>
 
             <flux:spacer />
 
-            <flux:sidebar.nav>
-                <flux:sidebar.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
-                    {{ __('Repository') }}
-                </flux:sidebar.item>
-
-                <flux:sidebar.item icon="book-open-text" href="https://laravel.com/docs/starter-kits#livewire" target="_blank">
-                    {{ __('Documentation') }}
-                </flux:sidebar.item>
-            </flux:sidebar.nav>
+            <div class="px-3 pb-3">
+                <div class="rounded-lg bg-primary-50 border border-primary-100 p-3 text-xs text-primary-600">
+                    <p class="font-semibold mb-0.5">¿Necesitas ayuda?</p>
+                    <p class="text-primary-600">Contáctanos en <a href="mailto:becas@asonog.hn" class="underline">becas@asonog.hn</a></p>
+                </div>
+            </div>
 
             <x-desktop-user-menu class="hidden lg:block" :name="auth()->user()->name" />
         </flux:sidebar>
@@ -66,7 +103,7 @@
 
                     <flux:menu.radio.group>
                         <flux:menu.item :href="route('profile.edit')" icon="cog" wire:navigate>
-                            {{ __('Settings') }}
+                            {{ __('Configuración') }}
                         </flux:menu.item>
                     </flux:menu.radio.group>
 
@@ -81,7 +118,7 @@
                             class="w-full cursor-pointer"
                             data-test="logout-button"
                         >
-                            {{ __('Log out') }}
+                            {{ __('Cerrar sesión') }}
                         </flux:menu.item>
                     </form>
                 </flux:menu>

@@ -5,7 +5,7 @@
             {{-- Brand column --}}
             <div class="lg:col-span-2">
                 <a href="{{ route('home') }}" class="flex items-center gap-2 mb-4">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-md bg-blue-600 text-white font-bold text-sm select-none">A</span>
+                    <span class="flex items-center justify-center w-8 h-8 rounded-md bg-primary-600 text-white font-bold text-sm select-none">A</span>
                     <span class="font-semibold text-white text-base">ASONOG</span>
                 </a>
                 <p class="text-sm text-zinc-400 leading-relaxed max-w-xs">

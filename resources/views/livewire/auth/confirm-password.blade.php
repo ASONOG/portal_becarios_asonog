@@ -18,7 +18,7 @@
                     required
                     autocomplete="current-password"
                     placeholder="Tu contraseña"
-                    class="w-full border border-zinc-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition @error('password') border-red-400 @enderror"
+                    class="w-full border {{ $errors->has('password') ? 'border-red-400' : 'border-zinc-300' }} rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 transition "
                 >
                 @error('password')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -26,7 +26,7 @@
             </div>
 
             <button type="submit"
-                class="w-full py-3 bg-blue-700 text-white font-semibold rounded-lg hover:bg-blue-800 transition text-sm"
+                class="w-full py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition text-sm"
                 data-test="confirm-password-button">
                 Confirmar
             </button>
