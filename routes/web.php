@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PayPalController;
 use App\Livewire\Admin\AssignmentManage;
 use App\Livewire\Admin\BecarioShow;
 use App\Livewire\Admin\BecariosList;
@@ -17,6 +18,12 @@ Route::view('/nosotros', 'pages.about')->name('about');
 Route::view('/programas', 'pages.programs')->name('programs');
 Route::view('/contacto', 'pages.contact')->name('contact');
 Route::view('/donar', 'pages.donate')->name('donate');
+
+// -------------------------
+// PayPal (donaciones)
+// -------------------------
+Route::post('/paypal/create-order', [PayPalController::class, 'createOrder'])->name('paypal.create-order');
+Route::post('/paypal/capture-order', [PayPalController::class, 'captureOrder'])->name('paypal.capture-order');
 
 // -------------------------
 // Redirección post-login según rol

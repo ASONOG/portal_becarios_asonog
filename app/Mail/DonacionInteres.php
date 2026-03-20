@@ -18,8 +18,11 @@ class DonacionInteres extends Mailable
 
     public function envelope(): Envelope
     {
+        $amount = '$' . number_format((float) ($this->data['amount'] ?? 0), 2);
+        $name = $this->data['donor_name'] ?: 'Anónimo';
+
         return new Envelope(
-            subject: '[Donación] Interés de ' . ($this->data['donor_name'] ?: 'Anónimo'),
+            subject: "[Donación] Pago completado - {$amount} USD de {$name}",
         );
     }
 

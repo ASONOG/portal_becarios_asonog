@@ -1,15 +1,15 @@
 <x-mail::message>
-# Nuevo interés de donación
+# Donación completada
 
-Se ha recibido una solicitud de donación desde el portal.
+Se ha recibido un pago de donación a través de PayPal.
 
 **Donante:** {{ $data['donor_name'] }}
 
 **Correo:** {{ $data['donor_email'] }}
 
-**Monto:** L. {{ number_format((float) $data['amount']) }}
+**Monto:** ${{ number_format((float) $data['amount'], 2) }} {{ $data['currency'] ?? 'USD' }}
 
-**Frecuencia:** {{ $data['frequency'] }}
+**Referencia PayPal:** {{ $data['paypal_order_id'] ?? 'N/A' }}
 
 @if($data['anonymous'])
 *El donante desea permanecer anónimo.*

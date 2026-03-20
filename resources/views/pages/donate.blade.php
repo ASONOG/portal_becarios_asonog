@@ -21,10 +21,10 @@
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 @foreach([
-                    ['amount' => 'L. 200', 'desc' => 'Cubre útiles escolares de un alumno por un mes', 'color' => 'blue'],
-                    ['amount' => 'L. 500', 'desc' => 'Paga la mensualidad de educación media', 'color' => 'green'],
-                    ['amount' => 'L. 1,500', 'desc' => 'Financia matrícula universitaria por un semestre', 'color' => 'purple'],
-                    ['amount' => 'L. 5,000', 'desc' => 'Patrocina una beca técnica completa de 6 meses', 'color' => 'orange'],
+                    ['amount' => '$5', 'desc' => 'Cubre útiles escolares de un alumno por un mes', 'color' => 'primary'],
+                    ['amount' => '$10', 'desc' => 'Paga la mensualidad de educación media', 'color' => 'green'],
+                    ['amount' => '$25', 'desc' => 'Financia matrícula universitaria por un mes', 'color' => 'purple'],
+                    ['amount' => '$50', 'desc' => 'Patrocina una beca técnica completa por un mes', 'color' => 'secondary'],
                 ] as $tier)
                 <div class="text-center p-6 border border-zinc-100 rounded-2xl hover:shadow-md transition">
                     <div class="text-3xl font-extrabold text-{{ $tier['color'] }}-700 mb-3">{{ $tier['amount'] }}</div>
@@ -41,7 +41,7 @@
             <div class="bg-white border border-zinc-200 rounded-2xl shadow-sm overflow-hidden">
                 <div class="bg-primary-600 text-white p-8 text-center">
                     <h2 class="text-2xl font-bold mb-2">Hacer una donación</h2>
-                    <p class="text-primary-200 text-sm">Proceso seguro · 100% del dinero va a los becarios</p>
+                    <p class="text-primary-200 text-sm">Proceso seguro vía PayPal · 100% del dinero va a los becarios</p>
                 </div>
 
                 <div class="p-8">

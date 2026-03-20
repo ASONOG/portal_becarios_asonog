@@ -1,21 +1,21 @@
 <div>
-    @if($sent)
+    @if($paid)
         <div class="bg-green-50 border border-green-200 rounded-xl p-8 text-center">
-            <svg class="w-14 h-14 text-green-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-            <h3 class="text-xl font-bold text-green-800 mb-2">¡Gracias por tu interés en donar!</h3>
-            <p class="text-green-600 text-sm">Hemos recibido tu solicitud. Te contactaremos pronto con los detalles para completar tu donación.</p>
+            <svg class="w-14 h-14 text-green-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <h3 class="text-xl font-bold text-green-800 mb-2">¡Donación completada!</h3>
+            <p class="text-green-600 text-sm">Gracias por tu generosidad. Tu pago ha sido procesado exitosamente.</p>
         </div>
     @else
-        <form wire:submit="submit" class="space-y-6">
+        <div class="space-y-6" x-data="donationPaypal()" x-init="init()">
 
             {{-- Montos sugeridos --}}
             <div>
-                <label class="block text-sm font-medium text-zinc-700 mb-3">Selecciona un monto (Lempiras)</label>
+                <label class="block text-sm font-medium text-zinc-700 mb-3">Selecciona un monto (USD)</label>
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    @foreach(['200', '500', '1000', '2000'] as $preset)
+                    @foreach(['5', '10', '25', '50'] as $preset)
                     <button type="button" wire:click="selectAmount('{{ $preset }}')"
                         class="border-2 rounded-xl py-3 font-bold text-sm transition {{ $amount === $preset ? 'border-primary-600 bg-primary-50 text-primary-600' : 'border-zinc-200 text-zinc-700 hover:border-primary-300' }}">
-                        L. {{ number_format((int)$preset) }}
+                        ${{ $preset }}
                     </button>
                     @endforeach
                 </div>
@@ -25,26 +25,11 @@
             <div>
                 <label class="block text-sm font-medium text-zinc-700 mb-1.5">O ingresa un monto personalizado</label>
                 <div class="relative">
-                    <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 text-sm font-semibold">L.</span>
-                    <input type="number" wire:model="amount" min="50" step="1" placeholder="Otro monto"
-                        class="w-full border {{ $errors->has('amount') ? 'border-red-400' : 'border-zinc-300' }} rounded-lg pl-9 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 transition">
+                    <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 text-sm font-semibold">$</span>
+                    <input type="number" wire:model="amount" min="1" step="0.01" placeholder="Otro monto"
+                        class="w-full border {{ $errors->has('amount') ? 'border-red-400' : 'border-zinc-300' }} rounded-lg pl-8 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 transition">
                 </div>
                 @error('amount') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
-            </div>
-
-            {{-- Frecuencia --}}
-            <div>
-                <label class="block text-sm font-medium text-zinc-700 mb-3">Frecuencia de donación</label>
-                <div class="grid grid-cols-3 gap-3">
-                    @foreach(['Única vez' => 'once', 'Mensual' => 'monthly', 'Anual' => 'yearly'] as $label => $value)
-                    <label class="cursor-pointer">
-                        <input type="radio" wire:model="frequency" value="{{ $value }}" class="sr-only peer">
-                        <div class="text-center border-2 border-zinc-200 rounded-xl py-3 text-sm font-medium text-zinc-700 peer-checked:border-primary-600 peer-checked:bg-primary-50 peer-checked:text-primary-600 transition">
-                            {{ $label }}
-                        </div>
-                    </label>
-                    @endforeach
-                </div>
             </div>
 
             <hr class="border-zinc-100">
@@ -59,7 +44,7 @@
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-zinc-700 mb-1.5">Correo electrónico</label>
-                    <input type="email" wire:model="donor_email" placeholder="pararecibo@correo.com"
+                    <input type="email" wire:model="donor_email" placeholder="tucorreo@ejemplo.com"
                         class="w-full border {{ $errors->has('donor_email') ? 'border-red-400' : 'border-zinc-300' }} rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 transition">
                     @error('donor_email') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                 </div>
@@ -70,19 +55,129 @@
                 <label for="anonymous" class="text-sm text-zinc-600">Quiero que mi donación sea anónima</label>
             </div>
 
-            <button type="submit" wire:loading.attr="disabled"
-                class="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-primary-600 hover:bg-primary-700 text-white font-bold rounded-xl transition shadow-sm disabled:opacity-50">
-                <svg wire:loading.remove class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-                <svg wire:loading class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
-                <span wire:loading.remove>Confirmar donación</span>
-                <span wire:loading>Enviando...</span>
-            </button>
+            {{-- PayPal Button Container --}}
+            <div wire:ignore>
+                <div id="paypal-button-container"></div>
+            </div>
+            <p x-show="paypalError" x-cloak class="text-red-500 text-sm mt-2 text-center" x-text="paypalError"></p>
 
             <p class="text-xs text-zinc-400 text-center">
-                Al confirmar, aceptas nuestros
-                <a href="#" class="underline hover:text-zinc-600">términos y condiciones</a>.
-                Tu información está segura y protegida.
+                Pago procesado de forma segura por PayPal.
+                Tu información está protegida.
             </p>
-        </form>
+        </div>
+
+        <script src="https://www.paypal.com/sdk/js?client-id={{ config('services.paypal.client_id') }}&currency={{ config('services.paypal.currency', 'USD') }}&intent=capture&disable-funding=credit,card" data-page-type="checkout"></script>
+        <script>
+        function donationPaypal() {
+            return {
+                paypalError: '',
+                paypalRendered: false,
+
+                init() {
+                    this.renderPayPalButtons();
+                },
+
+                renderPayPalButtons() {
+                    if (this.paypalRendered) return;
+                    const container = document.getElementById('paypal-button-container');
+                    if (!container || typeof paypal === 'undefined') {
+                        setTimeout(() => this.renderPayPalButtons(), 200);
+                        return;
+                    }
+                    this.paypalRendered = true;
+
+                    const wire = this.$wire;
+                    const self = this;
+                    const csrfToken = '{{ csrf_token() }}';
+
+                    paypal.Buttons({
+                        style: {
+                            layout: 'vertical',
+                            color: 'gold',
+                            shape: 'rect',
+                            label: 'donate',
+                        },
+
+                        async createOrder() {
+                            self.paypalError = '';
+
+                            const amount = wire.amount;
+                            const donor_name = wire.anonymous ? null : wire.donor_name;
+                            const donor_email = wire.donor_email;
+                            const anonymous = wire.anonymous;
+
+                            if (!amount || parseFloat(amount) < 1) {
+                                self.paypalError = 'Ingresa un monto válido (mínimo $1).';
+                                throw new Error(self.paypalError);
+                            }
+                            if (!donor_email || !donor_email.includes('@')) {
+                                self.paypalError = 'Ingresa un correo electrónico válido.';
+                                throw new Error(self.paypalError);
+                            }
+                            if (!anonymous && !donor_name) {
+                                self.paypalError = 'Ingresa tu nombre o marca la donación como anónima.';
+                                throw new Error(self.paypalError);
+                            }
+
+                            const response = await fetch('{{ route("paypal.create-order") }}', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'X-CSRF-TOKEN': csrfToken,
+                                    'Accept': 'application/json',
+                                },
+                                body: JSON.stringify({ amount, donor_name, donor_email, anonymous }),
+                            });
+
+                            const result = await response.json();
+
+                            if (!response.ok) {
+                                const msg = result.errors
+                                    ? Object.values(result.errors).flat().join(' ')
+                                    : (result.error || 'Error al crear la orden.');
+                                self.paypalError = msg;
+                                throw new Error(msg);
+                            }
+
+                            return result.id;
+                        },
+
+                        async onApprove(data) {
+                            self.paypalError = '';
+
+                            const response = await fetch('{{ route("paypal.capture-order") }}', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'X-CSRF-TOKEN': csrfToken,
+                                    'Accept': 'application/json',
+                                },
+                                body: JSON.stringify({ order_id: data.orderID }),
+                            });
+
+                            const result = await response.json();
+
+                            if (!response.ok) {
+                                self.paypalError = result.error || 'Error al procesar el pago.';
+                                return;
+                            }
+
+                            wire.call('markAsPaid');
+                        },
+
+                        onError(err) {
+                            console.error('PayPal error:', err);
+                            self.paypalError = 'Ocurrió un error con PayPal. Intenta de nuevo.';
+                        },
+
+                        onCancel() {
+                            self.paypalError = 'Pago cancelado. Puedes intentarlo de nuevo.';
+                        }
+                    }).render('#paypal-button-container');
+                }
+            };
+        }
+        </script>
     @endif
 </div>

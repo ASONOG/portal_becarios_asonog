@@ -2,24 +2,20 @@
 
 namespace App\Livewire;
 
-use App\Mail\DonacionInteres;
-use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 class DonationForm extends Component
 {
     public ?string $amount = null;
-    public string $frequency = 'once';
     public string $donor_name = '';
     public string $donor_email = '';
     public bool $anonymous = false;
-    public bool $sent = false;
+    public bool $paid = false;
 
     protected function rules(): array
     {
         return [
-            'amount' => ['required', 'numeric', 'min:50', 'max:999999'],
-            'frequency' => ['required', 'in:once,monthly,yearly'],
+            'amount' => ['required', 'numeric', 'min:1', 'max:999999'],
             'donor_name' => ['required_unless:anonymous,true', 'nullable', 'string', 'max:150'],
             'donor_email' => ['required', 'email', 'max:150'],
             'anonymous' => ['boolean'],
@@ -31,28 +27,21 @@ class DonationForm extends Component
         $this->amount = $value;
     }
 
-    public function submit(): void
+    public function validateDonation(): array
     {
-        $validated = $this->validate();
+        $this->validate();
 
-        $frequencyLabels = [
-            'once' => 'Única vez',
-            'monthly' => 'Mensual',
-            'yearly' => 'Anual',
+        return [
+            'amount' => $this->amount,
+            'donor_name' => $this->anonymous ? null : $this->donor_name,
+            'donor_email' => $this->donor_email,
+            'anonymous' => $this->anonymous,
         ];
+    }
 
-        $data = [
-            'amount' => $validated['amount'],
-            'frequency' => $frequencyLabels[$validated['frequency']] ?? $validated['frequency'],
-            'donor_name' => $validated['anonymous'] ? 'Anónimo' : $validated['donor_name'],
-            'donor_email' => $validated['donor_email'],
-            'anonymous' => $validated['anonymous'],
-        ];
-
-        Mail::to(config('mail.from.address'))->send(new DonacionInteres($data));
-
-        $this->reset(['amount', 'frequency', 'donor_name', 'donor_email', 'anonymous']);
-        $this->sent = true;
+    public function markAsPaid(): void
+    {
+        $this->paid = true;
     }
 
     public function render()
