@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'welcome')->name('home');
 Route::view('/nosotros', 'pages.about')->name('about');
 Route::view('/programas', 'pages.programs')->name('programs');
+Route::view('/practicas', 'pages.practicas')->name('internships');
 Route::view('/contacto', 'pages.contact')->name('contact');
 Route::view('/donar', 'pages.donate')->name('donate');
 

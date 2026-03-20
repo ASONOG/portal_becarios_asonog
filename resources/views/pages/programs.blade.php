@@ -1,4 +1,4 @@
-<x-layouts::public title="Programas de Becas" description="Descubre los programas de becas disponibles ofrecidos por ASONOG para jóvenes hondureños.">
+<x-layouts::public title="Becas" description="Conoce el objetivo, población meta, tipos de becas e historias de éxito del programa de becas de ASONOG.">
 
     {{-- Hero --}}
     <section class="bg-linear-to-br from-primary-700 to-primary-600 text-white py-20">
@@ -18,12 +18,105 @@
         </div>
     </section>
 
-    {{-- Programas --}}
+    {{-- Objetivo del Programa --}}
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Nuestro propósito</span>
+                    <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900 leading-tight">Objetivo del Programa de Becas</h2>
+                    <p class="mt-4 text-zinc-600 leading-relaxed">
+                        El programa de becas de ASONOG tiene como objetivo garantizar el acceso, la permanencia y la culminación
+                        educativa de niñas, niños y jóvenes hondureños en situación de vulnerabilidad económica y social,
+                        contribuyendo a romper el ciclo de pobreza a través de la educación.
+                    </p>
+                    <p class="mt-3 text-zinc-600 leading-relaxed">
+                        Mediante el otorgamiento de becas en distintos niveles educativos, buscamos formar ciudadanos capaces,
+                        comprometidos con sus comunidades y preparados para enfrentar los retos del desarrollo humano integral.
+                    </p>
+                </div>
+                <div class="rounded-2xl bg-linear-to-br from-primary-50 to-primary-100 p-8 flex flex-col gap-4">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-primary-600 flex items-center justify-center shrink-0">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-zinc-900">Acceso educativo</h4>
+                            <p class="text-sm text-zinc-600 mt-0.5">Eliminar barreras económicas que impiden el ingreso al sistema educativo.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-primary-600 flex items-center justify-center shrink-0">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-zinc-900">Permanencia y graduación</h4>
+                            <p class="text-sm text-zinc-600 mt-0.5">Acompañar a los becarios hasta la culminación exitosa de sus estudios.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-primary-600 flex items-center justify-center shrink-0">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-zinc-900">Impacto comunitario</h4>
+                            <p class="text-sm text-zinc-600 mt-0.5">Formar agentes de cambio comprometidos con el desarrollo de sus comunidades.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- Población Meta --}}
+    <section class="py-20 bg-zinc-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">¿A quién va dirigido?</span>
+                <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">Población Meta</h2>
+                <p class="mt-3 text-zinc-500 max-w-2xl mx-auto">
+                    Nuestras becas están diseñadas para apoyar a quienes más lo necesitan, priorizando la equidad y la inclusión.
+                </p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-xl p-6 border border-zinc-100 text-center">
+                    <div class="w-12 h-12 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    </div>
+                    <h4 class="font-semibold text-zinc-900 mb-1">Niñez y juventud</h4>
+                    <p class="text-sm text-zinc-500">Niñas, niños y jóvenes entre 6 y 30 años con deseo de superación académica.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 border border-zinc-100 text-center">
+                    <div class="w-12 h-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                    </div>
+                    <h4 class="font-semibold text-zinc-900 mb-1">Zonas rurales</h4>
+                    <p class="text-sm text-zinc-500">Familias de comunidades rurales y urbano-marginales con acceso limitado a educación.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 border border-zinc-100 text-center">
+                    <div class="w-12 h-12 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h4 class="font-semibold text-zinc-900 mb-1">Escasos recursos</h4>
+                    <p class="text-sm text-zinc-500">Hogares con ingresos por debajo del umbral de pobreza establecido a nivel nacional.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 border border-zinc-100 text-center">
+                    <div class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+                    </div>
+                    <h4 class="font-semibold text-zinc-900 mb-1">Alto potencial</h4>
+                    <p class="text-sm text-zinc-500">Estudiantes con buen rendimiento académico y compromiso con su formación.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- Tipos de Becas --}}
     <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-14">
-                <h2 class="text-3xl font-bold text-zinc-900 mb-3">Nuestros Programas</h2>
-                <p class="text-zinc-500">Selecciona el programa que mejor se adapte a tu situación académica.</p>
+                <h2 class="text-3xl font-bold text-zinc-900 mb-3">Tipos de Becas</h2>
+                <p class="text-zinc-500">Selecciona el tipo de beca que mejor se adapte a tu situación académica.</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -218,6 +311,76 @@
                     </div>
                 </div>
                 @endforeach
+            </div>
+        </div>
+    </section>
+
+    {{-- Historias de Éxito --}}
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Testimonios</span>
+                <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">Historias de Éxito</h2>
+                <p class="mt-3 text-zinc-500 max-w-2xl mx-auto">
+                    Conoce a algunos de nuestros becarios que han transformado sus vidas gracias al programa de becas de ASONOG.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                {{-- Historia 1 --}}
+                <div class="bg-zinc-50 rounded-2xl p-6 border border-zinc-100">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 rounded-full bg-primary-200 flex items-center justify-center shrink-0">
+                            <span class="text-primary-700 font-bold text-lg">MR</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-zinc-900">María Rodríguez</h4>
+                            <p class="text-sm text-primary-600">Ingeniería Industrial — UNAH</p>
+                        </div>
+                    </div>
+                    <blockquote class="text-sm text-zinc-600 leading-relaxed italic">
+                        "Gracias a la beca universitaria de ASONOG pude terminar mi carrera sin que mi familia tuviera que
+                        endeudarse. Hoy trabajo en una empresa de manufactura y apoyo económicamente a mis hermanos menores
+                        para que también estudien."
+                    </blockquote>
+                    <p class="text-xs text-zinc-400 mt-3">Becaria 2019 – 2024</p>
+                </div>
+
+                {{-- Historia 2 --}}
+                <div class="bg-zinc-50 rounded-2xl p-6 border border-zinc-100">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 rounded-full bg-green-200 flex items-center justify-center shrink-0">
+                            <span class="text-green-700 font-bold text-lg">JL</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-zinc-900">José Luis Martínez</h4>
+                            <p class="text-sm text-green-600">Técnico en Electricidad — INFOP</p>
+                        </div>
+                    </div>
+                    <blockquote class="text-sm text-zinc-600 leading-relaxed italic">
+                        "La beca técnica-vocacional me permitió certificarme como electricista. Ahora tengo mi propio
+                        taller en mi comunidad y doy empleo a dos personas más. ASONOG cambió mi vida por completo."
+                    </blockquote>
+                    <p class="text-xs text-zinc-400 mt-3">Becario 2022 – 2023</p>
+                </div>
+
+                {{-- Historia 3 --}}
+                <div class="bg-zinc-50 rounded-2xl p-6 border border-zinc-100">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 rounded-full bg-purple-200 flex items-center justify-center shrink-0">
+                            <span class="text-purple-700 font-bold text-lg">AC</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-zinc-900">Ana Cristina López</h4>
+                            <p class="text-sm text-purple-600">Maestría en Salud Pública</p>
+                        </div>
+                    </div>
+                    <blockquote class="text-sm text-zinc-600 leading-relaxed italic">
+                        "Fui becaria de educación básica y media con ASONOG. Años después, obtuve la beca de posgrado
+                        para mi maestría. Hoy dirijo un programa de salud comunitaria en Lempira. Todo empezó con
+                        una oportunidad."
+                    </blockquote>
+                    <p class="text-xs text-zinc-400 mt-3">Becaria 2012 – 2025</p>
+                </div>
             </div>
         </div>
     </section>

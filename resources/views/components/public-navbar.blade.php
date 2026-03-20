@@ -23,7 +23,11 @@
                 </a>
                 <a href="{{ route('programs') }}"
                    class="text-zinc-600 hover:text-primary-600 transition-colors {{ request()->routeIs('programs') ? 'text-primary-600' : '' }}">
-                    Programas
+                    Becas
+                </a>
+                <a href="{{ route('internships') }}"
+                   class="text-zinc-600 hover:text-primary-600 transition-colors {{ request()->routeIs('internships') ? 'text-primary-600' : '' }}">
+                    Prácticas
                 </a>
                 <a href="{{ route('donate') }}"
                    class="text-zinc-600 hover:text-primary-600 transition-colors {{ request()->routeIs('donate') ? 'text-primary-600' : '' }}">
@@ -72,7 +76,8 @@
         <div class="px-4 py-3 space-y-1 text-sm font-medium">
             <a href="{{ route('home') }}" class="block py-2 text-zinc-700 hover:text-primary-600">Inicio</a>
             <a href="{{ route('about') }}" class="block py-2 text-zinc-700 hover:text-primary-600">Nosotros</a>
-            <a href="{{ route('programs') }}" class="block py-2 text-zinc-700 hover:text-primary-600">Programas</a>
+            <a href="{{ route('programs') }}" class="block py-2 text-zinc-700 hover:text-primary-600">Becas</a>
+            <a href="{{ route('internships') }}" class="block py-2 text-zinc-700 hover:text-primary-600">Prácticas</a>
             <a href="{{ route('donate') }}" class="block py-2 text-zinc-700 hover:text-primary-600">Donar</a>
             <a href="{{ route('contact') }}" class="block py-2 text-zinc-700 hover:text-primary-600">Contacto</a>
             @auth
