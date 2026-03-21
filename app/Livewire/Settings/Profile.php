@@ -98,11 +98,6 @@ class Profile extends Component
     #[Computed]
     public function showDeleteUser(): bool
     {
-        if (Auth::user()->isBecario()) {
-            return false;
-        }
-
-        return ! Auth::user() instanceof MustVerifyEmail
-            || (Auth::user() instanceof MustVerifyEmail && Auth::user()->hasVerifiedEmail());
+        return false;
     }
 }

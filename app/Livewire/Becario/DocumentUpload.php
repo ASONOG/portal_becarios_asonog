@@ -43,6 +43,11 @@ class DocumentUpload extends Component
             ->where('status', 'activa')
             ->firstOrFail();
 
+        if ($assignment->isOverdue()) {
+            $this->addError('file', 'La fecha límite de esta solicitud ya venció.');
+            return;
+        }
+
         // Evitar entregas duplicadas (excepto si la anterior fue rechazada)
         $alreadySubmitted = Document::where('assignment_id', $assignment->id)
             ->where('user_id', Auth::id())

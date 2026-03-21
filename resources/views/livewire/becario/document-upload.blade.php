@@ -48,22 +48,28 @@
                         @elseif ($submission && $submission->status === 'rechazado')
                             <div class="flex items-center gap-2">
                                 <span class="px-3 py-1.5 rounded-full text-xs font-semibold bg-red-100 text-red-700">Rechazado</span>
-                                <button wire:click="openUpload({{ $assignment->id }})"
-                                    class="flex items-center gap-1.5 px-4 py-2 bg-secondary-600 text-white text-sm font-semibold rounded-lg hover:bg-secondary-700 transition">
-                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-                                    </svg>
-                                    Reenviar
-                                </button>
+                                @unless ($assignment->isOverdue())
+                                    <button wire:click="openUpload({{ $assignment->id }})"
+                                        class="flex items-center gap-1.5 px-4 py-2 bg-secondary-600 text-white text-sm font-semibold rounded-lg hover:bg-secondary-700 transition">
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                                        </svg>
+                                        Reenviar
+                                    </button>
+                                @endunless
                             </div>
                         @else
-                            <button wire:click="openUpload({{ $assignment->id }})"
-                                class="flex items-center gap-1.5 px-4 py-2 bg-primary-600 text-white text-sm font-semibold rounded-lg hover:bg-primary-700 transition">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
-                                </svg>
-                                Subir archivo
-                            </button>
+                            @if ($assignment->isOverdue())
+                                <span class="px-3 py-1.5 rounded-full text-xs font-semibold bg-red-100 text-red-700">Vencida</span>
+                            @else
+                                <button wire:click="openUpload({{ $assignment->id }})"
+                                    class="flex items-center gap-1.5 px-4 py-2 bg-primary-600 text-white text-sm font-semibold rounded-lg hover:bg-primary-700 transition">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
+                                    </svg>
+                                    Subir archivo
+                                </button>
+                            @endif
                         @endif
                     </div>
                 </div>
