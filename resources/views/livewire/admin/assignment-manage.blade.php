@@ -6,7 +6,7 @@
             <h1 class="text-2xl font-bold text-zinc-900">Solicitudes de Documentos</h1>
             <p class="text-zinc-500 text-sm mt-1">Crea solicitudes para que los becarios suban sus archivos.</p>
         </div>
-        <button wire:click="$set('showForm', true)"
+        <button wire:click="openCreate"
             class="flex items-center gap-2 px-4 py-2.5 bg-primary-600 text-white text-sm font-semibold rounded-lg hover:bg-primary-700 transition">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
@@ -24,8 +24,8 @@
     {{-- Formulario de nueva solicitud --}}
     @if ($showForm)
     <div class="bg-white border border-zinc-200 rounded-xl p-6">
-        <h2 class="text-sm font-semibold text-zinc-900 mb-4">Nueva Solicitud</h2>
-        <form wire:submit="save" class="space-y-4">
+        <h2 class="text-sm font-semibold text-zinc-900 mb-4">{{ $editingId ? 'Editar Solicitud' : 'Nueva Solicitud' }}</h2>
+        <form wire:submit="{{ $editingId ? 'update' : 'save' }}" class="space-y-4">
 
             <div>
                 <label class="block text-sm font-medium text-zinc-700 mb-1.5">Título *</label>
@@ -49,6 +49,7 @@
                     <label class="block text-sm font-medium text-zinc-700 mb-1.5">Fecha límite</label>
                     <input wire:model="due_date" type="date"
                         class="w-full border {{ $errors->has('due_date') ? 'border-red-400' : 'border-zinc-300' }} rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 ">
+                    <p class="text-xs text-zinc-400 mt-1">Los becarios pueden enviar hasta las 23:59 de este día.</p>
                     @error('due_date') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                 </div>
             </div>
@@ -63,11 +64,11 @@
             <div class="flex items-center gap-3 pt-2">
                 <button type="submit"
                     class="px-5 py-2.5 bg-primary-600 text-white text-sm font-semibold rounded-lg hover:bg-primary-700 transition"
-                    wire:loading.attr="disabled" wire:target="save">
-                    <span wire:loading.remove wire:target="save">Crear solicitud</span>
-                    <span wire:loading wire:target="save">Creando...</span>
+                    wire:loading.attr="disabled" wire:target="{{ $editingId ? 'update' : 'save' }}">
+                    <span wire:loading.remove wire:target="{{ $editingId ? 'update' : 'save' }}">{{ $editingId ? 'Guardar cambios' : 'Crear solicitud' }}</span>
+                    <span wire:loading wire:target="{{ $editingId ? 'update' : 'save' }}">{{ $editingId ? 'Guardando...' : 'Creando...' }}</span>
                 </button>
-                <button type="button" wire:click="$set('showForm', false)"
+                <button type="button" wire:click="cancelEdit"
                     class="px-5 py-2.5 bg-zinc-100 text-zinc-700 text-sm font-semibold rounded-lg hover:bg-zinc-200 transition">
                     Cancelar
                 </button>
@@ -133,7 +134,12 @@
                         </td>
                         <td class="px-4 py-3">
                             <div class="flex items-center justify-end gap-3">
+                                <button wire:click="edit({{ $assignment->id }})"
+                                    class="text-xs font-medium text-zinc-500 hover:text-primary-600 transition">
+                                    Editar
+                                </button>
                                 <button wire:click="toggleStatus({{ $assignment->id }})"
+                                    wire:confirm="{{ $assignment->status === 'activa' ? '¿Cerrar esta solicitud? Los becarios ya no podrán enviar archivos.' : '¿Reabrir esta solicitud? Los becarios podrán enviar archivos de nuevo.' }}"
                                     class="text-xs font-medium text-zinc-500 hover:text-primary-600 transition">
                                     {{ $assignment->status === 'activa' ? 'Cerrar' : 'Reabrir' }}
                                 </button>

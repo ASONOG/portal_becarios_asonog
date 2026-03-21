@@ -63,11 +63,9 @@
             </button>
         </form>
 
-        @if (Route::has('register'))
-            <p class="text-sm text-center text-zinc-500">
-                ¿No tienes cuenta?
-                <a href="{{ route('register') }}" class="text-primary-600 font-medium hover:underline">Regístrate gratis</a>
-            </p>
-        @endif
+        <p class="text-sm text-center text-zinc-500">
+            ¿Necesitas acceso? Contacta al administrador en
+            <a href="mailto:becas@asonog.hn" class="text-primary-600 font-medium hover:underline">becas@asonog.hn</a>
+        </p>
     </div>
 </x-layouts::auth>

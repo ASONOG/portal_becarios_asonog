@@ -144,7 +144,7 @@ return [
     */
 
     'features' => [
-        Features::registration(),
+        // Features::registration(), — Registro público deshabilitado; becarios se crean desde el panel admin
         Features::resetPasswords(),
         Features::emailVerification(),
         Features::twoFactorAuthentication([

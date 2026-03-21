@@ -56,7 +56,6 @@ class Document extends Model
     {
         return match ($this->status) {
             'pendiente'  => 'Pendiente',
-            'revisado'   => 'Revisado',
             'aprobado'   => 'Aprobado',
             'rechazado'  => 'Rechazado',
             default      => ucfirst($this->status),

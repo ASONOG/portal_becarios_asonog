@@ -113,7 +113,6 @@
                                             {{ $doc->status === 'aprobado'  ? 'bg-green-100 text-green-700' : '' }}
                                             {{ $doc->status === 'pendiente' ? 'bg-secondary-100 text-secondary-600' : '' }}
                                             {{ $doc->status === 'rechazado' ? 'bg-red-100 text-red-700' : '' }}
-                                            {{ $doc->status === 'revisado'  ? 'bg-primary-100 text-primary-600' : '' }}
                                         ">{{ $doc->status_label }}</span>
                                         <button wire:click="startReview({{ $doc->id }})"
                                             class="text-xs font-medium text-zinc-500 hover:text-primary-600 transition">
@@ -129,7 +128,6 @@
                                     <div class="flex flex-wrap gap-3">
                                         <select wire:model="reviewStatus"
                                             class="border border-zinc-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
-                                            <option value="revisado">Revisado</option>
                                             <option value="aprobado">Aprobado</option>
                                             <option value="rechazado">Rechazado</option>
                                         </select>

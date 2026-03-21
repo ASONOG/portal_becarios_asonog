@@ -33,7 +33,7 @@ class BecarioShow extends Component
     public function saveReview(): void
     {
         $this->validate([
-            'reviewStatus' => 'required|in:revisado,aprobado,rechazado',
+            'reviewStatus' => 'required|in:aprobado,rechazado',
             'adminNotes'   => 'nullable|string|max:1000',
         ]);
 

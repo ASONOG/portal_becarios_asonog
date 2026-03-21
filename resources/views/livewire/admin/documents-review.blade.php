@@ -33,7 +33,6 @@
                     class="border border-zinc-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
                     <option value="">Todos los estados</option>
                     <option value="pendiente">Pendiente</option>
-                    <option value="revisado">Revisado</option>
                     <option value="aprobado">Aprobado</option>
                     <option value="rechazado">Rechazado</option>
                 </select>
@@ -101,7 +100,6 @@
                                     {{ $doc->status === 'aprobado'  ? 'bg-green-100 text-green-700' : '' }}
                                     {{ $doc->status === 'pendiente' ? 'bg-secondary-100 text-secondary-600' : '' }}
                                     {{ $doc->status === 'rechazado' ? 'bg-red-100 text-red-700' : '' }}
-                                    {{ $doc->status === 'revisado'  ? 'bg-primary-100 text-primary-600' : '' }}
                                 ">{{ $doc->status_label }}</span>
                             </td>
                             <td class="px-4 py-3 text-right">
@@ -120,7 +118,6 @@
                                     <p class="text-xs font-semibold text-zinc-700">Revisando: {{ $doc->title }}</p>
                                     <select wire:model="reviewStatus"
                                         class="border border-zinc-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
-                                        <option value="revisado">Revisado</option>
                                         <option value="aprobado">Aprobado</option>
                                         <option value="rechazado">Rechazado</option>
                                     </select>

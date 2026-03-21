@@ -31,17 +31,17 @@ class DocumentsReview extends Component
     {
         $doc = Document::findOrFail($docId);
         $this->reviewingDocId = $docId;
-        // 'pendiente' is not a valid review outcome — default to 'revisado'
-        $this->reviewStatus   = in_array($doc->status, ['revisado', 'aprobado', 'rechazado'])
+        // 'pendiente' is not a valid review outcome — default to 'aprobado'
+        $this->reviewStatus   = in_array($doc->status, ['aprobado', 'rechazado'])
             ? $doc->status
-            : 'revisado';
+            : 'aprobado';
         $this->adminNotes     = $doc->admin_notes ?? '';
     }
 
     public function saveReview(): void
     {
         $this->validate([
-            'reviewStatus' => 'required|in:revisado,aprobado,rechazado',
+            'reviewStatus' => 'required|in:aprobado,rechazado',
             'adminNotes'   => 'nullable|string|max:1000',
         ]);
 

@@ -43,9 +43,10 @@ class DocumentUpload extends Component
             ->where('status', 'activa')
             ->firstOrFail();
 
-        // Evitar entregas duplicadas
+        // Evitar entregas duplicadas (excepto si la anterior fue rechazada)
         $alreadySubmitted = Document::where('assignment_id', $assignment->id)
             ->where('user_id', Auth::id())
+            ->whereNotIn('status', ['rechazado'])
             ->exists();
 
         if ($alreadySubmitted) {

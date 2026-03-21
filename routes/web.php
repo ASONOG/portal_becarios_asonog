@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PayPalController;
 use App\Livewire\Admin\AssignmentManage;
+use App\Livewire\Admin\BecarioCreate;
 use App\Livewire\Admin\BecarioShow;
 use App\Livewire\Admin\BecariosList;
 use App\Livewire\Admin\Dashboard as AdminDashboard;
@@ -58,6 +59,7 @@ Route::middleware(['auth', 'verified', 'role:admin'])
         Route::livewire('dashboard', AdminDashboard::class)->name('dashboard');
         Route::livewire('solicitudes', AssignmentManage::class)->name('assignments.index');
         Route::livewire('becarios', BecariosList::class)->name('becarios.index');
+        Route::livewire('becarios/crear', BecarioCreate::class)->name('becarios.create');
         Route::livewire('becarios/{user}', BecarioShow::class)->name('becarios.show');
         Route::livewire('documentos', DocumentsReview::class)->name('documents.index');
     });

@@ -63,6 +63,6 @@ class Assignment extends Model
 
     public function isOverdue(): bool
     {
-        return $this->due_date && $this->due_date->isPast() && $this->status === 'activa';
+        return $this->due_date && $this->due_date->endOfDay()->isPast() && $this->status === 'activa';
     }
 }
