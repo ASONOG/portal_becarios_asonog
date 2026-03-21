@@ -50,7 +50,7 @@
                             <flux:sidebar.item icon="user" :href="route('profile.edit')" :current="request()->routeIs('profile.edit')" wire:navigate>
                                 Mi Perfil
                             </flux:sidebar.item>
-                            <flux:sidebar.item icon="cog-6-tooth" :href="route('appearance.edit')" :current="request()->routeIs('appearance.edit')" wire:navigate>
+                            <flux:sidebar.item icon="cog-6-tooth" :href="route('profile.edit')" :current="request()->routeIs('profile.edit')" wire:navigate>
                                 Configuración
                             </flux:sidebar.item>
                         </flux:sidebar.group>

@@ -2,7 +2,7 @@
     <div class="flex flex-col gap-6">
         <x-auth-header
             :title="__('Crear tu cuenta')"
-            :description="__('Completa tus datos para solicitar una beca ASONOG')"
+            :description="__('Completa tus datos para acceder al portal ASONOG')"
         />
 
         <!-- Session Status -->
