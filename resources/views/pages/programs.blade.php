@@ -10,7 +10,7 @@
                 en su trayectoria educativa, desde básica hasta educación superior.
             </p>
             <div class="mt-8">
-                <a href="{{ route('login') }}" class="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-primary-600 font-bold rounded-xl shadow-lg hover:bg-primary-50 transition">
+                <a href="{{ route('contact') }}" class="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-primary-600 font-bold rounded-xl shadow-lg hover:bg-primary-50 transition">
                     Solicitar una beca
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                 </a>
@@ -389,13 +389,10 @@
     <section class="py-20 bg-primary-600 text-white text-center">
         <div class="max-w-2xl mx-auto px-4">
             <h2 class="text-3xl font-bold mb-4">¡Da el primer paso hoy!</h2>
-            <p class="text-primary-100 mb-8">Crea tu cuenta gratuita y completa tu solicitud de beca en minutos.</p>
+            <p class="text-primary-100 mb-8">Contáctanos para más información sobre nuestras becas.</p>
             <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="{{ route('register') }}" class="inline-flex items-center justify-center px-7 py-3.5 bg-white text-primary-600 font-bold rounded-xl shadow hover:bg-primary-50 transition">
-                    Crear cuenta gratis
-                </a>
-                <a href="{{ route('login') }}" class="inline-flex items-center justify-center px-7 py-3.5 border border-primary-400 text-white font-semibold rounded-xl hover:bg-primary-600 transition">
-                    Ya tengo cuenta
+                <a href="{{ route('contact') }}" class="inline-flex items-center justify-center px-7 py-3.5 border border-primary-400 text-white font-semibold rounded-xl hover:bg-primary-600 transition">
+                    Contáctanos
                 </a>
             </div>
         </div>

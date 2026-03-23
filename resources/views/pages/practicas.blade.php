@@ -252,9 +252,7 @@
             <h2 class="text-3xl font-bold mb-4">¡Forma parte de nuestra red!</h2>
             <p class="text-green-100 mb-8">Inscríbete y accede a oportunidades de crecimiento profesional mientras generas impacto positivo en Honduras.</p>
             <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="{{ route('register') }}" class="inline-flex items-center justify-center px-7 py-3.5 bg-white text-green-700 font-bold rounded-xl shadow hover:bg-green-50 transition">
-                    Crear cuenta gratis
-                </a>
+                
                 <a href="{{ route('login') }}" class="inline-flex items-center justify-center px-7 py-3.5 border border-green-400 text-white font-semibold rounded-xl hover:bg-green-600 transition">
                     Ya tengo cuenta
                 </a>

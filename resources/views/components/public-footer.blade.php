@@ -34,7 +34,7 @@
                         <li><a href="{{ route('dashboard') }}" class="hover:text-white transition-colors">Mi cuenta</a></li>
                     @else
                         <li><a href="{{ route('login') }}" class="hover:text-white transition-colors">Iniciar sesión</a></li>
-                        <li><a href="{{ route('register') }}" class="hover:text-white transition-colors">Registrarse</a></li>
+                        
                     @endauth
                 </ul>
             </div>
