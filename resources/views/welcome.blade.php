@@ -1,33 +1,36 @@
 <x-layouts::public title="Inicio">
 
 {{-- ===================== HERO ===================== --}}
-<section class="relative bg-linear-to-br from-primary-700 to-primary-600 text-white overflow-hidden">
-    {{-- Fondo decorativo --}}
-    <div class="absolute inset-0 opacity-10 pointer-events-none select-none"
-         aria-hidden="true"
-         style="background-image: radial-gradient(circle at 70% 40%, white 1px, transparent 1px); background-size: 30px 30px;">
-    </div>
+<section class="relative bg-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="inline-block text-xs font-semibold uppercase tracking-widest bg-primary-50 text-primary-600 px-3 py-1 rounded-full mb-5">
+                    Portal de Becarios
+                </span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-zinc-900 mb-6">
+                    Impulsamos conocimiento que <span class="text-primary-600">transforma</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-zinc-500 leading-relaxed mb-8">
+                    En ASONOG, la Unidad de Gestión del Conocimiento promueve el desarrollo humano integral a través de becas, fortalecimiento de capacidades y oportunidades de aprendizaje práctico.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="{{ route('programs') }}"
+                       class="inline-block bg-primary-600 hover:bg-primary-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors">
+                        Ver programas
+                    </a>
+                    <a href="{{ route('about') }}"
+                       class="inline-block border border-zinc-300 hover:border-zinc-400 text-zinc-700 font-medium px-6 py-3 rounded-lg transition-colors">
+                        Conocer más
+                    </a>
+                </div>
+            </div>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-36">
-        <div class="max-w-2xl">
-            <span class="inline-block text-xs font-semibold uppercase tracking-widest bg-white/20 text-white px-3 py-1 rounded-full mb-5">
-                Portal de Becarios
-            </span>
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                Impulsando el futuro de <span class="text-secondary-300">Honduras</span>
-            </h1>
-            <p class="text-lg sm:text-xl text-primary-100 leading-relaxed mb-8">
-                ASONOG acompaña a jóvenes y organizaciones en el desarrollo humano integral a través de programas de becas, capacitación y oportunidades.
-            </p>
-            <div class="flex flex-wrap gap-4">
-                <a href="{{ route('programs') }}"
-                   class="inline-block bg-secondary-400 hover:bg-secondary-300 text-zinc-900 font-semibold px-6 py-3 rounded-lg transition-colors">
-                    Ver programas
-                </a>
-                <a href="{{ route('about') }}"
-                   class="inline-block border border-white/40 hover:border-white text-white font-medium px-6 py-3 rounded-lg transition-colors">
-                    Conocer más
-                </a>
+            {{-- Imagen hero --}}
+            <div class="hidden lg:block">
+                <img src="{{ asset('img/hero-img.jpeg') }}"
+                     alt="Becarios de ASONOG"
+                     class="w-full rounded-2xl shadow-xl object-cover aspect-4/3">
             </div>
         </div>
     </div>
@@ -67,11 +70,9 @@
                     Más de tres décadas apoyando a Honduras
                 </h2>
                 <p class="mt-4 text-zinc-600 leading-relaxed">
-                    La Asociación de Organismos No Gubernamentales de Honduras (ASONOG) es una red de organizaciones de la sociedad civil comprometida con el desarrollo humano, la justicia social y la defensa de los derechos de las comunidades más vulnerables.
+                    ASONOG ha acompañado de manera constante a sus poblaciones meta, impulsando la educación y el fortalecimiento integral como caminos para transformar vidas. A través de oportunidades de aprendizaje y crecimiento, promovemos el desarrollo de capacidades, el liderazgo y la esperanza en un futuro con más posibilidades para todas las personas.
                 </p>
-                <p class="mt-3 text-zinc-600 leading-relaxed">
-                    Nuestro Portal de Becarios conecta a jóvenes con oportunidades educativas y de crecimiento personal, haciendo seguimiento a su proceso de manera transparente y eficiente.
-                </p>
+               
                 <a href="{{ route('about') }}"
                    class="mt-6 inline-flex items-center gap-2 text-primary-600 font-medium hover:text-primary-800 transition-colors">
                     Conocer más sobre ASONOG
@@ -95,9 +96,9 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
             <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Lo que ofrecemos</span>
-            <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">Programas y Oportunidades</h2>
+            <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">Transformando vidas juntos</h2>
             <p class="mt-3 text-zinc-500 max-w-xl mx-auto">
-                Conoce las iniciativas de ASONOG pensadas para transformar vidas y fortalecer comunidades.
+                Descubre las iniciativas de ASONOG diseñadas para abrir caminos, impulsar sueños y fortalecer comunidades a través del aprendizaje y el crecimiento integral.
             </p>
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -108,9 +109,9 @@
                               d="M12 14l9-5-9-5-9 5 9 5zm0 7l-9-5 9-5 9 5-9 5z"/>
                     </svg>
                 </div>
-                <h3 class="font-semibold text-zinc-900 mb-2">Becas Educativas</h3>
+                <h3 class="font-semibold text-zinc-900 mb-2">Becas Universitarias</h3>
                 <p class="text-sm text-zinc-500 leading-relaxed">
-                    Apoyo económico para jóvenes de escasos recursos que desean continuar sus estudios desde educación básica hasta posgrado.
+                    Cada historia comienza con un sueño. En ASONOG apoyamos a jóvenes con becas universitarias y acompañamiento integral, fortaleciendo su bienestar y compromiso con los derechos humanos. Cada paso que dan transforma sus vidas y sus comunidades.
                 </p>
             </a>
             <a href="{{ route('internships') }}" class="bg-white rounded-xl p-6 shadow-sm border border-zinc-100 hover:shadow-md transition-shadow block">
@@ -132,9 +133,9 @@
                               d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
                     </svg>
                 </div>
-                <h3 class="font-semibold text-zinc-900 mb-2">Desarrollo Comunitario</h3>
+                <h3 class="font-semibold text-zinc-900 mb-2">Fortalecimiento de Capacidades</h3>
                 <p class="text-sm text-zinc-500 leading-relaxed">
-                    Iniciativas de impacto local que vinculan a los becarios con sus comunidades de origen.
+                    En ASONOG impulsamos el talento y desarrollo de jóvenes y comunidades a través de capacitación integral. Nuestro programa brinda herramientas, habilidades y conocimientos que fortalecen su liderazgo y compromiso con los derechos humanos.
                 </p>
             </div>
         </div>
