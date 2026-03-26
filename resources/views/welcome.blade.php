@@ -5,16 +5,16 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-                <span class="inline-block text-xs font-semibold uppercase tracking-widest bg-primary-50 text-primary-600 px-3 py-1 rounded-full mb-5">
+                <span data-aos="fade-down" class="inline-block text-xs font-semibold uppercase tracking-widest bg-primary-50 text-primary-600 px-3 py-1 rounded-full mb-5">
                     Portal de Becarios
                 </span>
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-zinc-900 mb-6">
+                <h1 data-aos="fade-up" data-aos-delay="100" class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-zinc-900 mb-6">
                     Impulsamos conocimiento que <span class="text-primary-600">transforma</span>
                 </h1>
-                <p class="text-lg sm:text-xl text-zinc-500 leading-relaxed mb-8">
+                <p data-aos="fade-up" data-aos-delay="200" class="text-lg sm:text-xl text-zinc-500 leading-relaxed mb-8">
                     En ASONOG, la Unidad de Gestión del Conocimiento promueve el desarrollo humano integral a través de becas, fortalecimiento de capacidades y oportunidades de aprendizaje práctico.
                 </p>
-                <div class="flex flex-wrap gap-4">
+                <div data-aos="fade-up" data-aos-delay="300" class="flex flex-wrap gap-4">
                     <a href="{{ route('programs') }}"
                        class="inline-block bg-primary-600 hover:bg-primary-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors">
                         Ver programas
@@ -27,7 +27,7 @@
             </div>
 
             {{-- Imagen hero --}}
-            <div class="hidden lg:block">
+            <div data-aos="fade-left" data-aos-delay="200" class="hidden lg:block">
                 <img src="{{ asset('img/hero-img.jpeg') }}"
                      alt="Becarios de ASONOG"
                      class="w-full rounded-2xl shadow-xl object-cover aspect-4/3">
@@ -37,24 +37,24 @@
 </section>
 
 {{-- ===================== STATS ===================== --}}
-<section class="bg-primary-600 text-white">
+<section class="border-y border-zinc-100 bg-zinc-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-            <div>
-                <p class="text-3xl font-bold text-secondary-300">+30</p>
-                <p class="text-sm text-primary-200 mt-1">Años de experiencia</p>
+            <div data-aos="fade-up">
+                <p class="text-3xl font-bold text-primary-600">+30</p>
+                <p class="text-sm text-zinc-500 mt-1">Años de experiencia</p>
             </div>
-            <div>
-                <p class="text-3xl font-bold text-secondary-300">200+</p>
-                <p class="text-sm text-primary-200 mt-1">Becarios activos</p>
+            <div data-aos="fade-up" data-aos-delay="100">
+                <p class="text-3xl font-bold text-primary-600">200+</p>
+                <p class="text-sm text-zinc-500 mt-1">Becarios activos</p>
             </div>
-            <div>
-                <p class="text-3xl font-bold text-secondary-300">18</p>
-                <p class="text-sm text-primary-200 mt-1">Departamentos</p>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <p class="text-3xl font-bold text-primary-600">18</p>
+                <p class="text-sm text-zinc-500 mt-1">Departamentos</p>
             </div>
-            <div>
-                <p class="text-3xl font-bold text-secondary-300">50+</p>
-                <p class="text-sm text-primary-200 mt-1">Organizaciones aliadas</p>
+            <div data-aos="fade-up" data-aos-delay="300">
+                <p class="text-3xl font-bold text-primary-600">50+</p>
+                <p class="text-sm text-zinc-500 mt-1">Organizaciones aliadas</p>
             </div>
         </div>
     </div>
@@ -64,7 +64,7 @@
 <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <div data-aos="fade-right">
                 <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Quiénes somos</span>
                 <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900 leading-tight">
                     Más de tres décadas apoyando a Honduras
@@ -81,11 +81,10 @@
                     </svg>
                 </a>
             </div>
-            <div class="rounded-2xl bg-linear-to-br from-primary-50 to-primary-100 aspect-4/3 flex items-center justify-center">
-                <svg class="w-24 h-24 text-primary-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                          d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
-                </svg>
+            <div data-aos="fade-left" class="rounded-2xl overflow-hidden aspect-4/3">
+                <img src=" {{ asset('img/about-us.jpeg') }}"
+                     alt="acerca de ASONOG"
+                     class="w-full h-full object-cover">
             </div>
         </div>
     </div>
@@ -94,7 +93,7 @@
 {{-- ===================== PROGRAMAS ===================== --}}
 <section class="py-20 bg-zinc-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
+        <div data-aos="fade-up" class="text-center mb-12">
             <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Lo que ofrecemos</span>
             <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">Transformando vidas juntos</h2>
             <p class="mt-3 text-zinc-500 max-w-xl mx-auto">
@@ -102,7 +101,7 @@
             </p>
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <a href="{{ route('programs') }}" class="bg-white rounded-xl p-6 shadow-sm border border-zinc-100 hover:shadow-md transition-shadow block">
+            <a href="{{ route('programs') }}" data-aos="fade-up" class="bg-white rounded-xl p-6 shadow-sm border border-zinc-100 hover:shadow-md transition-shadow block">
                 <div class="w-10 h-10 rounded-lg bg-primary-100 text-primary-600 flex items-center justify-center mb-4">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -114,7 +113,7 @@
                     Cada historia comienza con un sueño. En ASONOG apoyamos a jóvenes con becas universitarias y acompañamiento integral, fortaleciendo su bienestar y compromiso con los derechos humanos. Cada paso que dan transforma sus vidas y sus comunidades.
                 </p>
             </a>
-            <a href="{{ route('internships') }}" class="bg-white rounded-xl p-6 shadow-sm border border-zinc-100 hover:shadow-md transition-shadow block">
+            <a href="{{ route('internships') }}" data-aos="fade-up" data-aos-delay="100" class="bg-white rounded-xl p-6 shadow-sm border border-zinc-100 hover:shadow-md transition-shadow block">
                 <div class="w-10 h-10 rounded-lg bg-green-100 text-green-700 flex items-center justify-center mb-4">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -126,7 +125,7 @@
                     Oportunidades de vinculación formativa: prácticas profesionales, pasantías y voluntariados en proyectos de desarrollo.
                 </p>
             </a>
-            <div class="bg-white rounded-xl p-6 shadow-sm border border-zinc-100 hover:shadow-md transition-shadow">
+            <div data-aos="fade-up" data-aos-delay="200" class="bg-white rounded-xl p-6 shadow-sm border border-zinc-100 hover:shadow-md transition-shadow">
                 <div class="w-10 h-10 rounded-lg bg-secondary-100 text-secondary-600 flex items-center justify-center mb-4">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -148,19 +147,117 @@
     </div>
 </section>
 
+{{-- ===================== TESTIMONIOS ===================== --}}
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div data-aos="fade-up" class="text-center mb-12">
+            <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Historias de éxito</span>
+            <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">Voces que inspiran</h2>
+            <p class="mt-3 text-zinc-500 max-w-xl mx-auto">
+                Conoce a quienes han transformado sus vidas gracias al programa de becas de ASONOG.
+            </p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div data-aos="fade-up" class="bg-zinc-50 rounded-2xl p-6 border border-zinc-100">
+                <div class="flex items-center gap-1 text-secondary-400 mb-4">
+                    @for ($i = 0; $i < 5; $i++)
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    @endfor
+                </div>
+                <p class="text-zinc-600 text-sm leading-relaxed mb-5">
+                    &ldquo;Gracias a la beca de ASONOG pude culminar mi carrera de Ingeniería Industrial. Hoy trabajo en mi comunidad impulsando proyectos de desarrollo sostenible.&rdquo;
+                </p>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center font-semibold text-sm">MR</div>
+                    <div>
+                        <p class="text-sm font-semibold text-zinc-900">María Rodríguez</p>
+                        <p class="text-xs text-zinc-400">Ingeniería Industrial — UNAH</p>
+                    </div>
+                </div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="100" class="bg-zinc-50 rounded-2xl p-6 border border-zinc-100">
+                <div class="flex items-center gap-1 text-secondary-400 mb-4">
+                    @for ($i = 0; $i < 5; $i++)
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    @endfor
+                </div>
+                <p class="text-zinc-600 text-sm leading-relaxed mb-5">
+                    &ldquo;La beca técnica me permitió formarme como electricista certificado. Ahora tengo mi propio emprendimiento y doy empleo a otros jóvenes de mi comunidad.&rdquo;
+                </p>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center font-semibold text-sm">JM</div>
+                    <div>
+                        <p class="text-sm font-semibold text-zinc-900">José Luis Martínez</p>
+                        <p class="text-xs text-zinc-400">Técnico en Electricidad — INFOP</p>
+                    </div>
+                </div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="200" class="bg-zinc-50 rounded-2xl p-6 border border-zinc-100">
+                <div class="flex items-center gap-1 text-secondary-400 mb-4">
+                    @for ($i = 0; $i < 5; $i++)
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    @endfor
+                </div>
+                <p class="text-zinc-600 text-sm leading-relaxed mb-5">
+                    &ldquo;Estudiar una maestría en Salud Pública era un sueño inalcanzable hasta que conocí el programa de ASONOG. Hoy lidero proyectos de salud comunitaria en la zona rural.&rdquo;
+                </p>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-semibold text-sm">AL</div>
+                    <div>
+                        <p class="text-sm font-semibold text-zinc-900">Ana Cristina López</p>
+                        <p class="text-xs text-zinc-400">Maestría en Salud Pública</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-10">
+            <a href="{{ route('programs') }}"
+               class="inline-flex items-center gap-2 text-primary-600 font-medium hover:text-primary-800 transition-colors">
+                Ver más historias de éxito
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+        </div>
+    </div>
+</section>
+
 {{-- ===================== CTA DONACIONES ===================== --}}
-<section class="py-20 bg-secondary-400">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl sm:text-4xl font-bold text-zinc-900 mb-4">
+<section class="relative py-20 overflow-hidden">
+    {{-- Imagen de fondo --}}
+    <img src="{{ asset('img/donar.jpeg') }}"
+         alt=""
+         class="absolute inset-0 w-full h-full object-cover"
+         aria-hidden="true">
+    {{-- Overlay --}}
+    <div class="absolute inset-0 bg-zinc-900/65"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 data-aos="fade-up" class="text-3xl sm:text-4xl font-bold text-white mb-4">
             Tu apoyo transforma vidas
         </h2>
-        <p class="text-zinc-700 max-w-xl mx-auto mb-8 leading-relaxed">
+        <p data-aos="fade-up" data-aos-delay="100" class="text-zinc-300 max-w-xl mx-auto mb-8 leading-relaxed">
             Con tu donación ayudas a que más jóvenes hondureños accedan a educación y oportunidades de desarrollo.
         </p>
-        <a href="{{ route('donate') }}"
-           class="inline-block bg-zinc-900 hover:bg-zinc-700 text-white font-semibold px-8 py-4 rounded-lg transition-colors text-lg">
+        <a data-aos="fade-up" data-aos-delay="200" href="{{ route('donate') }}"
+           class="inline-block bg-secondary-400 hover:bg-secondary-300 text-zinc-900 font-semibold px-8 py-4 rounded-lg transition-colors text-lg">
             Quiero donar
         </a>
+    </div>
+</section>
+
+{{-- ===================== CTA CONTACTO ===================== --}}
+<section class="py-16 bg-zinc-50 border-t border-zinc-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div data-aos="fade-up" class="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+                <h3 class="text-xl sm:text-2xl font-bold text-zinc-900">¿Tienes preguntas sobre nuestros programas?</h3>
+                <p class="mt-1 text-zinc-500">Estamos para ayudarte. Escríbenos y te responderemos a la brevedad.</p>
+            </div>
+            <a href="{{ route('contact') }}"
+               class="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors shrink-0">
+                Contáctanos
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+        </div>
     </div>
 </section>
 
