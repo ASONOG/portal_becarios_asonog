@@ -1,15 +1,24 @@
 <x-layouts::public title="Becas" description="Conoce el objetivo, población meta, tipos de becas e historias de éxito del programa de becas de ASONOG.">
 
     {{-- Hero --}}
-    <section class="bg-linear-to-br from-primary-700 to-primary-600 text-white py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-primary-200 font-semibold uppercase tracking-widest text-sm mb-3">Programas de Becas</p>
-            <h1 class="text-4xl sm:text-5xl font-bold leading-tight mb-4">Mas que becas,<br>transformamos vidas</h1>
-            <p class="text-primary-100 max-w-2xl mx-auto text-lg">
+    <section class="relative py-20 overflow-hidden">
+        {{-- Imagen de fondo --}}
+        <img src="{{ asset('img/becas-hero.png') }}"
+             alt=""
+             class="absolute inset-0 w-full h-full object-cover"
+             aria-hidden="true">
+        {{-- Overlay --}}
+        <div class="absolute inset-0 bg-zinc-900/75"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p data-aos="fade-down" class="text-primary-200 font-semibold uppercase tracking-widest text-sm mb-3">Programas de Becas</p>
+            <h1 data-aos="fade-up" data-aos-delay="100" class="text-4xl sm:text-5xl font-bold leading-tight mb-4 text-white">Mas que becas,<br>transformamos vidas</h1>
+            <p data-aos="fade-up" data-aos-delay="200" class="text-zinc-300 max-w-2xl mx-auto text-lg">
                 Conoce a los jóvenes que, gracias a nuestras becas universitarias, están construyendo un futuro lleno de oportunidades y dejando huella en sus comunidades.
             </p>
-            <div class="mt-8">
-                <a href="{{ route('contact') }}" class="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-primary-600 font-bold rounded-xl shadow-lg hover:bg-primary-50 transition">
+
+            <div data-aos="fade-up" data-aos-delay="300" class="mt-8">
+                <a href="#historias-de-exito" class="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-primary-600 font-bold rounded-xl shadow-lg hover:bg-primary-50 transition">
                     Conoce nuestras historias de éxito
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                 </a>
@@ -21,7 +30,7 @@
     <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
+                <div data-aos="fade-right">
                     <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Nuestras becas</span>
                     <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900 leading-tight">Objetivo del Programa de Becas</h2>
                     <p class="mt-4 text-zinc-600 leading-relaxed">
@@ -29,7 +38,7 @@
                     </p>
                    
                 </div>
-                <div class="rounded-2xl bg-linear-to-br from-primary-50 to-primary-100 p-8 flex flex-col gap-4">
+                <div data-aos="fade-left" class="rounded-2xl bg-linear-to-br from-primary-50 to-primary-100 p-8 flex flex-col gap-4">
                     <div class="flex items-start gap-4">
                         <div class="w-10 h-10 rounded-lg bg-primary-600 flex items-center justify-center shrink-0">
                             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
@@ -65,7 +74,7 @@
     {{-- Población Meta --}}
     <section class="py-20 bg-zinc-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div data-aos="fade-up" class="text-center mb-12">
                 <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">¿A quién va dirigido?</span>
                 <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">Población Meta</h2>
                 <p class="mt-3 text-zinc-500 max-w-2xl mx-auto">
@@ -73,28 +82,28 @@
                 </p>
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white rounded-xl p-6 border border-zinc-100 text-center">
+                <div data-aos="fade-up" class="bg-white rounded-xl p-6 border border-zinc-100 text-center">
                     <div class="w-12 h-12 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mx-auto mb-4">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
                     </div>
                     <h4 class="font-semibold text-zinc-900 mb-1">Juventud</h4>
                     <p class="text-sm text-zinc-500">Programa orientado a jóvenes de 18 a 35 años en situación de vulnerabilidad económica, comprometidos con su desarrollo académico y personal.</p>
                 </div>
-                <div class="bg-white rounded-xl p-6 border border-zinc-100 text-center">
+                <div data-aos="fade-up" data-aos-delay="100" class="bg-white rounded-xl p-6 border border-zinc-100 text-center">
                     <div class="w-12 h-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto mb-4">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
                     </div>
                     <h4 class="font-semibold text-zinc-900 mb-1">Equidad de género</h4>
                     <p class="text-sm text-zinc-500">Fomentamos la participación de mujeres en el programa, priorizando su acceso a oportunidades educativas que fortalezcan su desarrollo integral.</p>
                 </div>
-                <div class="bg-white rounded-xl p-6 border border-zinc-100 text-center">
+                <div data-aos="fade-up" data-aos-delay="200" class="bg-white rounded-xl p-6 border border-zinc-100 text-center">
                     <div class="w-12 h-12 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center mx-auto mb-4">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
                     </div>
                     <h4 class="font-semibold text-zinc-900 mb-1">Educación sin barreras</h4>
                     <p class="text-sm text-zinc-500">El programa promueve la participación de personas con discapacidad, garantizando su acceso a oportunidades educativas en condiciones de igualdad.</p>
                 </div>
-                <div class="bg-white rounded-xl p-6 border border-zinc-100 text-center">
+                <div data-aos="fade-up" data-aos-delay="300" class="bg-white rounded-xl p-6 border border-zinc-100 text-center">
                     <div class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mx-auto mb-4">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                     </div>
@@ -108,15 +117,16 @@
     {{-- Tipos de Becas --}}
     <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-14">
-                <h2 class="text-3xl font-bold text-zinc-900 mb-3">Tipos de Becas</h2>
-                <p class="text-zinc-500">Selecciona el tipo de beca que mejor se adapte a tu situación académica.</p>
+            <div data-aos="fade-up" class="text-center mb-14">
+                <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Nuestros programas</span>
+                <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">Tipos de Becas</h2>
+                <p class="mt-3 text-zinc-500">Selecciona el tipo de beca que mejor se adapte a tu situación académica.</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
                 {{-- Beca Educación Básica --}}
-                <div class="border border-zinc-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
+                <div data-aos="fade-up" class="border border-zinc-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
                     <div class="h-2 bg-primary-600"></div>
                     <div class="p-7">
                         <div class="flex items-center gap-3 mb-4">
@@ -145,7 +155,7 @@
                 </div>
 
                 {{-- Beca Educación Media --}}
-                <div class="border border-zinc-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
+                <div data-aos="fade-up" data-aos-delay="100" class="border border-zinc-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
                     <div class="h-2 bg-green-600"></div>
                     <div class="p-7">
                         <div class="flex items-center gap-3 mb-4">
@@ -174,7 +184,7 @@
                 </div>
 
                 {{-- Beca Universitaria --}}
-                <div class="border-2 border-primary-600 rounded-2xl overflow-hidden hover:shadow-xl transition-shadow relative">
+                <div data-aos="fade-up" data-aos-delay="200" class="border-2 border-primary-600 rounded-2xl overflow-hidden hover:shadow-xl transition-shadow relative">
                     <div class="absolute top-4 right-4">
                         <span class="bg-primary-600 text-white text-xs font-bold px-3 py-1 rounded-full">⭐ Destacada</span>
                     </div>
@@ -206,7 +216,7 @@
                 </div>
 
                 {{-- Beca Técnica --}}
-                <div class="border border-zinc-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
+                <div data-aos="fade-up" class="border border-zinc-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
                     <div class="h-2 bg-orange-500"></div>
                     <div class="p-7">
                         <div class="flex items-center gap-3 mb-4">
@@ -235,7 +245,7 @@
                 </div>
 
                 {{-- Beca Posgrado --}}
-                <div class="border border-zinc-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
+                <div data-aos="fade-up" data-aos-delay="100" class="border border-zinc-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
                     <div class="h-2 bg-purple-600"></div>
                     <div class="p-7">
                         <div class="flex items-center gap-3 mb-4">
@@ -264,7 +274,7 @@
                 </div>
 
                 {{-- CTA Card --}}
-                <div class="bg-primary-50 border border-primary-100 rounded-2xl p-7 flex flex-col justify-center items-center text-center">
+                <div data-aos="fade-up" data-aos-delay="200" class="bg-primary-50 border border-primary-100 rounded-2xl p-7 flex flex-col justify-center items-center text-center">
                     <svg class="w-12 h-12 text-primary-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                     <h3 class="font-bold text-zinc-900 mb-2">¿No encuentras tu programa?</h3>
                     <p class="text-zinc-500 text-sm mb-5">Escríbenos y te ayudaremos a encontrar la opción más adecuada para tu perfil.</p>
@@ -280,11 +290,12 @@
     {{-- Requisitos generales --}}
     <section class="py-20 bg-zinc-50">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-zinc-900 mb-3">Requisitos Generales</h2>
-                <p class="text-zinc-500">Para aplicar a cualquier programa de beca ASONOG necesitas:</p>
+            <div data-aos="fade-up" class="text-center mb-12">
+                <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Cómo aplicar</span>
+                <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">Requisitos Generales</h2>
+                <p class="mt-3 text-zinc-500">Para aplicar a cualquier programa de beca ASONOG necesitas:</p>
             </div>
-            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 @foreach([
                     ['icon' => 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z', 'title' => 'Ser hondureño/a', 'desc' => 'Ciudadanía o residencia permanente en Honduras.'],
                     ['icon' => 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z', 'title' => 'Documentación completa', 'desc' => 'DNI, constancias de estudio y documentos de ingresos familiares.'],
@@ -293,15 +304,15 @@
                     ['icon' => 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z', 'title' => 'Carta de recomendación', 'desc' => 'Al menos una carta de maestro, director o líder comunitario.'],
                     ['icon' => 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2', 'title' => 'Inscripción en línea', 'desc' => 'Completar el formulario de solicitud antes de la fecha límite de convocatoria.'],
                 ] as $req)
-                <div class="bg-white border border-zinc-100 rounded-xl p-5 flex gap-4">
-                    <div class="w-10 h-10 rounded-lg bg-primary-50 flex items-center justify-center shrink-0">
-                        <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="bg-white border border-zinc-100 rounded-xl p-6 flex gap-5">
+                    <div class="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center shrink-0">
+                        <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $req['icon'] }}"/>
                         </svg>
                     </div>
                     <div>
-                        <h4 class="font-semibold text-zinc-900 text-sm">{{ $req['title'] }}</h4>
-                        <p class="text-xs text-zinc-500 mt-0.5">{{ $req['desc'] }}</p>
+                        <h4 class="font-semibold text-zinc-900">{{ $req['title'] }}</h4>
+                        <p class="text-sm text-zinc-500 mt-1">{{ $req['desc'] }}</p>
                     </div>
                 </div>
                 @endforeach
@@ -310,9 +321,9 @@
     </section>
 
     {{-- Historias de Éxito --}}
-    <section class="py-20 bg-white">
+    <section class="py-20 bg-white" id="historias-de-exito">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div data-aos="fade-up" class="text-center mb-12">
                 <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Testimonios</span>
                 <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">Historias de Éxito</h2>
                 <p class="mt-3 text-zinc-500 max-w-2xl mx-auto">
@@ -321,7 +332,7 @@
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                 {{-- Historia 1 --}}
-                <div class="bg-zinc-50 rounded-2xl p-6 border border-zinc-100">
+                <div data-aos="fade-up" class="bg-zinc-50 rounded-2xl p-6 border border-zinc-100">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="w-14 h-14 rounded-full bg-primary-200 flex items-center justify-center shrink-0">
                             <span class="text-primary-700 font-bold text-lg">MR</span>
@@ -340,7 +351,7 @@
                 </div>
 
                 {{-- Historia 2 --}}
-                <div class="bg-zinc-50 rounded-2xl p-6 border border-zinc-100">
+                <div data-aos="fade-up" data-aos-delay="100" class="bg-zinc-50 rounded-2xl p-6 border border-zinc-100">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="w-14 h-14 rounded-full bg-green-200 flex items-center justify-center shrink-0">
                             <span class="text-green-700 font-bold text-lg">JL</span>
@@ -358,7 +369,7 @@
                 </div>
 
                 {{-- Historia 3 --}}
-                <div class="bg-zinc-50 rounded-2xl p-6 border border-zinc-100">
+                <div data-aos="fade-up" data-aos-delay="200" class="bg-zinc-50 rounded-2xl p-6 border border-zinc-100">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="w-14 h-14 rounded-full bg-purple-200 flex items-center justify-center shrink-0">
                             <span class="text-purple-700 font-bold text-lg">AC</span>
@@ -380,16 +391,25 @@
     </section>
 
     {{-- CTA Final --}}
-    <section class="py-20 bg-primary-600 text-white text-center">
-        <div class="max-w-2xl mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-4">¡Da el primer paso hoy!</h2>
-            <p class="text-primary-100 mb-8">Contáctanos para más información sobre nuestras becas.</p>
-            <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="{{ route('contact') }}" class="inline-flex items-center justify-center px-7 py-3.5 border border-primary-400 text-white font-semibold rounded-xl hover:bg-primary-600 transition">
-                    Contáctanos
-                </a>
+    <section class="py-16 bg-zinc-50 border-t border-zinc-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div data-aos="fade-up" class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div>
+                    <h2 class="text-xl sm:text-2xl font-bold text-zinc-900">¡Da el primer paso hoy!</h2>
+                    <p class="mt-1 text-zinc-500">Contáctanos para más información sobre nuestras becas.</p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3 shrink-0">
+                    <a href="{{ route('login') }}" class="inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors">
+                        Aplicar ahora
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                    <a href="{{ route('contact') }}" class="inline-flex items-center justify-center px-6 py-3 border border-zinc-300 text-zinc-700 font-semibold rounded-lg hover:bg-white transition-colors">
+                        Contáctanos
+                    </a>
+                </div>
             </div>
         </div>
+    </section>
     </section>
 
 </x-layouts::public>

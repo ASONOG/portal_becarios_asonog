@@ -1,11 +1,13 @@
 <x-layouts::public title="Contacto" description="¿Tienes dudas? Contáctanos y te responderemos a la brevedad posible.">
 
     {{-- Hero --}}
-    <section class="bg-linear-to-br from-primary-700 to-primary-600 text-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-primary-200 font-semibold uppercase tracking-widest text-sm mb-3">Estamos para Ayudarte</p>
-            <h1 class="text-4xl sm:text-5xl font-bold leading-tight mb-4">Contáctanos</h1>
-            <p class="text-primary-100 max-w-xl mx-auto text-lg">
+    <section class="relative py-16 overflow-hidden">
+        <img src="{{ asset('img/contact-hero.jpg') }}" class="absolute inset-0 w-full h-full object-cover" aria-hidden="true">
+        <div class="absolute inset-0 bg-primary-900/75"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+            <p data-aos="fade-down" class="text-primary-200 font-semibold uppercase tracking-widest text-sm mb-3">Estamos para Ayudarte</p>
+            <h1 data-aos="fade-up" data-aos-delay="100" class="text-4xl sm:text-5xl font-bold leading-tight mb-4">Contáctanos</h1>
+            <p data-aos="fade-up" data-aos-delay="200" class="text-zinc-200 max-w-xl mx-auto text-lg">
                 ¿Tienes preguntas sobre los programas de becas? Escríbenos o visítanos.
             </p>
         </div>
