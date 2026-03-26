@@ -24,20 +24,20 @@
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div data-aos="fade-up" class="bg-zinc-50 text-center p-8 border border-zinc-100 rounded-2xl hover:shadow-md transition">
-                    <div class="text-4xl font-extrabold text-primary-600 mb-3">$5</div>
-                    <p class="text-zinc-500 text-sm">Cubre útiles escolares de un alumno por un mes</p>
+                    <div class="text-4xl font-extrabold text-primary-600 mb-3">130 L</div>
+                    <p class="text-zinc-500 text-sm">Tu apoyo ayuda a cubrir la compra de útiles escolares de un alumno</p>
                 </div>
                 <div data-aos="fade-up" data-aos-delay="100" class="bg-zinc-50 text-center p-8 border border-zinc-100 rounded-2xl hover:shadow-md transition">
-                    <div class="text-4xl font-extrabold text-green-600 mb-3">$10</div>
-                    <p class="text-zinc-500 text-sm">Paga la mensualidad de educación media</p>
+                    <div class="text-4xl font-extrabold text-green-600 mb-3">300 L </div>
+                    <p class="text-zinc-500 text-sm">Tu colaboración permite que un becario llegue a su centro de estudio cada día</p>
                 </div>
                 <div data-aos="fade-up" data-aos-delay="200" class="bg-zinc-50 text-center p-8 border border-zinc-100 rounded-2xl hover:shadow-md transition">
-                    <div class="text-4xl font-extrabold text-purple-600 mb-3">$25</div>
-                    <p class="text-zinc-500 text-sm">Financia matrícula universitaria por un mes</p>
+                    <div class="text-4xl font-extrabold text-purple-600 mb-3">600 L</div>
+                    <p class="text-zinc-500 text-sm">Su contribución permite financiar la matrícula universitaria de un becario</p>
                 </div>
                 <div data-aos="fade-up" data-aos-delay="300" class="bg-zinc-50 text-center p-8 border border-zinc-100 rounded-2xl hover:shadow-md transition">
-                    <div class="text-4xl font-extrabold text-secondary-600 mb-3">$50</div>
-                    <p class="text-zinc-500 text-sm">Patrocina una beca técnica completa por un mes</p>
+                    <div class="text-4xl font-extrabold text-secondary-600 mb-3">1,300 L</div>
+                    <p class="text-zinc-500 text-sm">Con tu colaboración contribuyes al patrocinio de una beca para un becario</p>
                 </div>
             </div>
         </div>

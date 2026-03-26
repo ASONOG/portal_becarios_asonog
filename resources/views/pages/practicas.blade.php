@@ -93,7 +93,7 @@
                                 <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                             </div>
                             <div>
-                                <h3 class="font-bold text-zinc-900">Prácticas Profesionales</h3>
+                                <h3 class="font-bold text-zinc-900">Convocatoria permanente</h3>
                                 <span class="text-xs font-medium text-primary-700 bg-primary-50 px-2 py-0.5 rounded-full">3–6 meses</span>
                             </div>
                         </div>
@@ -107,18 +107,13 @@
                             <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Supervisor asignado</li>
                             <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Certificado al finalizar</li>
                         </ul>
-                        <div class="flex items-center justify-between pt-4 border-t border-zinc-100">
-                            <span class="text-xs text-zinc-400">Convocatoria semestral</span>
-                            <a href="{{ route('login') }}" class="text-sm font-semibold text-primary-600 hover:text-primary-700 transition">Aplicar →</a>
-                        </div>
+   
                     </div>
                 </div>
 
                 {{-- Pasantías --}}
                 <div data-aos="fade-up" data-aos-delay="100" class="bg-white border-2 border-primary-600 rounded-2xl overflow-hidden hover:shadow-xl transition-shadow relative">
-                    <div class="absolute top-4 right-4">
-                        <span class="bg-primary-600 text-white text-xs font-bold px-3 py-1 rounded-full">⭐ Popular</span>
-                    </div>
+            
                     <div class="h-2 bg-primary-600"></div>
                     <div class="p-7">
                         <div class="flex items-center gap-3 mb-4">
@@ -140,10 +135,7 @@
                             <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Mentoría personalizada</li>
                             <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Carta de recomendación</li>
                         </ul>
-                        <div class="flex items-center justify-between pt-4 border-t border-zinc-100">
-                            <span class="text-xs text-zinc-400">Convocatoria permanente</span>
-                            <a href="{{ route('login') }}" class="text-sm font-semibold text-primary-600 hover:text-primary-700 transition">Aplicar →</a>
-                        </div>
+                      
                     </div>
                 </div>
 
@@ -162,18 +154,14 @@
                         </div>
                         <p class="text-zinc-500 text-sm leading-relaxed mb-5">
                             Oportunidades para personas comprometidas que desean contribuir de forma voluntaria a proyectos
-                            de impacto social. Áreas como educación, salud, medio ambiente, comunicación y
+                            de impacto social. Áreas como educación, género, inclusión, medio ambiente, comunicación y
                             fortalecimiento organizacional.
                         </p>
-                        <ul class="text-sm text-zinc-600 space-y-2 mb-6">
+                        <ul class="text-sm text-zinc-600 space-y-2 mb-2">
                             <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Sin requisito de carrera específica</li>
                             <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Trabajo de campo comunitario</li>
                             <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Constancia de servicio social</li>
                         </ul>
-                        <div class="flex items-center justify-between pt-4 border-t border-zinc-100">
-                            <span class="text-xs text-zinc-400">Inscripción abierta</span>
-                            <a href="{{ route('login') }}" class="text-sm font-semibold text-orange-600 hover:text-orange-700 transition">Aplicar →</a>
-                        </div>
                     </div>
                 </div>
 
@@ -215,37 +203,67 @@
     </section>
 
     {{-- Mecanismo de Inscripción --}}
+    @php $form_url = 'https://forms.gle/XXXXXXXXXXXXXXXX'; @endphp
+
     <section class="py-20 bg-zinc-50">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div data-aos="fade-up" class="text-center mb-12">
-                <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Paso a paso</span>
-                <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">Mecanismo de Inscripción</h2>
-                <p class="mt-3 text-zinc-500 max-w-2xl mx-auto">
-                    Sigue estos pasos para aplicar a cualquiera de nuestras oportunidades de vinculación formativa.
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div data-aos="fade-up" class="text-center mb-10">
+                <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Inscripción</span>
+                <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">¿Cómo aplicar?</h2>
+                <p class="mt-3 text-zinc-500 max-w-xl mx-auto">
+                    El proceso es sencillo: completa el formulario en línea con tus datos y documentos,
+                    y nuestro equipo se pondrá en contacto contigo.
                 </p>
             </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div data-aos="fade-up" class="relative bg-white rounded-xl p-6 border border-zinc-100 text-center">
-                    <div class="w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center mx-auto mb-4 font-bold text-lg">1</div>
-                    <h4 class="font-semibold text-zinc-900 mb-1">Crea tu cuenta</h4>
-                    <p class="text-sm text-zinc-500">Regístrate en el portal con tu correo electrónico y datos personales.</p>
+
+            {{-- Steps inline --}}
+            <div data-aos="fade-up" data-aos-delay="80" class="flex flex-col sm:flex-row items-start sm:items-center justify-center gap-3 sm:gap-0 mb-10">
+                @foreach([
+                    ['n' => '1', 'label' => 'Llena el formulario'],
+                    ['n' => '2', 'label' => 'Revisamos tu solicitud'],
+                    ['n' => '3', 'label' => 'Te contactamos'],
+                ] as $step)
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <span class="w-7 h-7 rounded-full bg-primary-600 text-white text-xs font-bold flex items-center justify-center shrink-0">{{ $step['n'] }}</span>
+                    <span class="text-sm font-medium text-zinc-700">{{ $step['label'] }}</span>
                 </div>
-                <div data-aos="fade-up" data-aos-delay="100" class="relative bg-white rounded-xl p-6 border border-zinc-100 text-center">
-                    <div class="w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center mx-auto mb-4 font-bold text-lg">2</div>
-                    <h4 class="font-semibold text-zinc-900 mb-1">Completa tu solicitud</h4>
-                    <p class="text-sm text-zinc-500">Llena el formulario de inscripción y adjunta los documentos requeridos.</p>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="200" class="relative bg-white rounded-xl p-6 border border-zinc-100 text-center">
-                    <div class="w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center mx-auto mb-4 font-bold text-lg">3</div>
-                    <h4 class="font-semibold text-zinc-900 mb-1">Revisión y selección</h4>
-                    <p class="text-sm text-zinc-500">Nuestro equipo evalúa las solicitudes y selecciona a los candidatos idóneos.</p>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="300" class="relative bg-white rounded-xl p-6 border border-zinc-100 text-center">
-                    <div class="w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center mx-auto mb-4 font-bold text-lg">4</div>
-                    <h4 class="font-semibold text-zinc-900 mb-1">Asignación e inicio</h4>
-                    <p class="text-sm text-zinc-500">Recibirás la asignación a un proyecto o área y comenzarás tu experiencia formativa.</p>
-                </div>
+                @if(!$loop->last)
+                <div class="hidden sm:block w-10 h-px bg-zinc-300 mx-3"></div>
+                @endif
+                @endforeach
             </div>
+
+            {{-- Form card --}}
+            <div data-aos="fade-up" data-aos-delay="160"
+                 class="bg-white border border-zinc-200 rounded-2xl p-8 shadow-sm text-center">
+
+                <div class="w-14 h-14 rounded-xl bg-primary-50 border border-primary-100 flex items-center justify-center mx-auto mb-5">
+                    <svg class="w-7 h-7 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"
+                              d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                    </svg>
+                </div>
+
+                <h3 class="text-lg font-bold text-zinc-900 mb-1">Formulario de Inscripción</h3>
+                <p class="text-sm text-zinc-500 mb-6 max-w-sm mx-auto">
+                    Tendrás que indicar el tipo de vinculación que te interesa, tu carrera, disponibilidad
+                    y adjuntar tu hoja de vida.
+                </p>
+
+                <a href="{{ $form_url }}" target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-7 py-3 rounded-xl transition-colors shadow-sm">
+                    Llenar formulario
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                    </svg>
+                </a>
+
+                <p class="mt-4 text-xs text-zinc-400">
+                    El formulario abre en una nueva pestaña &middot; Respuesta en un plazo de 5 días hábiles
+                </p>
+            </div>
+
         </div>
     </section>
 

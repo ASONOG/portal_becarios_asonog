@@ -6,9 +6,11 @@
         <div class="flex items-center justify-between h-16">
 
             {{-- Logo --}}
-            <a href="{{ route('home') }}" class="flex items-center gap-2 shrink-0">
-                <span class="flex items-center justify-center w-8 h-8 rounded-md bg-primary-600 text-white font-bold text-sm select-none">A</span>
-                <span class="font-semibold text-zinc-900 text-base tracking-tight">ASONOG</span>
+            <a href="{{ route('home') }}" class="flex items-center gap-2.5 shrink-0">
+                <span class="w-8 h-8 rounded-lg bg-primary-600 flex items-center justify-center shrink-0">
+                    <span class="text-white font-bold text-xs tracking-wider">GC</span>
+                </span>
+                <span class="font-semibold text-zinc-900 text-base tracking-tight">Gestión del Conocimiento</span>
             </a>
 
             {{-- Desktop navigation links --}}

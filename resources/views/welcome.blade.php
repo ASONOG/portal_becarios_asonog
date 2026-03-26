@@ -148,77 +148,92 @@
 </section>
 
 {{-- ===================== TESTIMONIOS ===================== --}}
-<section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div data-aos="fade-up" class="text-center mb-12">
-            <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Historias de éxito</span>
-            <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">Voces que inspiran</h2>
-            <p class="mt-3 text-zinc-500 max-w-xl mx-auto">
-                Conoce a quienes han transformado sus vidas gracias al programa de becas de ASONOG.
-            </p>
-        </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div data-aos="fade-up" class="bg-zinc-50 rounded-2xl p-6 border border-zinc-100">
-                <div class="flex items-center gap-1 text-secondary-400 mb-4">
-                    @for ($i = 0; $i < 5; $i++)
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    @endfor
-                </div>
-                <p class="text-zinc-600 text-sm leading-relaxed mb-5">
-                    &ldquo;Gracias a la beca de ASONOG pude culminar mi carrera de Ingeniería Industrial. Hoy trabajo en mi comunidad impulsando proyectos de desarrollo sostenible.&rdquo;
+<section class="py-20 bg-zinc-50" id="historias-de-exito">
+        <style>.stories-track::-webkit-scrollbar{display:none}</style>
+
+        @php
+        $becarios = [
+            ['nombre' => 'Jacky',    'depto' => 'La Paz',        'carrera' => 'Lic. en Desarrollo Social',  'avatar' => 'JA', 'tag' => 'Primera generación',   'historia' => 'Joven de origen Lenca, fue la primera de su familia en llegar a la universidad. Su camino representa la esperanza de toda una comunidad que hoy la ve como ejemplo de que la educación transforma vidas.'],
+            ['nombre' => 'Franklin', 'depto' => 'Ocotepeque',    'carrera' => 'Lic. en Pedagogía',          'avatar' => 'FR', 'tag' => 'Resiliencia',           'historia' => 'Perdió una mano en un accidente, pero su determinación es más fuerte que cualquier obstáculo. Con perseverancia y valentía sigue adelante en sus estudios, demostrando que ninguna barrera es insuperable.'],
+            ['nombre' => 'Pamela',   'depto' => 'La Paz',        'carrera' => 'Lic. en Derecho',            'avatar' => 'PA', 'tag' => 'Defensora de derechos', 'historia' => 'Superó la violencia doméstica y, como madre soltera, estudia Derecho para defender los derechos de las mujeres. Su historia es un acto de valentía que inspira a quienes la rodean.']
+        ];
+        @endphp
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            {{-- Header --}}
+            <div data-aos="fade-up" class="text-center mb-12">
+                <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Testimonios</span>
+                <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">Historias de Éxito</h2>
+                <p class="mt-3 text-zinc-500 max-w-2xl mx-auto">
+                    Voces reales de becarios que, con esfuerzo y determinación, están construyendo un futuro diferente para sí mismos y para sus comunidades.
                 </p>
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center font-semibold text-sm">MR</div>
-                    <div>
-                        <p class="text-sm font-semibold text-zinc-900">María Rodríguez</p>
-                        <p class="text-xs text-zinc-400">Ingeniería Industrial — UNAH</p>
+            </div>
+
+            {{-- Carousel --}}
+            <div class="relative" data-aos="fade-up" data-aos-delay="100">
+
+                {{-- Track --}}
+                <div 
+                    class="stories-track flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4"
+                     style="scrollbar-width:none;-ms-overflow-style:none;">
+
+                    @foreach($becarios as $b)
+                    <div data-card
+                         class="snap-start flex-shrink-0 w-[82vw] sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)]
+                                bg-white rounded-2xl border border-zinc-200 shadow-sm overflow-hidden flex flex-col
+                                hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+
+                        {{-- Accent bar --}}
+                        <div class="h-1 bg-primary-600"></div>
+
+                        <div class="p-5 flex flex-col flex-1 gap-4">
+
+                            {{-- Persona --}}
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-primary-50 border border-primary-100
+                                            flex items-center justify-center shrink-0">
+                                    <span class="text-primary-700 font-bold text-xs tracking-wide">{{ $b['avatar'] }}</span>
+                                </div>
+                                <div class="min-w-0">
+                                    <h4 class="font-semibold text-zinc-900 text-sm leading-tight">{{ $b['nombre'] }}</h4>
+                                    <p class="text-xs text-zinc-400 mt-0.5 flex items-center gap-1">
+                                        <svg class="w-3 h-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                        </svg>
+                                        {{ $b['depto'] }}, Honduras
+                                    </p>
+                                    <p class="text-xs text-primary-600 font-medium mt-0.5">{{ $b['carrera'] }}</p>
+                                </div>
+                            </div>
+
+                            {{-- Historia --}}
+                            <blockquote class="flex-1 text-sm text-zinc-600 leading-relaxed border-l-2 border-primary-100 pl-3.5 italic">
+                                "{{ $b['historia'] }}"
+                            </blockquote>
+
+                            {{-- Footer --}}
+                            <div class="flex items-center justify-between pt-3 border-t border-zinc-100">
+                                <span class="inline-flex items-center text-xs font-medium text-zinc-500 bg-zinc-100 px-2.5 py-1 rounded-full">
+                                    {{ $b['tag'] }}
+                                </span>
+                                <span class="text-xs text-zinc-400">Becario/a ASONOG</span>
+                            </div>
+
+                        </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
-            <div data-aos="fade-up" data-aos-delay="100" class="bg-zinc-50 rounded-2xl p-6 border border-zinc-100">
-                <div class="flex items-center gap-1 text-secondary-400 mb-4">
-                    @for ($i = 0; $i < 5; $i++)
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    @endfor
-                </div>
-                <p class="text-zinc-600 text-sm leading-relaxed mb-5">
-                    &ldquo;La beca técnica me permitió formarme como electricista certificado. Ahora tengo mi propio emprendimiento y doy empleo a otros jóvenes de mi comunidad.&rdquo;
-                </p>
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center font-semibold text-sm">JM</div>
-                    <div>
-                        <p class="text-sm font-semibold text-zinc-900">José Luis Martínez</p>
-                        <p class="text-xs text-zinc-400">Técnico en Electricidad — INFOP</p>
-                    </div>
-                </div>
-            </div>
-            <div data-aos="fade-up" data-aos-delay="200" class="bg-zinc-50 rounded-2xl p-6 border border-zinc-100">
-                <div class="flex items-center gap-1 text-secondary-400 mb-4">
-                    @for ($i = 0; $i < 5; $i++)
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    @endfor
-                </div>
-                <p class="text-zinc-600 text-sm leading-relaxed mb-5">
-                    &ldquo;Estudiar una maestría en Salud Pública era un sueño inalcanzable hasta que conocí el programa de ASONOG. Hoy lidero proyectos de salud comunitaria en la zona rural.&rdquo;
-                </p>
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-semibold text-sm">AL</div>
-                    <div>
-                        <p class="text-sm font-semibold text-zinc-900">Ana Cristina López</p>
-                        <p class="text-xs text-zinc-400">Maestría en Salud Pública</p>
-                    </div>
-                </div>
-            </div>
+            {{-- CTA para mostrar mas historias --}}
+            <div class="text-center mt-10">
+                <a href="{{ route('programs') }}"
+                   class="inline-block border border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white font-medium px-6 py-3 rounded-lg transition-colors">
+                    Ver más historias
+                </a>
         </div>
-        <div class="text-center mt-10">
-            <a href="{{ route('programs') }}"
-               class="inline-flex items-center gap-2 text-primary-600 font-medium hover:text-primary-800 transition-colors">
-                Ver más historias de éxito
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
-        </div>
-    </div>
-</section>
+    </section>
 
 {{-- ===================== CTA DONACIONES ===================== --}}
 <section class="relative py-20 overflow-hidden">

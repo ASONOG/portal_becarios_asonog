@@ -3,12 +3,12 @@
     {{-- Hero --}}
     <section class="relative py-16 overflow-hidden">
         <img src="{{ asset('img/contact-hero.jpg') }}" class="absolute inset-0 w-full h-full object-cover" aria-hidden="true">
-        <div class="absolute inset-0 bg-primary-900/75"></div>
+        <div class="absolute inset-0 bg-primary-900"></div>
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
             <p data-aos="fade-down" class="text-primary-200 font-semibold uppercase tracking-widest text-sm mb-3">Estamos para Ayudarte</p>
             <h1 data-aos="fade-up" data-aos-delay="100" class="text-4xl sm:text-5xl font-bold leading-tight mb-4">Contáctanos</h1>
             <p data-aos="fade-up" data-aos-delay="200" class="text-zinc-200 max-w-xl mx-auto text-lg">
-                ¿Tienes preguntas sobre los programas de becas? Escríbenos o visítanos.
+                ¿Tienes preguntas sobre los programas de Gestión del Conocimiento? Escríbenos o visítanos.
             </p>
         </div>
     </section>
@@ -39,7 +39,7 @@
                                 </div>
                                 <div>
                                     <p class="font-semibold text-zinc-900">Dirección</p>
-                                    <p class="text-zinc-500 text-sm">Col. Lomas del Guijarro, Calle Principal,<br>Tegucigalpa, Honduras</p>
+                                    <p class="text-zinc-500 text-sm">Barrio El Calvario, <br>Santa Rosa de Copán, Honduras</p>
                                 </div>
                             </div>
 
@@ -49,7 +49,7 @@
                                 </div>
                                 <div>
                                     <p class="font-semibold text-zinc-900">Teléfono</p>
-                                    <p class="text-zinc-500 text-sm">+504 2237-0000</p>
+                                    <p class="text-zinc-500 text-sm">+504 2662-2626</p>
                                     <p class="text-zinc-400 text-xs">Lunes a viernes, 8:00 AM – 5:00 PM</p>
                                 </div>
                             </div>
@@ -60,8 +60,8 @@
                                 </div>
                                 <div>
                                     <p class="font-semibold text-zinc-900">Correo electrónico</p>
-                                    <p class="text-zinc-500 text-sm">becas@asonog.hn</p>
-                                    <p class="text-zinc-400 text-xs">Para consultas sobre becas</p>
+                                    <p class="text-zinc-500 text-sm">talentohumano@asonog.hn</p>
+                                    <p class="text-zinc-400 text-xs">Para consultas sobre gestión del conocimiento</p>
                                 </div>
                             </div>
 
@@ -78,7 +78,7 @@
                             </div>
                             <div class="flex justify-between">
                                 <span class="text-zinc-600">Sábado</span>
-                                <span class="font-medium text-zinc-900">9:00 AM – 12:00 PM</span>
+                                <span class="text-zinc-400">Cerrado</span>
                             </div>
                             <div class="flex justify-between">
                                 <span class="text-zinc-600">Domingo</span>
