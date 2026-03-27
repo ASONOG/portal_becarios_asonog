@@ -39,8 +39,7 @@
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div data-aos="fade-right">
                     <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Nuestras becas</span>
-                    <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900 leading-tight">Objetivo del Programa de
-                        Becas</h2>
+                    <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900 leading-tight">Nuestro propósito</h2>
                     <p class="mt-4 text-zinc-600 leading-relaxed">
                         Nuestro programa de becas universitarias apoya a jóvenes y mujeres con necesidad económica,
                         brindándoles educación, acompañamiento integral y herramientas para que lideren cambios

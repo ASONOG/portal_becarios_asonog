@@ -3,6 +3,7 @@
 use App\Http\Controllers\PayPalController;
 use App\Livewire\Admin\AssignmentDocuments;
 use App\Livewire\Admin\AssignmentManage;
+use App\Livewire\Admin\GalleryManage;
 use App\Livewire\Admin\BecarioCreate;
 use App\Livewire\Admin\BecarioShow;
 use App\Livewire\Admin\BecariosList;
@@ -64,6 +65,7 @@ Route::middleware(['auth', 'verified', 'role:admin'])
         Route::livewire('becarios/{user}', BecarioShow::class)->name('becarios.show');
         Route::livewire('documentos', DocumentsReview::class)->name('documents.index');
         Route::livewire('documentos/{assignment}', AssignmentDocuments::class)->name('documents.show');
+        Route::livewire('galeria', GalleryManage::class)->name('gallery.index');
     });
 
 require __DIR__.'/settings.php';

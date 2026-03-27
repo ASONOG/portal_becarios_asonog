@@ -30,6 +30,9 @@
                             <flux:sidebar.item icon="clipboard-document-list" :href="route('admin.assignments.index')" :current="request()->routeIs('admin.assignments.*')" wire:navigate>
                                 Solicitudes
                             </flux:sidebar.item>
+                            <flux:sidebar.item icon="photo" :href="route('admin.gallery.index')" :current="request()->routeIs('admin.gallery.*')" wire:navigate>
+                                Galería
+                            </flux:sidebar.item>
                         </flux:sidebar.group>
                         <flux:sidebar.group heading="Cuenta" class="grid">
                             <flux:sidebar.item icon="user" :href="route('profile.edit')" :current="request()->routeIs('profile.edit')" wire:navigate>
