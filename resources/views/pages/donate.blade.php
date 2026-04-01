@@ -2,7 +2,7 @@
 
     {{-- Hero --}}
     <section class="relative py-20 overflow-hidden">
-        <img src="{{ asset('img/donar-hero.jpeg') }}" class="absolute inset-0 w-full h-full object-cover" aria-hidden="true">
+        <img src="{{ asset('img/donar-hero.webp') }}" class="absolute inset-0 w-full h-full object-cover" aria-hidden="true">
         <div class="absolute inset-0 bg-zinc-900/75"></div>
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
             <p data-aos="fade-down" class="text-primary-200 font-semibold uppercase tracking-widest text-sm mb-3">Apoya Nuestra Causa</p>
@@ -60,32 +60,82 @@
     </section>
 
     {{-- Testimonios --}}
-    <section class="py-20 bg-white">
+    <section class="py-20 bg-white" id="historias-de-exito">
+        <style>.stories-track::-webkit-scrollbar{display:none}</style>
+
+        @php
+        $becarios = [
+             ['nombre' => 'Carlos',   'depto' => 'Copán',         'carrera' => 'Lic. en Desarrollo Social',  'avatar' => 'CA', 'tag' => 'Inclusión',             'historia' => 'Nació con una condición que le impide caminar, pero eso no detuvo su impulso. Promueve la inclusión y los derechos de las personas con discapacidad desde la educación digital.'],
+            ['nombre' => 'Xiomara',  'depto' => 'Santa Bárbara', 'carrera' => 'Técnico en Administración',  'avatar' => 'XI', 'tag' => 'Primera generación',   'historia' => 'Primera mujer de su familia en acceder a la universidad, abriendo un camino que sus hermanas menores ahora también sueñan con recorrer.'],
+            ['nombre' => 'Mariela',  'depto' => 'Copán',         'carrera' => 'Técnico en Laboratorio',     'avatar' => 'MA', 'tag' => 'Perseverancia',         'historia' => 'Superó barreras económicas para ejercer su derecho a formarse. Su esfuerzo diario es la prueba de que cuando hay voluntad, siempre hay un camino hacia adelante.']
+        ];
+        @endphp
+
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            {{-- Header --}}
             <div data-aos="fade-up" class="text-center mb-12">
                 <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Testimonios</span>
-                <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">Historias que inspiran</h2>
-                <p class="mt-3 text-zinc-500">Lo que dicen nuestros becarios sobre el impacto del programa.</p>
+                <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">Historias de Éxito</h2>
+                <p class="mt-3 text-zinc-500 max-w-2xl mx-auto">
+                    Voces reales de becarios que, con esfuerzo y determinación, están construyendo un futuro diferente para sí mismos y para sus comunidades.
+                </p>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                @foreach([
-                    ['name' => 'María Hernández', 'program' => 'Beca Universitaria · UNAH', 'quote' => '"La beca de ASONOG me permitió terminar mi carrera de Medicina cuando mi familia no podía costearla. Hoy soy médica rural en Intibucá."', 'delay' => '0'],
-                    ['name' => 'Carlos Mejía', 'program' => 'Beca Técnica · INFOP', 'quote' => '"Gracias al programa técnico aprendí electricidad industrial. Hoy tengo mi propio taller y empleo a tres personas más de mi comunidad."', 'delay' => '100'],
-                    ['name' => 'Yesenia Rivera', 'program' => 'Beca Media · San Pedro Sula', 'quote' => '"Pude terminar el bachillerato sin preocuparme por los gastos. ASONOG no solo paga libros, también da seguimiento y apoyo emocional."', 'delay' => '200'],
-                ] as $t)
-                <div data-aos="fade-up" data-aos-delay="{{ $t['delay'] }}" class="bg-zinc-50 border border-zinc-100 rounded-2xl p-7">
-                    <p class="text-zinc-700 italic leading-relaxed mb-5">{{ $t['quote'] }}</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-9 h-9 rounded-full bg-primary-200 flex items-center justify-center text-primary-600 font-bold text-sm">
-                            {{ substr($t['name'], 0, 1) }}
-                        </div>
-                        <div>
-                            <p class="font-semibold text-zinc-900 text-sm">{{ $t['name'] }}</p>
-                            <p class="text-xs text-zinc-400">{{ $t['program'] }}</p>
+
+            <div class="relative" data-aos="fade-up" data-aos-delay="100">
+
+                {{-- Track --}}
+                <div 
+                    class="stories-track flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4"
+                     style="scrollbar-width:none;-ms-overflow-style:none;">
+
+                    @foreach($becarios as $b)
+                    <div data-card
+                         class="snap-start flex-shrink-0 w-[82vw] sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)]
+                                bg-white rounded-2xl border border-zinc-200 shadow-sm overflow-hidden flex flex-col
+                                hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+
+                        {{-- Accent bar --}}
+                        <div class="h-1 bg-primary-600"></div>
+
+                        <div class="p-5 flex flex-col flex-1 gap-4">
+
+                            {{-- Persona --}}
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-primary-50 border border-primary-100
+                                            flex items-center justify-center shrink-0">
+                                    <span class="text-primary-700 font-bold text-xs tracking-wide">{{ $b['avatar'] }}</span>
+                                </div>
+                                <div class="min-w-0">
+                                    <h4 class="font-semibold text-zinc-900 text-sm leading-tight">{{ $b['nombre'] }}</h4>
+                                    <p class="text-xs text-zinc-400 mt-0.5 flex items-center gap-1">
+                                        <svg class="w-3 h-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                        </svg>
+                                        {{ $b['depto'] }}, Honduras
+                                    </p>
+                                    <p class="text-xs text-primary-600 font-medium mt-0.5">{{ $b['carrera'] }}</p>
+                                </div>
+                            </div>
+
+                            {{-- Historia --}}
+                            <blockquote class="flex-1 text-sm text-zinc-600 leading-relaxed border-l-2 border-primary-100 pl-3.5 italic">
+                                "{{ $b['historia'] }}"
+                            </blockquote>
+
+                            {{-- Footer --}}
+                            <div class="flex items-center justify-between pt-3 border-t border-zinc-100">
+                                <span class="inline-flex items-center text-xs font-medium text-zinc-500 bg-zinc-100 px-2.5 py-1 rounded-full">
+                                    {{ $b['tag'] }}
+                                </span>
+                                <span class="text-xs text-zinc-400">Becario/a ASONOG</span>
+                            </div>
+
                         </div>
                     </div>
+                    @endforeach
                 </div>
-                @endforeach
             </div>
         </div>
     </section>

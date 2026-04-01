@@ -8,16 +8,19 @@
         <div class="min-h-screen flex">
 
             {{-- Panel izquierdo: branding --}}
-            <div class="hidden lg:flex lg:w-1/2 xl:w-2/5 flex-col justify-between bg-linear-to-br from-primary-800 to-primary-600 text-white p-12 relative overflow-hidden">
+            <div class="hidden lg:flex lg:w-1/2 xl:w-2/5 flex-col justify-between text-white p-12 relative overflow-hidden">
 
-                {{-- Fondo decorativo --}}
-                <div class="absolute inset-0 opacity-10 pointer-events-none select-none"
-                     style="background-image: radial-gradient(circle at 70% 40%, white 1px, transparent 1px); background-size: 32px 32px;"></div>
+                {{-- Imagen de fondo --}}
+                <img src="{{ asset('img/hero-img.webp') }}" class="absolute inset-0 w-full h-full object-cover" aria-hidden="true">
+
+                {{-- Overlay oscuro con tinte primario --}}
+                <div class="absolute inset-0 bg-zinc-900/70 mix-blend-multiply"></div>
+                <div class="absolute inset-0 bg-primary-900/50"></div>
 
                 {{-- Logo --}}
                 <a href="{{ route('home') }}" class="flex items-center gap-3 relative z-10">
-                    <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-white/20 text-white font-bold text-lg select-none">A</span>
-                    <span class="font-bold text-xl tracking-tight">ASONOG</span>
+                    <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-white/20 text-white font-bold text-lg select-none">GC</span>
+                    <span class="font-bold text-xl tracking-tight">Gestión del Conocimiento</span>
                 </a>
 
                 {{-- Contenido central --}}

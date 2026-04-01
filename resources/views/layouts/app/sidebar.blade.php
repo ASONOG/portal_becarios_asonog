@@ -19,19 +19,22 @@
                         {{-- Nav: Administrador --}}
                         <flux:sidebar.group heading="Administración" class="grid">
                             <flux:sidebar.item icon="home" :href="route('admin.dashboard')" :current="request()->routeIs('admin.dashboard')" wire:navigate>
-                                Dashboard
+                                Panel de administración
                             </flux:sidebar.item>
                             <flux:sidebar.item icon="users" :href="route('admin.becarios.index')" :current="request()->routeIs('admin.becarios.*')" wire:navigate>
                                 Becarios
                             </flux:sidebar.item>
+                            <flux:sidebar.item icon="clipboard-document-list" :href="route('admin.assignments.index')" :current="request()->routeIs('admin.assignments.*')" wire:navigate>
+                                Solicitar
+                            </flux:sidebar.item>
                             <flux:sidebar.item icon="document-text" :href="route('admin.documents.index')" :current="request()->routeIs('admin.documents.*')" wire:navigate>
                                 Documentos
                             </flux:sidebar.item>
-                            <flux:sidebar.item icon="clipboard-document-list" :href="route('admin.assignments.index')" :current="request()->routeIs('admin.assignments.*')" wire:navigate>
-                                Solicitudes
-                            </flux:sidebar.item>
                             <flux:sidebar.item icon="photo" :href="route('admin.gallery.index')" :current="request()->routeIs('admin.gallery.*')" wire:navigate>
                                 Galería
+                            </flux:sidebar.item>
+                            <flux:sidebar.item icon="currency-dollar" :href="route('admin.donations.index')" :current="request()->routeIs('admin.donations.*')" wire:navigate>
+                                Donaciones
                             </flux:sidebar.item>
                         </flux:sidebar.group>
                         <flux:sidebar.group heading="Cuenta" class="grid">
