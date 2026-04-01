@@ -2,7 +2,7 @@
 
     {{-- ===================== HERO ===================== --}}
     <section class="relative py-20 overflow-hidden">
-        <img src="{{ asset('img/aboutus-hero.jpg') }}"
+        <img src="{{ asset('img/aboutus-hero.webp') }}"
              alt=""
              class="absolute inset-0 w-full h-full object-cover"
              aria-hidden="true">
@@ -149,21 +149,22 @@
         </template>
     </section>
 
-    {{-- ===================== CTA ===================== --}}
+    {{-- ===================== CTA BECAS ===================== --}}
     <section class="py-16 bg-zinc-50 border-t border-zinc-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div data-aos="fade-up" class="flex flex-col md:flex-row items-center justify-between gap-6">
-                <div>
-                    <h2 class="text-xl sm:text-2xl font-bold text-zinc-900">¿Eres parte de nuestra comunidad?</h2>
-                    <p class="mt-1 text-zinc-500">Descubre cómo ser parte de los programas de ASONOG o ponte en contacto con nosotros.</p>
-                </div>
-                <div class="flex flex-col sm:flex-row gap-3 shrink-0">
-                    <a href="{{ route('programs') }}" class="inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors">
-                        Ver programas
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                    </a>
-                    <a href="{{ route('contact') }}" class="inline-flex items-center justify-center px-6 py-3 border border-zinc-300 text-zinc-700 font-semibold rounded-lg hover:bg-white transition-colors">
-                        Contáctanos
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div data-aos="fade-up">
+                <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Programas de becas</span>
+                <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">¿Listo para dar el siguiente paso?</h2>
+                <p class="mt-3 text-zinc-500 max-w-xl mx-auto leading-relaxed">
+                    Conoce nuestros programas de becas universitarias, prácticas y fortalecimiento de capacidades diseñados para jóvenes hondureños.
+                </p>
+                <div class="mt-8">
+                    <a href="{{ route('programs') }}"
+                       class="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-8 py-3.5 rounded-lg transition-colors">
+                        Ver programas de becas
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
                     </a>
                 </div>
             </div>

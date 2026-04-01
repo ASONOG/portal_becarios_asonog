@@ -2,7 +2,7 @@
 
     {{-- Hero --}}
     <section class="relative py-20 overflow-hidden">
-        <img src="{{ asset('img/practicas-hero.png') }}" class="absolute inset-0 w-full h-full object-cover" aria-hidden="true">
+        <img src="{{ asset('img/practicas-hero.webp') }}" class="absolute inset-0 w-full h-full object-cover" aria-hidden="true">
         <div class="absolute inset-0 bg-zinc-900/75"></div>
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
             <p data-aos="fade-down" class="text-primary-200 font-semibold uppercase tracking-widest text-sm mb-3">Vinculación Formativa</p>
@@ -12,7 +12,7 @@
                 que fortalecen sus competencias y generan impacto en las comunidades hondureñas.
             </p>
             <div data-aos="fade-up" data-aos-delay="300" class="mt-8">
-                <a href="{{ route('login') }}" class="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-primary-700 font-bold rounded-xl shadow-lg hover:bg-zinc-100 transition">
+                <a href="#inscripcion" class="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-primary-700 font-bold rounded-xl shadow-lg hover:bg-zinc-100 transition">
                     Inscribirme ahora
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                 </a>
@@ -203,9 +203,9 @@
     </section>
 
     {{-- Mecanismo de Inscripción --}}
-    @php $form_url = 'https://forms.gle/XXXXXXXXXXXXXXXX'; @endphp
+    @php $form_url = 'https://forms.gle/BRgEWw3ZpVq24R7JA'; @endphp
 
-    <section class="py-20 bg-zinc-50">
+    <section class="py-20 bg-zinc-50" id="inscripcion">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <div data-aos="fade-up" class="text-center mb-10">
@@ -269,19 +269,20 @@
 
     {{-- CTA Final --}}
     <section class="py-16 bg-zinc-50 border-t border-zinc-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div data-aos="fade-up" class="flex flex-col md:flex-row items-center justify-between gap-6">
-                <div>
-                    <h2 class="text-xl sm:text-2xl font-bold text-zinc-900">¡Forma parte de nuestra red!</h2>
-                    <p class="mt-1 text-zinc-500">Inscríbete y accede a oportunidades de crecimiento mientras generas impacto positivo en Honduras.</p>
-                </div>
-                <div class="flex flex-col sm:flex-row gap-3 shrink-0">
-                    <a href="{{ route('login') }}" class="inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div data-aos="fade-up">
+                <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Únete a nuestra red</span>
+                <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">¡Forma parte de nuestra red!</h2>
+                <p class="mt-3 text-zinc-500 max-w-xl mx-auto leading-relaxed">
+                    Inscríbete y accede a oportunidades de crecimiento mientras generas impacto positivo en Honduras.
+                </p>
+                <div class="mt-8">
+                    <a href="{{ route('login') }}"
+                       class="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-8 py-3.5 rounded-lg transition-colors">
                         Inscribirme ahora
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                    </a>
-                    <a href="{{ route('contact') }}" class="inline-flex items-center justify-center gap-2 border border-zinc-300 bg-white hover:bg-zinc-50 text-zinc-700 font-semibold px-6 py-3 rounded-lg transition-colors">
-                        Contáctanos
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
                     </a>
                 </div>
             </div>

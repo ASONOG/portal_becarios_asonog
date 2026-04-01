@@ -4,7 +4,7 @@
     {{-- Hero --}}
     <section class="relative py-20 overflow-hidden">
         {{-- Imagen de fondo --}}
-        <img src="{{ asset('img/becas-hero.png') }}" alt="" class="absolute inset-0 w-full h-full object-cover"
+        <img src="{{ asset('img/becas-hero.webp') }}" alt="" class="absolute inset-0 w-full h-full object-cover"
             aria-hidden="true">
         {{-- Overlay --}}
         <div class="absolute inset-0 bg-zinc-900/75"></div>
@@ -271,7 +271,7 @@
                 {{-- Columna izquierda: imagen principal vertical --}}
                 <div data-aos="fade-right" data-aos-duration="900" class="lg:col-span-2">
                     <div class="relative overflow-hidden rounded-3xl aspect-[3/4] bg-zinc-200 shadow-xl">
-                        <img src="{{ asset('img/becario-1.jpeg') }}" alt="Becario ASONOG"
+                        <img src="{{ asset('img/becario-1.webp') }}" alt="Becario ASONOG"
                             class="absolute inset-0 w-full h-full object-cover">
                         {{-- Degradado inferior --}}
                         <div
@@ -336,7 +336,7 @@
                     <div class="grid grid-cols-2 gap-4 items-end">
                         <div data-aos="fade-up" data-aos-delay="280" data-aos-duration="700"
                             class="relative overflow-hidden rounded-2xl aspect-[4/3] bg-zinc-300 shadow-md group">
-                            <img src="{{ asset('img/becario-2.jpeg') }}" alt="Becarios en formación"
+                            <img src="{{ asset('img/becario-2.webp') }}" alt="Becarios en formación"
                                 class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                             <div
                                 class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-zinc-900/65 via-zinc-900/20 to-transparent">
@@ -346,7 +346,7 @@
                         {{-- Segunda imagen con desplazamiento para efecto editorial --}}
                         <div data-aos="fade-up" data-aos-delay="420" data-aos-duration="700"
                             class="relative overflow-hidden rounded-2xl aspect-[4/3] bg-zinc-300 shadow-md group mt-10">
-                            <img src="{{ asset('img/becario-3.jpeg') }}" alt="Labor comunitaria"
+                            <img src="{{ asset('img/becario-3.webp') }}" alt="Labor comunitaria"
                                 class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                             <div
                                 class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-zinc-900/65 via-zinc-900/20 to-transparent">
@@ -534,7 +534,7 @@
             <div data-aos="fade-up" data-aos-delay="150" data-aos-duration="600" class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href="{{ route('contact') }}"
                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white text-primary-700 font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-primary-50 transition-colors text-base">
-                    Contáctanos
+                    Postular ahora
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                     </svg>
