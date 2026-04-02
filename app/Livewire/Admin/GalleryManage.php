@@ -3,6 +3,10 @@
 namespace App\Livewire\Admin;
 
 use App\Models\GalleryPhoto;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Intervention\Image\Encoders\WebpEncoder;
+use Intervention\Image\Laravel\Facades\Image;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -48,14 +52,14 @@ class GalleryManage extends Component
             'photo'       => 'required|image|max:2048',
         ]);
 
-        $path = $this->photo->store('gallery', 'public');
+        $path = $this->storeAsWebp($this->photo);
 
         GalleryPhoto::create([
             'title'       => $this->title,
             'description' => $this->description ?: null,
             'category'    => $this->category,
             'image_path'  => $path,
-            'image_name'  => $this->photo->getClientOriginalName(),
+            'image_name'  => pathinfo($this->photo->getClientOriginalName(), PATHINFO_FILENAME) . '.webp',
             'size'        => $this->size,
             'sort_order'  => GalleryPhoto::max('sort_order') + 1,
             'uploaded_by' => auth()->id(),
@@ -98,9 +102,9 @@ class GalleryManage extends Component
         ];
 
         if ($this->photo) {
-            \Illuminate\Support\Facades\Storage::disk('public')->delete($galleryPhoto->image_path);
-            $data['image_path'] = $this->photo->store('gallery', 'public');
-            $data['image_name'] = $this->photo->getClientOriginalName();
+            Storage::disk('public')->delete($galleryPhoto->image_path);
+            $data['image_path'] = $this->storeAsWebp($this->photo);
+            $data['image_name'] = pathinfo($this->photo->getClientOriginalName(), PATHINFO_FILENAME) . '.webp';
         }
 
         $galleryPhoto->update($data);
@@ -123,9 +127,21 @@ class GalleryManage extends Component
     public function delete(int $id): void
     {
         $photo = GalleryPhoto::findOrFail($id);
-        \Illuminate\Support\Facades\Storage::disk('public')->delete($photo->image_path);
+        Storage::disk('public')->delete($photo->image_path);
         $photo->delete();
         session()->flash('success', 'Foto eliminada.');
+    }
+
+    private function storeAsWebp(\Livewire\Features\SupportFileUploads\TemporaryUploadedFile $file): string
+    {
+        $path = 'gallery/' . Str::uuid() . '.webp';
+
+        $encoded = Image::decodePath($file->getRealPath())
+            ->encode(new WebpEncoder(quality: 82, strip: true));
+
+        Storage::disk('public')->put($path, $encoded->toStream());
+
+        return $path;
     }
 
     public function render()
