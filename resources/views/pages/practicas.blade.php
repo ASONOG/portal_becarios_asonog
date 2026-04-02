@@ -1,27 +1,74 @@
 <x-layouts::public title="Prácticas, Pasantías y Voluntariados" description="Oportunidades de vinculación formativa: prácticas profesionales, pasantías y voluntariados con ASONOG.">
 
     {{-- Hero --}}
-    <section class="relative py-20 overflow-hidden">
-        <img src="{{ asset('img/practicas-hero.webp') }}" class="absolute inset-0 w-full h-full object-cover" aria-hidden="true">
-        <div class="absolute inset-0 bg-zinc-900/75"></div>
+    <section class="relative py-28 sm:py-36 overflow-hidden">
+        <img src="{{ asset('img/practicas-hero.webp') }}" class="absolute inset-0 w-full h-full object-cover" alt="" aria-hidden="true">
+        {{-- Overlay con degradado para profundidad --}}
+        <div class="absolute inset-0 bg-gradient-to-b from-zinc-900/80 via-zinc-900/70 to-zinc-900/85"></div>
+
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-            <p data-aos="fade-down" class="text-primary-200 font-semibold uppercase tracking-widest text-sm mb-3">Vinculación Formativa</p>
-            <h1 data-aos="fade-up" data-aos-delay="100" class="text-4xl sm:text-5xl font-bold leading-tight mb-4">Prácticas Profesionales,<br>Pasantías y Voluntariados</h1>
-            <p data-aos="fade-up" data-aos-delay="200" class="text-zinc-200 max-w-2xl mx-auto text-lg">
-                Conectamos a estudiantes y profesionales con oportunidades de vinculación formativa
-                que fortalecen sus competencias y generan impacto en las comunidades hondureñas.
+
+            {{-- Etiqueta superior --}}
+            <div data-aos="fade-down" class="inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur-sm text-primary-200 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">
+                <span class="w-1.5 h-1.5 rounded-full bg-primary-400 animate-pulse"></span>
+                Convocatoria permanente
+            </div>
+
+            <h1 data-aos="fade-up" data-aos-delay="100"
+                class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-5">
+                Prácticas, Pasantías<br class="hidden sm:block"> y Voluntariados
+            </h1>
+
+            <p data-aos="fade-up" data-aos-delay="200" class="text-zinc-300 max-w-2xl mx-auto text-lg leading-relaxed">
+                Gana experiencia real en proyectos de impacto social y comunitario junto a ASONOG.
+                Aplica según tu perfil y da el siguiente paso en tu formación profesional.
             </p>
-            <div data-aos="fade-up" data-aos-delay="300" class="mt-8">
-                <a href="#inscripcion" class="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-primary-700 font-bold rounded-xl shadow-lg hover:bg-zinc-100 transition">
+
+            {{-- Badges de las 3 modalidades --}}
+            <div data-aos="fade-up" data-aos-delay="260" class="mt-6 flex flex-wrap items-center justify-center gap-2">
+                <a href="#tipos" class="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm text-white text-xs font-medium px-3 py-1.5 rounded-full transition-colors">
+                    <svg class="w-3.5 h-3.5 text-primary-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    Prácticas Profesionales
+                </a>
+                <a href="#tipos" class="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm text-white text-xs font-medium px-3 py-1.5 rounded-full transition-colors">
+                    <svg class="w-3.5 h-3.5 text-primary-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                    Pasantías
+                </a>
+                <a href="#tipos" class="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm text-white text-xs font-medium px-3 py-1.5 rounded-full transition-colors">
+                    <svg class="w-3.5 h-3.5 text-orange-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                    Voluntariados
+                </a>
+            </div>
+
+            {{-- CTAs --}}
+            <div data-aos="fade-up" data-aos-delay="320" class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
+                <a href="#inscripcion"
+                    class="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-primary-700 font-bold rounded-xl shadow-lg hover:bg-primary-50 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200">
                     Inscribirme ahora
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                 </a>
+                <a href="#tipos"
+                    class="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/30 hover:border-white/60 bg-white/10 hover:bg-white/15 backdrop-blur-sm text-white font-medium rounded-xl transition-all duration-200">
+                    Ver modalidades
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </a>
             </div>
+
+        </div>
+
+        {{-- Indicador de scroll --}}
+        <div class="absolute bottom-8 inset-x-0 flex justify-center" aria-hidden="true">
+            <a href="#objetivo" class="flex flex-col items-center gap-1.5 text-white/40 hover:text-white/70 transition-colors">
+                <span class="text-xs tracking-widest uppercase font-medium">Descubre más</span>
+                <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </a>
         </div>
     </section>
 
     {{-- Descripción / Objetivo --}}
-    <section class="py-20 bg-white">
+    <section class="py-20 bg-white" id="objetivo">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div data-aos="fade-right">
@@ -72,7 +119,7 @@
     </section>
 
     {{-- Tipos de Oportunidades --}}
-    <section class="py-20 bg-zinc-50">
+    <section class="py-20 bg-zinc-50" id="tipos">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div data-aos="fade-up" class="text-center mb-14">
                 <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Oportunidades disponibles</span>
@@ -268,23 +315,42 @@
     </section>
 
     {{-- CTA Final --}}
-    <section class="py-16 bg-zinc-50 border-t border-zinc-100">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div data-aos="fade-up">
-                <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Únete a nuestra red</span>
-                <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">¡Forma parte de nuestra red!</h2>
-                <p class="mt-3 text-zinc-500 max-w-xl mx-auto leading-relaxed">
-                    Inscríbete y accede a oportunidades de crecimiento mientras generas impacto positivo en Honduras.
+    <section class="relative py-24 overflow-hidden bg-primary-700">
+        {{-- Decorative circles --}}
+        <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-primary-600/50 blur-3xl pointer-events-none" aria-hidden="true"></div>
+        <div class="absolute -bottom-32 -left-20 w-80 h-80 rounded-full bg-primary-800/60 blur-3xl pointer-events-none" aria-hidden="true"></div>
+        {{-- Grid texture overlay --}}
+        <div class="absolute inset-0 opacity-[0.04] pointer-events-none"
+             style="background-image: repeating-linear-gradient(0deg,#fff 0,#fff 1px,transparent 1px,transparent 40px), repeating-linear-gradient(90deg,#fff 0,#fff 1px,transparent 1px,transparent 40px);"
+             aria-hidden="true"></div>
+
+        <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div data-aos="fade-up" data-aos-duration="700">
+                <span class="inline-block text-primary-200 text-xs font-bold uppercase tracking-widest mb-4">Tu experiencia comienza aquí</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
+                    Da el siguiente paso<br class="hidden sm:block"> en tu formación
+                </h2>
+                <p class="mt-5 text-primary-100 text-lg max-w-xl mx-auto leading-relaxed">
+                    Aplica ahora y únete a quienes ya están generando impacto real en las comunidades de Honduras.
                 </p>
-                <div class="mt-8">
-                    <a href="{{ route('login') }}"
-                       class="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-8 py-3.5 rounded-lg transition-colors">
-                        Inscribirme ahora
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                        </svg>
-                    </a>
-                </div>
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay="150" data-aos-duration="600"
+                 class="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
+                <a href="{{ $form_url }}" target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center justify-center gap-2 bg-white text-primary-700 font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-primary-50 hover:-translate-y-0.5 hover:shadow-xl transition-all duration-200 text-base">
+                    Llenar formulario
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                    </svg>
+                </a>
+                <a href="{{ route('contact') }}"
+                   class="inline-flex items-center justify-center gap-2 border border-white/30 hover:border-white/60 bg-white/10 hover:bg-white/15 backdrop-blur-sm text-white font-medium px-8 py-4 rounded-xl transition-all duration-200 text-base">
+                    Contactar a ASONOG
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                </a>
             </div>
         </div>
     </section>

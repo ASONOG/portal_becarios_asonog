@@ -9,13 +9,26 @@
         <div class="space-y-6" x-data="donationPaypal()" x-init="init()">
 
             {{-- Montos sugeridos --}}
+            @php
+            $presets = [
+                '5'  => ['label' => 'Útiles escolares',    'sub' => 'para un alumno'],
+                '10' => ['label' => 'Transporte diario',   'sub' => 'de un becario'],
+                '25' => ['label' => 'Matrícula universi.', 'sub' => 'un semestre'],
+                '50' => ['label' => 'Beca completa',       'sub' => 'un período'],
+            ];
+            @endphp
             <div>
                 <label class="block text-sm font-medium text-zinc-700 mb-3">Selecciona un monto (USD)</label>
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    @foreach(['5', '10', '25', '50'] as $preset)
-                    <button type="button" wire:click="selectAmount('{{ $preset }}')"
-                        class="border-2 rounded-xl py-3 font-bold text-sm transition {{ $amount === $preset ? 'border-primary-600 bg-primary-50 text-primary-600' : 'border-zinc-200 text-zinc-700 hover:border-primary-300' }}">
-                        ${{ $preset }}
+                    @foreach($presets as $value => $info)
+                    <button type="button" wire:click="selectAmount('{{ $value }}')"
+                        class="border-2 rounded-xl py-3 px-2 text-sm transition flex flex-col items-center gap-0.5
+                            {{ $amount === $value
+                                ? 'border-primary-600 bg-primary-600 text-white'
+                                : 'border-zinc-200 text-zinc-700 hover:border-primary-300 hover:bg-primary-50' }}">
+                        <span class="font-extrabold text-base">${{ $value }}</span>
+                        <span class="font-semibold text-xs leading-tight">{{ $info['label'] }}</span>
+                        <span class="text-xs leading-tight opacity-75">{{ $info['sub'] }}</span>
                     </button>
                     @endforeach
                 </div>

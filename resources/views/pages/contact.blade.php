@@ -14,7 +14,7 @@
     </section>
 
     {{-- Contacto Main --}}
-    <section class="py-20">
+    <section class="py-20" id="contacto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-14 items-start">
 

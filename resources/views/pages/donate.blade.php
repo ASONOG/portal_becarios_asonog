@@ -1,21 +1,61 @@
 <x-layouts::public title="Donar" description="Tu donación hace posible que más jóvenes hondureños accedan a educación de calidad.">
 
     {{-- Hero --}}
-    <section class="relative py-20 overflow-hidden">
+    <section class="relative py-28 sm:py-36 overflow-hidden">
         <img src="{{ asset('img/donar-hero.webp') }}" class="absolute inset-0 w-full h-full object-cover" aria-hidden="true">
-        <div class="absolute inset-0 bg-zinc-900/75"></div>
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-            <p data-aos="fade-down" class="text-primary-200 font-semibold uppercase tracking-widest text-sm mb-3">Apoya Nuestra Causa</p>
-            <h1 data-aos="fade-up" data-aos-delay="100" class="text-4xl sm:text-5xl font-bold leading-tight mb-4">Tu donación cambia vidas</h1>
-            <p data-aos="fade-up" data-aos-delay="200" class="text-zinc-200 max-w-2xl mx-auto text-lg">
+        <div class="absolute inset-0 bg-gradient-to-b from-zinc-900/80 via-zinc-900/70 to-zinc-900/85"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            {{-- Etiqueta superior --}}
+            <div data-aos="fade-down" class="inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur-sm text-primary-200 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">
+                <span class="w-1.5 h-1.5 rounded-full bg-primary-400 animate-pulse"></span>
+                Apoya a un becario
+            </div>
+
+            <h1 data-aos="fade-up" data-aos-delay="100"
+                class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-5 text-white">
+                Tu donación<br class="hidden sm:block">cambia vidas
+            </h1>
+
+            <p data-aos="fade-up" data-aos-delay="200" class="text-zinc-300 max-w-2xl mx-auto text-lg leading-relaxed">
                 Cada aporte —grande o pequeño— permite que un joven hondureño tenga acceso a educación
                 de calidad y construya un mejor futuro para sí mismo y su comunidad.
             </p>
+
+            {{-- CTAs --}}
+            <div data-aos="fade-up" data-aos-delay="300" class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a href="#formulario-donar"
+                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-primary-600 font-bold rounded-xl shadow-lg hover:bg-primary-50 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200">
+                    Donar ahora
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                </a>
+                <a href="#impacto"
+                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/30 hover:border-white/60 bg-white/10 hover:bg-white/15 backdrop-blur-sm text-white font-medium rounded-xl transition-all duration-200">
+                    Ver el impacto
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 9l-7 7-7-7" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        {{-- Indicador de scroll --}}
+        <div class="absolute bottom-8 inset-x-0 flex justify-center" aria-hidden="true">
+            <a href="#impacto" class="flex flex-col items-center gap-1.5 text-white/40 hover:text-white/70 transition-colors">
+                <span class="text-xs tracking-widest uppercase font-medium">Descubre más</span>
+                <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </a>
         </div>
     </section>
 
     {{-- Impacto de la Donación --}}
-    <section class="py-16 bg-white">
+    <section class="py-16 bg-white" id="impacto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div data-aos="fade-up" class="text-center mb-12">
                 <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Tu impacto</span>
@@ -49,7 +89,12 @@
             <div data-aos="fade-up" class="bg-white border border-zinc-200 rounded-2xl shadow-sm overflow-hidden">
                 <div class="bg-primary-600 text-white p-8 text-center">
                     <h2 class="text-2xl font-bold mb-2">Hacer una donación</h2>
-                    <p class="text-primary-200 text-sm">Proceso seguro vía PayPal · 100% del dinero va a los becarios</p>
+                    <p class="text-primary-200 text-sm flex items-center justify-center gap-1.5">
+                        <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                        Proceso seguro vía PayPal · 100% del dinero va a los becarios
+                    </p>
                 </div>
 
                 <div class="p-8">

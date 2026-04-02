@@ -2,39 +2,64 @@
     description="Conoce el objetivo, población meta, tipos de becas e historias de éxito del programa de becas de ASONOG.">
 
     {{-- Hero --}}
-    <section class="relative py-20 overflow-hidden">
+    <section class="relative py-28 sm:py-36 overflow-hidden">
         {{-- Imagen de fondo --}}
         <img src="{{ asset('img/becas-hero.webp') }}" alt="" class="absolute inset-0 w-full h-full object-cover"
             aria-hidden="true">
-        {{-- Overlay --}}
-        <div class="absolute inset-0 bg-zinc-900/75"></div>
+        {{-- Overlay con degradado para dar más profundidad --}}
+        <div class="absolute inset-0 bg-gradient-to-b from-zinc-900/80 via-zinc-900/70 to-zinc-900/85"></div>
 
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p data-aos="fade-down" class="text-primary-200 font-semibold uppercase tracking-widest text-sm mb-3">
-                Programas de Becas</p>
+            {{-- Etiqueta superior --}}
+            <div data-aos="fade-down" class="inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur-sm text-primary-200 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">
+                <span class="w-1.5 h-1.5 rounded-full bg-primary-400 animate-pulse"></span>
+                Programas de Becas
+            </div>
+
             <h1 data-aos="fade-up" data-aos-delay="100"
-                class="text-4xl sm:text-5xl font-bold leading-tight mb-4 text-white">Mas que becas,<br>transformamos
-                vidas</h1>
-            <p data-aos="fade-up" data-aos-delay="200" class="text-zinc-300 max-w-2xl mx-auto text-lg">
+                class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-5 text-white">
+                Más que becas,<br class="hidden sm:block">transformamos vidas
+            </h1>
+
+            <p data-aos="fade-up" data-aos-delay="200" class="text-zinc-300 max-w-2xl mx-auto text-lg leading-relaxed">
                 Conoce a los jóvenes que, gracias a nuestras becas universitarias, están construyendo un futuro lleno de
                 oportunidades y dejando huella en sus comunidades.
             </p>
 
-            <div data-aos="fade-up" data-aos-delay="300" class="mt-8">
-                <a href="#historias-de-exito"
-                    class="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-primary-600 font-bold rounded-xl shadow-lg hover:bg-primary-50 transition">
-                    Conoce nuestras historias de éxito
+            {{-- CTAs agrupados en fila --}}
+            <div data-aos="fade-up" data-aos-delay="300" class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a href="{{ route('contact') . '#contacto' }}"
+                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-primary-600 font-bold rounded-xl shadow-lg hover:bg-primary-50 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200">
+                    Postular ahora
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                 </a>
+                <a href="#historias-de-exito"
+                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/30 hover:border-white/60 bg-white/10 hover:bg-white/15 backdrop-blur-sm text-white font-medium rounded-xl transition-all duration-200">
+                    Historias de éxito
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 9l-7 7-7-7" />
+                    </svg>
+                </a>
             </div>
+        </div>
+
+        {{-- Indicador de scroll --}}
+        <div class="absolute bottom-8 inset-x-0 flex justify-center" aria-hidden="true">
+            <a href="#objetivo" class="flex flex-col items-center gap-1.5 text-white/40 hover:text-white/70 transition-colors group">
+                <span class="text-xs tracking-widest uppercase font-medium">Descubre más</span>
+                <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </a>
         </div>
     </section>
 
     {{-- Objetivo del Programa --}}
-    <section class="py-20 bg-white">
+    <section class="py-20 bg-white" id="objetivo">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div data-aos="fade-right">
@@ -539,10 +564,15 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                     </svg>
                 </a>
-               
+                <a href="{{ route('donate') }}"
+                   class="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-white/30 hover:border-white/60 bg-white/10 hover:bg-white/15 backdrop-blur-sm text-white font-medium px-8 py-4 rounded-xl transition-all duration-200 text-base">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                    </svg>
+                    Apoyar el programa
+                </a>
             </div>
         </div>
-    </section>
     </section>
 
 </x-layouts::public>
