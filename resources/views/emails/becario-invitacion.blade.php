@@ -15,7 +15,7 @@ Este enlace expirará en 60 minutos. Si no configuraste tu acceso a tiempo, pued
 
 **Tu correo de acceso:** {{ $user->email }}
 
-Si tienes alguna duda, escríbenos a [becas@asonog.hn](mailto:becas@asonog.hn).
+Si tienes alguna duda, escríbenos a [talentohumano@asonog.hn](mailto:talentohumano@asonog.hn).
 
 Saludos,<br>
 {{ config('app.name') }}

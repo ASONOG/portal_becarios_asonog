@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Mail\ContactoMensaje;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\RateLimiter;
 use Livewire\Component;
 
 class ContactForm extends Component
@@ -28,7 +29,14 @@ class ContactForm extends Component
 
     public function submit(): void
     {
-        $this->rateLimit(5);
+        $key = 'contact-form:' . request()->ip();
+
+        if (RateLimiter::tooManyAttempts($key, 5)) {
+            $this->addError('email', 'Demasiados intentos. Intenta de nuevo más tarde.');
+            return;
+        }
+
+        RateLimiter::hit($key, 60);
 
         $validated = $this->validate();
 
