@@ -14,7 +14,7 @@
                 <div>
                     <label class="block text-sm font-medium text-zinc-700 mb-1.5">Nombre</label>
                     <input type="text" wire:model="name" placeholder="Tu nombre"
-                        class="w-full border {{ $errors->has('name') ? 'border-red-400' : 'border-zinc-300' }} rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition">
+                        class="w-full border {{ $errors->has('name') ? 'border-red-400' : 'border-zinc-300' }} rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition">
                     @error('name')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                     @enderror
@@ -22,7 +22,7 @@
                 <div>
                     <label class="block text-sm font-medium text-zinc-700 mb-1.5">Apellido</label>
                     <input type="text" wire:model="last_name" placeholder="Tu apellido"
-                        class="w-full border {{ $errors->has('last_name') ? 'border-red-400' : 'border-zinc-300' }} rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition">
+                        class="w-full border {{ $errors->has('last_name') ? 'border-red-400' : 'border-zinc-300' }} rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition">
                     @error('last_name')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                     @enderror
@@ -32,7 +32,7 @@
             <div>
                 <label class="block text-sm font-medium text-zinc-700 mb-1.5">Correo electrónico</label>
                 <input type="email" wire:model="email" placeholder="tucorreo@ejemplo.com"
-                    class="w-full border {{ $errors->has('email') ? 'border-red-400' : 'border-zinc-300' }} rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition">
+                    class="w-full border {{ $errors->has('email') ? 'border-red-400' : 'border-zinc-300' }} rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition">
                 @error('email')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
@@ -41,7 +41,7 @@
             <div>
                 <label class="block text-sm font-medium text-zinc-700 mb-1.5">Asunto</label>
                 <select wire:model="subject"
-                    class="w-full border {{ $errors->has('subject') ? 'border-red-400' : 'border-zinc-300' }} rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition">
+                    class="w-full border {{ $errors->has('subject') ? 'border-red-400' : 'border-zinc-300' }} rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition">
                     <option value="">Selecciona un asunto</option>
                     <option>Información sobre becas</option>
                     <option>Estado de mi solicitud</option>
@@ -57,7 +57,7 @@
             <div>
                 <label class="block text-sm font-medium text-zinc-700 mb-1.5">Mensaje</label>
                 <textarea wire:model="message" rows="5" placeholder="Escribe tu mensaje aquí..."
-                    class="w-full border {{ $errors->has('message') ? 'border-red-400' : 'border-zinc-300' }} rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition resize-none"></textarea>
+                    class="w-full border {{ $errors->has('message') ? 'border-red-400' : 'border-zinc-300' }} rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition resize-none"></textarea>
                 @error('message')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror

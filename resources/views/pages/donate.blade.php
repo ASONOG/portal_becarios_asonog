@@ -17,7 +17,7 @@
                 Tu donación<br class="hidden sm:block">cambia vidas
             </h1>
 
-            <p data-aos="fade-up" data-aos-delay="200" class="text-zinc-300 max-w-2xl mx-auto text-lg leading-relaxed">
+            <p data-aos="fade-up" data-aos-delay="200" class="text-zinc-300 max-w-2xl mx-auto text-lg leading-relaxed text-left sm:text-center">
                 Cada aporte —grande o pequeño— permite que un joven hondureño tenga acceso a educación
                 de calidad y construya un mejor futuro para sí mismo y su comunidad.
             </p>
@@ -63,19 +63,19 @@
                 <p class="mt-3 text-zinc-500">Así es como cada aporte impacta directamente en los becarios.</p>
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div data-aos="fade-up" class="bg-zinc-50 text-center p-8 border border-zinc-100 rounded-2xl hover:shadow-md transition">
+                <div data-aos="fade-up" class="bg-zinc-50 text-center p-8 border border-zinc-100 rounded-2xl">
                     <div class="text-4xl font-extrabold text-primary-600 mb-3">130 L</div>
                     <p class="text-zinc-500 text-sm">Tu apoyo ayuda a cubrir la compra de útiles escolares de un alumno</p>
                 </div>
-                <div data-aos="fade-up" data-aos-delay="100" class="bg-zinc-50 text-center p-8 border border-zinc-100 rounded-2xl hover:shadow-md transition">
+                <div data-aos="fade-up" data-aos-delay="100" class="bg-zinc-50 text-center p-8 border border-zinc-100 rounded-2xl">
                     <div class="text-4xl font-extrabold text-green-600 mb-3">300 L </div>
                     <p class="text-zinc-500 text-sm">Tu colaboración permite que un becario llegue a su centro de estudio cada día</p>
                 </div>
-                <div data-aos="fade-up" data-aos-delay="200" class="bg-zinc-50 text-center p-8 border border-zinc-100 rounded-2xl hover:shadow-md transition">
+                <div data-aos="fade-up" data-aos-delay="200" class="bg-zinc-50 text-center p-8 border border-zinc-100 rounded-2xl">
                     <div class="text-4xl font-extrabold text-purple-600 mb-3">600 L</div>
                     <p class="text-zinc-500 text-sm">Su contribución permite financiar la matrícula universitaria de un becario</p>
                 </div>
-                <div data-aos="fade-up" data-aos-delay="300" class="bg-zinc-50 text-center p-8 border border-zinc-100 rounded-2xl hover:shadow-md transition">
+                <div data-aos="fade-up" data-aos-delay="300" class="bg-zinc-50 text-center p-8 border border-zinc-100 rounded-2xl">
                     <div class="text-4xl font-extrabold text-secondary-600 mb-3">1,300 L</div>
                     <p class="text-zinc-500 text-sm">Con tu colaboración contribuyes al patrocinio de una beca para un becario</p>
                 </div>
@@ -84,7 +84,7 @@
     </section>
 
     {{-- Formulario de Donación --}}
-    <section class="py-20 bg-zinc-50" id ="formulario-donar">
+    <section class="py-20 bg-zinc-50" id="formulario-donar">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div data-aos="fade-up" class="bg-white border border-zinc-200 rounded-2xl shadow-sm overflow-hidden">
                 <div class="bg-primary-600 text-white p-8 text-center">
@@ -122,7 +122,7 @@
             <div data-aos="fade-up" class="text-center mb-12">
                 <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Testimonios</span>
                 <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">Historias de Éxito</h2>
-                <p class="mt-3 text-zinc-500 max-w-2xl mx-auto">
+                <p class="mt-3 text-zinc-500 max-w-2xl mx-auto text-left md:text-center">
                     Voces reales de becarios que, con esfuerzo y determinación, están construyendo un futuro diferente para sí mismos y para sus comunidades.
                 </p>
             </div>
@@ -181,28 +181,54 @@
                     </div>
                     @endforeach
                 </div>
+
+                {{-- Hint --}}
+                <p class="mt-5 text-center text-xs text-zinc-400 flex items-center justify-center gap-1.5">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4M8 15l4 4 4-4"/>
+                    </svg>
+                    Desliza para ver las {{ count($becarios) }} historias
+                </p>
             </div>
         </div>
     </section>
 
     {{-- CTA Final --}}
-    <section class="py-16 bg-zinc-50 border-t border-zinc-100">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div data-aos="fade-up">
-                <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Haz la diferencia hoy</span>
-                <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">¿Listo para cambiar una vida?</h2>
-                <p class="mt-3 text-zinc-500 max-w-xl mx-auto leading-relaxed">
+    <section class="relative py-24 overflow-hidden bg-primary-700">
+        {{-- Decorative circles --}}
+        <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-primary-600/50 blur-3xl pointer-events-none" aria-hidden="true"></div>
+        <div class="absolute -bottom-32 -left-20 w-80 h-80 rounded-full bg-primary-800/60 blur-3xl pointer-events-none" aria-hidden="true"></div>
+        {{-- Grid texture overlay --}}
+        <div class="absolute inset-0 opacity-[0.04] pointer-events-none"
+             style="background-image: repeating-linear-gradient(0deg,#fff 0,#fff 1px,transparent 1px,transparent 40px), repeating-linear-gradient(90deg,#fff 0,#fff 1px,transparent 1px,transparent 40px);"
+             aria-hidden="true"></div>
+
+        <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div data-aos="fade-up" data-aos-duration="700">
+                <span class="inline-block text-primary-200 text-xs font-bold uppercase tracking-widest mb-4">Haz la diferencia hoy</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
+                    ¿Listo para cambiar<br class="hidden sm:block"> una vida?
+                </h2>
+                <p class="mt-5 text-primary-100 text-lg max-w-xl mx-auto leading-relaxed">
                     Cada donación, por pequeña que sea, abre puertas para un joven hondureño.
                 </p>
-                <div class="mt-8">
-                    <a href="#formulario-donar"
-                       class="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-8 py-3.5 rounded-lg transition-colors">
-                        Donar ahora
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                        </svg>
-                    </a>
-                </div>
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay="150" data-aos-duration="600" class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#formulario-donar"
+                   class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white text-primary-700 font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-primary-50 transition-colors text-base">
+                    Donar ahora
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </a>
+                <a href="{{ route('programs') }}"
+                   class="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-white/30 hover:border-white/60 bg-white/10 hover:bg-white/15 backdrop-blur-sm text-white font-medium px-8 py-4 rounded-xl transition-all duration-200 text-base">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                    </svg>
+                    Ver programas de becas
+                </a>
             </div>
         </div>
     </section>

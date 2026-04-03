@@ -40,7 +40,7 @@
                 <div class="relative">
                     <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 text-sm font-semibold">$</span>
                     <input type="number" wire:model="amount" min="1" step="0.01" placeholder="Otro monto"
-                        class="w-full border {{ $errors->has('amount') ? 'border-red-400' : 'border-zinc-300' }} rounded-lg pl-8 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 transition">
+                        class="w-full border {{ $errors->has('amount') ? 'border-red-400' : 'border-zinc-300' }} rounded-lg pl-8 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 transition">
                 </div>
                 @error('amount') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
             </div>
@@ -52,13 +52,13 @@
                 <div>
                     <label class="block text-sm font-medium text-zinc-700 mb-1.5">Nombre completo</label>
                     <input type="text" wire:model="donor_name" placeholder="Tu nombre" {{ $anonymous ? 'disabled' : '' }}
-                        class="w-full border {{ $errors->has('donor_name') ? 'border-red-400' : 'border-zinc-300' }} rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 transition disabled:bg-zinc-100 disabled:text-zinc-400">
+                        class="w-full border {{ $errors->has('donor_name') ? 'border-red-400' : 'border-zinc-300' }} rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 transition disabled:bg-zinc-100 disabled:text-zinc-400">
                     @error('donor_name') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-zinc-700 mb-1.5">Correo electrónico * </label>
                     <input type="email" wire:model="donor_email" placeholder="tucorreo@ejemplo.com"
-                        class="w-full border {{ $errors->has('donor_email') ? 'border-red-400' : 'border-zinc-300' }} rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 transition">
+                        class="w-full border {{ $errors->has('donor_email') ? 'border-red-400' : 'border-zinc-300' }} rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 transition">
                     @error('donor_email') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                 </div>
             </div>

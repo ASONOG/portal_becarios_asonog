@@ -19,7 +19,7 @@
                 Momentos que<br class="hidden sm:block">transforman vidas
             </h1>
 
-            <p data-aos="fade-up" data-aos-delay="200" class="text-zinc-300 max-w-2xl mx-auto text-lg leading-relaxed">
+            <p data-aos="fade-up" data-aos-delay="200" class="text-zinc-300 max-w-2xl mx-auto text-lg leading-relaxed text-left sm:text-center">
                 Imágenes de becarios, voluntarios y comunidades que construyen el futuro de Honduras.
             </p>
 
@@ -82,7 +82,7 @@
                         :class="filter === '{{ $key }}'
                             ? 'bg-primary-600 text-white shadow-sm'
                             : 'bg-zinc-100 text-zinc-600 hover:bg-zinc-200'"
-                        class="px-5 py-2 rounded-full text-sm font-medium transition-colors">
+                        class="px-5 py-2.5 rounded-full text-sm font-medium transition-colors">
                         {{ $label }}
                     </button>
                 @endforeach
@@ -110,10 +110,10 @@
                             @if($photo['size'] === 'portrait') style="aspect-ratio: 2/3" @elseif($photo['size'] === 'landscape-lg') style="aspect-ratio: 16/10" data-parallax @else style="aspect-ratio: 3/2" @endif
                             loading="lazy">
 
-                        {{-- Hover overlay --}}
+                        {{-- Hover overlay (desktop only) --}}
                         <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-zinc-900/30 to-transparent
                                     opacity-0 group-hover:opacity-100 transition-opacity duration-300
-                                    flex flex-col justify-end p-5">
+                                    hidden md:flex flex-col justify-end p-5">
                             <span class="inline-block self-start text-xs font-semibold uppercase tracking-wider text-primary-300 bg-primary-900/50 px-2.5 py-1 rounded-full mb-2">
                                 {{ ucfirst($photo['cat']) }}
                             </span>
@@ -123,6 +123,14 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
                                 </svg>
                             </div>
+                        </div>
+
+                        {{-- Always-visible info bar (mobile only) --}}
+                        <div class="md:hidden absolute inset-x-0 bottom-0 bg-gradient-to-t from-zinc-900/80 to-transparent px-3.5 pb-3 pt-8">
+                            <span class="inline-block text-[10px] font-semibold uppercase tracking-wider text-primary-300 bg-primary-900/50 px-2 py-0.5 rounded-full mb-1">
+                                {{ ucfirst($photo['cat']) }}
+                            </span>
+                            <h3 class="text-white font-semibold text-sm leading-snug">{{ $photo['title'] }}</h3>
                         </div>
                     </div>
                 @endforeach
@@ -150,7 +158,7 @@
                 <div class="relative z-10 max-w-5xl w-full max-h-[90vh] flex flex-col items-center" @click.stop>
 
                     {{-- Close --}}
-                    <button @click="closeLightbox()" class="absolute -top-2 -right-2 sm:top-0 sm:right-0 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-zinc-800/80 text-white hover:bg-zinc-700 transition-colors">
+                    <button @click="closeLightbox()" class="absolute -top-2 -right-2 sm:top-0 sm:right-0 z-20 w-11 h-11 flex items-center justify-center rounded-full bg-zinc-800/80 text-white hover:bg-zinc-700 transition-colors">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                         </svg>

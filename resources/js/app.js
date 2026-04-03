@@ -6,4 +6,5 @@ AOS.init({
     easing: 'ease-out-cubic',
     once: true,
     offset: 60,
+    disable: function() { return window.innerWidth < 768; },
 });

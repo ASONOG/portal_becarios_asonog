@@ -21,7 +21,7 @@
                 Más que becas,<br class="hidden sm:block">transformamos vidas
             </h1>
 
-            <p data-aos="fade-up" data-aos-delay="200" class="text-zinc-300 max-w-2xl mx-auto text-lg leading-relaxed">
+            <p data-aos="fade-up" data-aos-delay="200" class="text-zinc-300 max-w-2xl mx-auto text-lg leading-relaxed text-left sm:text-center">
                 Conoce a los jóvenes que, gracias a nuestras becas universitarias, están construyendo un futuro lleno de
                 oportunidades y dejando huella en sus comunidades.
             </p>
@@ -125,7 +125,7 @@
                 <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">¿A quién va
                     dirigido?</span>
                 <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">Población Meta</h2>
-                <p class="mt-3 text-zinc-500 max-w-2xl mx-auto">
+                <p class="mt-3 text-zinc-500 max-w-2xl mx-auto text-left md:text-center">
                     Nuestras becas están diseñadas para apoyar a quienes más lo necesitan, priorizando la equidad y la
                     inclusión.
                 </p>
@@ -187,14 +187,14 @@
         </div>
     </section>
 
-    {{-- Más que una beca: Iniciativas Transversales --}}
+    {{-- Iniciativas Transversales --}}
     <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div data-aos="fade-up" class="text-center mb-16">
                 <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Formación
                     integral</span>
                 <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">Más que una beca</h2>
-                <p class="mt-4 text-zinc-500 max-w-2xl mx-auto">
+                <p class="mt-4 text-zinc-500 max-w-2xl mx-auto text-left md:text-center">
                     Nos enfocamos en acompañar a los becarios en su <strong
                         class="text-zinc-700 font-semibold">formación integral</strong>,
                     brindando herramientas que les permitan maximizar su talento y potenciar sus habilidades y
@@ -436,7 +436,7 @@
             <div data-aos="fade-up" class="text-center mb-12">
                 <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Testimonios</span>
                 <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">Historias de Éxito</h2>
-                <p class="mt-3 text-zinc-500 max-w-2xl mx-auto">
+                <p class="mt-3 text-zinc-500 max-w-2xl mx-auto text-left md:text-center">
                     Voces reales de becarios que, con esfuerzo y determinación, están construyendo un futuro diferente para sí mismos y para sus comunidades.
                 </p>
             </div>
@@ -531,6 +531,25 @@
                 </svg>
                 Desliza para ver las {{ count($becarios) }} historias
             </p>
+
+            {{-- Scroll progress bar (mobile) --}}
+            <div class="sm:hidden mt-4 flex justify-center">
+                <div class="w-24 h-1 rounded-full bg-zinc-200 overflow-hidden">
+                    <div class="h-full rounded-full bg-primary-500 transition-all duration-200"
+                         x-data="{ progress: 0 }"
+                         x-init="
+                             const track = $refs.track;
+                             const update = () => {
+                                 const max = track.scrollWidth - track.clientWidth;
+                                 progress = max > 0 ? (track.scrollLeft / max) * 100 : 0;
+                             };
+                             track.addEventListener('scroll', update, { passive: true });
+                             update();
+                         "
+                         :style="'width: ' + Math.max(15, progress) + '%'">
+                    </div>
+                </div>
+            </div>
 
         </div>
     </section>

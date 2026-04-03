@@ -19,7 +19,7 @@
                 Prácticas, Pasantías<br class="hidden sm:block"> y Voluntariados
             </h1>
 
-            <p data-aos="fade-up" data-aos-delay="200" class="text-zinc-300 max-w-2xl mx-auto text-lg leading-relaxed">
+            <p data-aos="fade-up" data-aos-delay="200" class="text-zinc-300 max-w-2xl mx-auto text-lg leading-relaxed text-left sm:text-center">
                 Gana experiencia real en proyectos de impacto social y comunitario junto a ASONOG.
                 Aplica según tu perfil y da el siguiente paso en tu formación profesional.
             </p>
@@ -124,7 +124,7 @@
             <div data-aos="fade-up" class="text-center mb-14">
                 <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Oportunidades disponibles</span>
                 <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">Tipos de Vinculación</h2>
-                <p class="mt-3 text-zinc-500 max-w-2xl mx-auto">
+                <p class="mt-3 text-zinc-500 max-w-2xl mx-auto text-left md:text-center">
                     Elige la modalidad que mejor se adapte a tu perfil académico y profesional.
                 </p>
             </div>
@@ -132,7 +132,7 @@
             <div class="grid md:grid-cols-3 gap-8">
 
                 {{-- Prácticas Profesionales --}}
-                <div data-aos="fade-up" class="bg-white border border-zinc-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
+                <div data-aos="fade-up" class="bg-white border border-zinc-200 rounded-2xl overflow-hidden">
                     <div class="h-2 bg-primary-600"></div>
                     <div class="p-7">
                         <div class="flex items-center gap-3 mb-4">
@@ -159,8 +159,14 @@
                 </div>
 
                 {{-- Pasantías --}}
-                <div data-aos="fade-up" data-aos-delay="100" class="bg-white border-2 border-primary-600 rounded-2xl overflow-hidden hover:shadow-xl transition-shadow relative">
-            
+                <div data-aos="fade-up" data-aos-delay="100" class="bg-white border border-zinc-200 rounded-2xl overflow-hidden relative">
+                    {{-- Badge destacada --}}
+                    <div class="absolute top-4 right-4 z-10">
+                        <span class="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-primary-700 bg-primary-50 border border-primary-200 px-2.5 py-1 rounded-full">
+                            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            Más solicitada
+                        </span>
+                    </div>
                     <div class="h-2 bg-primary-600"></div>
                     <div class="p-7">
                         <div class="flex items-center gap-3 mb-4">
@@ -187,7 +193,7 @@
                 </div>
 
                 {{-- Voluntariados --}}
-                <div data-aos="fade-up" data-aos-delay="200" class="bg-white border border-zinc-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
+                <div data-aos="fade-up" data-aos-delay="200" class="bg-white border border-zinc-200 rounded-2xl overflow-hidden">
                     <div class="h-2 bg-orange-500"></div>
                     <div class="p-7">
                         <div class="flex items-center gap-3 mb-4">
@@ -258,7 +264,7 @@
             <div data-aos="fade-up" class="text-center mb-10">
                 <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Inscripción</span>
                 <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">¿Cómo aplicar?</h2>
-                <p class="mt-3 text-zinc-500 max-w-xl mx-auto">
+                <p class="mt-3 text-zinc-500 max-w-xl mx-auto text-left md:text-center">
                     El proceso es sencillo: completa el formulario en línea con tus datos y documentos,
                     y nuestro equipo se pondrá en contacto contigo.
                 </p>
