@@ -1,6 +1,6 @@
 # Documentación de Rutas
 
-> Última actualización: julio 2025
+> Última actualización: abril 2026
 
 ---
 
