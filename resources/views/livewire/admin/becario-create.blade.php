@@ -1,4 +1,4 @@
-<div class="p-6 max-w-2xl mx-auto space-y-6">
+<div class="p-4 sm:p-6 max-w-2xl mx-auto space-y-6">
 
     <div>
         <a href="{{ route('admin.becarios.index') }}" wire:navigate class="text-sm text-primary-600 hover:underline">

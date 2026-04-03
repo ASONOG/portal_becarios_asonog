@@ -1,8 +1,8 @@
-<div class="p-6 max-w-5xl mx-auto space-y-6">
+<div class="p-4 sm:p-6 max-w-5xl mx-auto space-y-6">
 
         {{-- Header --}}
         <div class="flex items-center gap-4">
-            <a href="{{ route('admin.becarios.index') }}" wire:navigate class="text-zinc-400 hover:text-zinc-600 transition">
+            <a href="{{ route('admin.becarios.index') }}" wire:navigate class="p-2.5 -ml-2.5 rounded-lg text-zinc-400 hover:text-zinc-600 hover:bg-zinc-100 transition">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
             </a>
             <div class="flex items-center gap-3">
@@ -93,9 +93,9 @@
                                             <p class="text-xs text-zinc-400 mt-1">{{ $doc->description }}</p>
                                         @endif
                                         <div class="flex items-center gap-3 mt-1.5 text-xs text-zinc-400">
-                                            <span>{{ $doc->file_name }}</span>
-                                            <span>{{ $doc->file_size_formatted }}</span>
-                                            <span>{{ $doc->created_at->format('d/m/Y') }}</span>
+                                            <span class="truncate max-w-[180px] sm:max-w-[250px]">{{ $doc->file_name }}</span>
+                                            <span class="shrink-0">{{ $doc->file_size_formatted }}</span>
+                                            <span class="shrink-0">{{ $doc->created_at->format('d/m/Y') }}</span>
                                         </div>
                                         @if ($doc->admin_notes)
                                             <div class="mt-2 bg-primary-50 rounded px-2.5 py-1.5 text-xs text-primary-600">
@@ -125,22 +125,24 @@
                                 @if ($reviewingDocId === $doc->id)
                                 <div class="mt-3 pt-3 border-t border-zinc-100">
                                     <p class="text-xs font-semibold text-zinc-700 mb-2">Actualizar revisión</p>
-                                    <div class="flex flex-wrap gap-3">
+                                    <div class="grid gap-3">
                                         <select wire:model="reviewStatus"
-                                            class="border border-zinc-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
+                                            class="w-full sm:w-auto border border-zinc-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
                                             <option value="aprobado">Aprobado</option>
                                             <option value="rechazado">Rechazado</option>
                                         </select>
                                         <input wire:model="adminNotes" type="text" placeholder="Nota para el becario (opcional)"
-                                            class="flex-1 min-w-50 border border-zinc-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
-                                        <button wire:click="saveReview"
-                                            class="px-4 py-2 bg-primary-600 text-white text-sm font-semibold rounded-lg hover:bg-primary-700 transition">
-                                            Guardar
-                                        </button>
-                                        <button wire:click="cancelReview"
-                                            class="px-4 py-2 bg-zinc-100 text-zinc-700 text-sm font-semibold rounded-lg hover:bg-zinc-200 transition">
-                                            Cancelar
-                                        </button>
+                                            class="w-full border border-zinc-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
+                                        <div class="flex gap-3">
+                                            <button wire:click="saveReview"
+                                                class="px-4 py-2.5 bg-primary-600 text-white text-sm font-semibold rounded-lg hover:bg-primary-700 transition">
+                                                Guardar
+                                            </button>
+                                            <button wire:click="cancelReview"
+                                                class="px-4 py-2.5 bg-zinc-100 text-zinc-700 text-sm font-semibold rounded-lg hover:bg-zinc-200 transition">
+                                                Cancelar
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                                 @endif

@@ -1,4 +1,4 @@
-<div class="p-6 max-w-5xl mx-auto space-y-6">
+<div class="p-4 sm:p-6 max-w-5xl mx-auto space-y-6">
 
         {{-- Bienvenida --}}
         <div>
@@ -8,28 +8,28 @@
 
         {{-- Tarjetas de resumen --}}
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="bg-white border border-zinc-200 rounded-xl p-5">
-                <p class="text-xs font-medium text-zinc-500 uppercase tracking-wide mb-3">Solicitudes Activas</p>
-                <p class="text-xl font-bold text-zinc-800">{{ $activeRequests }}</p>
+            <div class="bg-white border border-zinc-200 border-l-4 border-l-primary-500 rounded-xl p-5">
+                <p class="text-xs font-medium text-zinc-500 uppercase tracking-wide mb-1">Solicitudes Activas</p>
+                <p class="text-3xl font-bold text-zinc-800">{{ $activeRequests }}</p>
                 <p class="text-xs text-zinc-400 mt-1">Requerimientos por atender</p>
             </div>
 
-            <div class="bg-white border border-zinc-200 rounded-xl p-5">
-                <p class="text-xs font-medium text-zinc-500 uppercase tracking-wide mb-3">Entregas Pendientes</p>
-                <p class="text-xl font-bold text-secondary-600">{{ $pendingCount }}</p>
+            <div class="bg-white border border-zinc-200 border-l-4 border-l-secondary-500 rounded-xl p-5">
+                <p class="text-xs font-medium text-zinc-500 uppercase tracking-wide mb-1">Entregas Pendientes</p>
+                <p class="text-3xl font-bold text-secondary-600">{{ $pendingCount }}</p>
                 <p class="text-xs text-zinc-400 mt-1">Documentos en revisión</p>
             </div>
 
-            <div class="bg-white border border-zinc-200 rounded-xl p-5">
-                <p class="text-xs font-medium text-zinc-500 uppercase tracking-wide mb-3">Entregas Aprobadas</p>
-                <p class="text-xl font-bold text-green-600">{{ $approvedCount }}</p>
+            <div class="bg-white border border-zinc-200 border-l-4 border-l-green-500 rounded-xl p-5">
+                <p class="text-xs font-medium text-zinc-500 uppercase tracking-wide mb-1">Entregas Aprobadas</p>
+                <p class="text-3xl font-bold text-green-600">{{ $approvedCount }}</p>
                 <p class="text-xs text-zinc-400 mt-1">Documentos aprobados</p>
             </div>
 
             @if ($completion < 100)
-            <div class="bg-white border border-zinc-200 rounded-xl p-5">
-                <p class="text-xs font-medium text-zinc-500 uppercase tracking-wide mb-3">Perfil Completado</p>
-                <p class="text-xl font-bold text-zinc-800">{{ $completion }}%</p>
+            <div class="bg-white border border-zinc-200 border-l-4 border-l-zinc-400 rounded-xl p-5">
+                <p class="text-xs font-medium text-zinc-500 uppercase tracking-wide mb-1">Perfil Completado</p>
+                <p class="text-3xl font-bold text-zinc-800">{{ $completion }}%</p>
                 <div class="mt-2">
                     <div class="h-1.5 w-full bg-zinc-100 rounded-full">
                         <div class="h-1.5 bg-primary-600 rounded-full transition-all" style="width: {{ $completion }}%"></div>
@@ -37,9 +37,9 @@
                 </div>
             </div>
             @else
-            <div class="bg-white border border-zinc-200 rounded-xl p-5">
-                <p class="text-xs font-medium text-zinc-500 uppercase tracking-wide mb-3">Total de Entregas</p>
-                <p class="text-xl font-bold text-zinc-800">{{ $totalDocs }}</p>
+            <div class="bg-white border border-zinc-200 border-l-4 border-l-zinc-400 rounded-xl p-5">
+                <p class="text-xs font-medium text-zinc-500 uppercase tracking-wide mb-1">Total de Entregas</p>
+                <p class="text-3xl font-bold text-zinc-800">{{ $totalDocs }}</p>
                 <p class="text-xs text-zinc-400 mt-1">Documentos enviados</p>
             </div>
             @endif
@@ -51,8 +51,8 @@
             {{-- Documentos recientes (área principal) --}}
             <div class="lg:col-span-2 bg-white border border-zinc-200 rounded-xl p-6">
                 <div class="flex items-center justify-between mb-4">
-                    <h2 class="text-sm font-semibold text-zinc-900">Documentos Recientes</h2>
-                    <a href="{{ route('becario.documents') }}" wire:navigate class="text-xs text-primary-600 font-medium hover:underline">Ver todos →</a>
+                    <h2 class="text-base font-semibold text-zinc-900">Documentos Recientes</h2>
+                    <a href="{{ route('becario.documents') }}" wire:navigate class="text-xs text-primary-600 font-medium hover:underline px-2 py-1.5 -mr-2 rounded-lg">Ver todos →</a>
                 </div>
 
                 @forelse ($docs as $doc)
@@ -91,7 +91,7 @@
 
                 {{-- Accesos rápidos --}}
                 <div class="bg-white border border-zinc-200 rounded-xl p-5">
-                    <h2 class="text-sm font-semibold text-zinc-900 mb-4">Acciones</h2>
+                    <h2 class="text-base font-semibold text-zinc-900 mb-4">Acciones</h2>
                     <div class="space-y-3">
                         <a href="{{ route('becario.documents') }}" wire:navigate
                            class="flex items-center gap-3 p-3 rounded-lg bg-primary-50 hover:bg-primary-100 transition group">

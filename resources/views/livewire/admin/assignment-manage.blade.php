@@ -1,4 +1,4 @@
-<div class="p-6 max-w-5xl mx-auto space-y-6">
+<div class="p-4 sm:p-6 max-w-5xl mx-auto space-y-6">
 
     {{-- Header --}}
     <div class="flex items-center justify-between flex-wrap gap-3">
@@ -133,7 +133,7 @@
                             </span>
                         </td>
                         <td class="px-4 py-3">
-                            <div class="flex items-center justify-end gap-3">
+                            <div class="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-end sm:gap-3">
                                 <button wire:click="edit({{ $assignment->id }})"
                                     class="text-xs font-medium text-zinc-500 hover:text-primary-600 transition">
                                     Editar

@@ -1,4 +1,4 @@
-<div class="p-6 max-w-6xl mx-auto space-y-6">
+<div class="p-4 sm:p-6 max-w-6xl mx-auto space-y-6">
 
     {{-- Breadcrumb + título --}}
     <div>
@@ -32,21 +32,21 @@
 
     {{-- Stats --}}
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="bg-white border border-zinc-200 rounded-xl p-4 text-center">
-            <p class="text-2xl font-bold text-zinc-900">{{ $counts['total'] }}</p>
-            <p class="text-xs text-zinc-500 mt-0.5">Total</p>
+        <div class="bg-white border border-zinc-200 rounded-xl p-5">
+            <p class="text-xs text-zinc-500 uppercase tracking-wide mb-1">Total</p>
+            <p class="text-3xl font-bold text-zinc-900">{{ $counts['total'] }}</p>
         </div>
-        <div class="bg-white border border-zinc-200 rounded-xl p-4 text-center">
-            <p class="text-2xl font-bold text-secondary-600">{{ $counts['pendiente'] }}</p>
-            <p class="text-xs text-zinc-500 mt-0.5">Pendientes</p>
+        <div class="bg-white border border-zinc-200 rounded-xl p-5">
+            <p class="text-xs text-zinc-500 uppercase tracking-wide mb-1">Pendientes</p>
+            <p class="text-3xl font-bold text-secondary-600">{{ $counts['pendiente'] }}</p>
         </div>
-        <div class="bg-white border border-zinc-200 rounded-xl p-4 text-center">
-            <p class="text-2xl font-bold text-green-600">{{ $counts['aprobado'] }}</p>
-            <p class="text-xs text-zinc-500 mt-0.5">Aprobados</p>
+        <div class="bg-white border border-zinc-200 rounded-xl p-5">
+            <p class="text-xs text-zinc-500 uppercase tracking-wide mb-1">Aprobados</p>
+            <p class="text-3xl font-bold text-green-600">{{ $counts['aprobado'] }}</p>
         </div>
-        <div class="bg-white border border-zinc-200 rounded-xl p-4 text-center">
-            <p class="text-2xl font-bold text-red-600">{{ $counts['rechazado'] }}</p>
-            <p class="text-xs text-zinc-500 mt-0.5">Rechazados</p>
+        <div class="bg-white border border-zinc-200 rounded-xl p-5">
+            <p class="text-xs text-zinc-500 uppercase tracking-wide mb-1">Rechazados</p>
+            <p class="text-3xl font-bold text-red-600">{{ $counts['rechazado'] }}</p>
         </div>
     </div>
 
@@ -55,7 +55,7 @@
         <div>
             <label class="text-xs text-zinc-500 block mb-1">Estado</label>
             <select wire:model.live="statusFilter"
-                class="border border-zinc-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
+                class="border border-zinc-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
                 <option value="">Todos los estados</option>
                 <option value="pendiente">Pendiente</option>
                 <option value="aprobado">Aprobado</option>
@@ -144,27 +144,29 @@
                         @if ($reviewingDocId === $doc->id)
                             <tr class="bg-primary-50" wire:key="review-{{ $doc->id }}">
                                 <td colspan="5" class="px-5 py-3">
-                                    <div class="flex flex-wrap items-center gap-3">
-                                        <p class="text-xs font-semibold text-zinc-700">Revisando:
-                                            {{ $doc->user->name }}</p>
+                                    <p class="text-xs font-semibold text-zinc-700 mb-2">Revisando:
+                                        {{ $doc->user->name }}</p>
+                                    <div class="grid gap-3">
                                         <select wire:model="reviewStatus"
-                                            class="border border-zinc-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
+                                            class="w-full sm:w-auto border border-zinc-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
                                             <option value="aprobado">Aprobado</option>
                                             <option value="rechazado">Rechazado</option>
                                         </select>
                                         <input wire:model="adminNotes" type="text"
                                             placeholder="Nota para el becario (opcional)"
-                                            class="flex-1 min-w-50 border border-zinc-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
-                                        <button wire:click="saveReview" wire:loading.attr="disabled"
-                                            wire:target="saveReview"
-                                            class="px-4 py-1.5 bg-primary-600 text-white text-sm font-semibold rounded-lg hover:bg-primary-700 transition disabled:opacity-50">
-                                            <span wire:loading.remove wire:target="saveReview">Guardar</span>
-                                            <span wire:loading wire:target="saveReview">Guardando...</span>
-                                        </button>
-                                        <button wire:click="cancelReview"
-                                            class="px-4 py-1.5 bg-zinc-200 text-zinc-700 text-sm font-semibold rounded-lg hover:bg-zinc-300 transition">
-                                            Cancelar
-                                        </button>
+                                            class="w-full border border-zinc-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
+                                        <div class="flex gap-3">
+                                            <button wire:click="saveReview" wire:loading.attr="disabled"
+                                                wire:target="saveReview"
+                                                class="px-4 py-2.5 bg-primary-600 text-white text-sm font-semibold rounded-lg hover:bg-primary-700 transition disabled:opacity-50">
+                                                <span wire:loading.remove wire:target="saveReview">Guardar</span>
+                                                <span wire:loading wire:target="saveReview">Guardando...</span>
+                                            </button>
+                                            <button wire:click="cancelReview"
+                                                class="px-4 py-2.5 bg-zinc-200 text-zinc-700 text-sm font-semibold rounded-lg hover:bg-zinc-300 transition">
+                                                Cancelar
+                                            </button>
+                                        </div>
                                     </div>
                                 </td>
                             </tr>

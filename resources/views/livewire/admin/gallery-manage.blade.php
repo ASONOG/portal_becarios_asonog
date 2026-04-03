@@ -1,4 +1,4 @@
-<div class="p-6 max-w-5xl mx-auto space-y-6">
+<div class="p-4 sm:p-6 max-w-5xl mx-auto space-y-6">
 
     {{-- Header --}}
     <div class="flex items-center justify-between flex-wrap gap-3">
@@ -120,7 +120,7 @@
     @else
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             @foreach ($photos as $galleryPhoto)
-                <div class="bg-white border border-zinc-200 rounded-xl overflow-hidden group relative">
+                <div class="bg-white border border-zinc-200 rounded-xl overflow-hidden">
                     <div class="aspect-square overflow-hidden bg-zinc-100">
                         <img src="{{ $galleryPhoto->image_url }}"
                              alt="{{ $galleryPhoto->title }}"
@@ -135,21 +135,21 @@
                             </span>
                             <span class="text-xs text-zinc-400">{{ $galleryPhoto->category_label }}</span>
                         </div>
-                    </div>
-                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-                        <button wire:click="edit({{ $galleryPhoto->id }})"
-                            class="px-3 py-1.5 bg-white text-zinc-800 text-xs font-semibold rounded-lg hover:bg-zinc-100 transition">
-                            Editar
-                        </button>
-                        <button wire:click="toggleActive({{ $galleryPhoto->id }})"
-                            class="px-3 py-1.5 bg-white text-zinc-800 text-xs font-semibold rounded-lg hover:bg-zinc-100 transition">
-                            {{ $galleryPhoto->is_active ? 'Ocultar' : 'Mostrar' }}
-                        </button>
-                        <button wire:click="delete({{ $galleryPhoto->id }})"
-                            wire:confirm="¿Eliminar esta foto? Esta acción no se puede deshacer."
-                            class="px-3 py-1.5 bg-red-600 text-white text-xs font-semibold rounded-lg hover:bg-red-700 transition">
-                            Eliminar
-                        </button>
+                        <div class="flex items-center gap-1.5 mt-2 pt-2 border-t border-zinc-100">
+                            <button wire:click="edit({{ $galleryPhoto->id }})"
+                                class="flex-1 px-2 py-1.5 bg-zinc-100 text-zinc-700 text-xs font-medium rounded-lg hover:bg-zinc-200 transition text-center">
+                                Editar
+                            </button>
+                            <button wire:click="toggleActive({{ $galleryPhoto->id }})"
+                                class="flex-1 px-2 py-1.5 bg-zinc-100 text-zinc-700 text-xs font-medium rounded-lg hover:bg-zinc-200 transition text-center">
+                                {{ $galleryPhoto->is_active ? 'Ocultar' : 'Mostrar' }}
+                            </button>
+                            <button wire:click="delete({{ $galleryPhoto->id }})"
+                                wire:confirm="¿Eliminar esta foto? Esta acción no se puede deshacer."
+                                class="px-2 py-1.5 bg-red-50 text-red-600 text-xs font-medium rounded-lg hover:bg-red-100 transition">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
             @endforeach

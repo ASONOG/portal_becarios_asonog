@@ -69,7 +69,7 @@
             <div class="px-3 pb-3">
                 <div class="rounded-lg bg-primary-50 border border-primary-100 p-3 text-xs text-primary-600">
                     <p class="font-semibold mb-0.5">¿Necesitas ayuda?</p>
-                    <p class="text-primary-600">Contáctanos en <a href="mailto:becas@asonog.hn" class="underline">becas@asonog.hn</a></p>
+                    <p class="text-primary-600">Contáctanos en <a href="mailto:talentohumano@asonog.hn" class="underline">talentohumano@asonog.hn</a></p>
                 </div>
             </div>
 

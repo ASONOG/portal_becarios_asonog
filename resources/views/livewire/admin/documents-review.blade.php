@@ -1,4 +1,4 @@
-<div class="p-6 max-w-6xl mx-auto space-y-6">
+<div class="p-4 sm:p-6 max-w-6xl mx-auto space-y-6">
 
     <div>
         <h1 class="text-2xl font-bold text-zinc-900">Revisión de Documentos</h1>
@@ -7,21 +7,21 @@
 
     {{-- Stats --}}
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="bg-white border border-zinc-200 rounded-xl p-4 text-center">
-            <p class="text-2xl font-bold text-zinc-900">{{ $counts['total'] }}</p>
-            <p class="text-xs text-zinc-500 mt-0.5">Total</p>
+        <div class="bg-white border border-zinc-200 rounded-xl p-5">
+            <p class="text-xs text-zinc-500 uppercase tracking-wide mb-1">Total</p>
+            <p class="text-3xl font-bold text-zinc-900">{{ $counts['total'] }}</p>
         </div>
-        <div class="bg-white border border-zinc-200 rounded-xl p-4 text-center">
-            <p class="text-2xl font-bold text-secondary-600">{{ $counts['pendiente'] }}</p>
-            <p class="text-xs text-zinc-500 mt-0.5">Pendientes</p>
+        <div class="bg-white border border-zinc-200 rounded-xl p-5">
+            <p class="text-xs text-zinc-500 uppercase tracking-wide mb-1">Pendientes</p>
+            <p class="text-3xl font-bold text-secondary-600">{{ $counts['pendiente'] }}</p>
         </div>
-        <div class="bg-white border border-zinc-200 rounded-xl p-4 text-center">
-            <p class="text-2xl font-bold text-green-600">{{ $counts['aprobado'] }}</p>
-            <p class="text-xs text-zinc-500 mt-0.5">Aprobados</p>
+        <div class="bg-white border border-zinc-200 rounded-xl p-5">
+            <p class="text-xs text-zinc-500 uppercase tracking-wide mb-1">Aprobados</p>
+            <p class="text-3xl font-bold text-green-600">{{ $counts['aprobado'] }}</p>
         </div>
-        <div class="bg-white border border-zinc-200 rounded-xl p-4 text-center">
-            <p class="text-2xl font-bold text-red-600">{{ $counts['rechazado'] }}</p>
-            <p class="text-xs text-zinc-500 mt-0.5">Rechazados</p>
+        <div class="bg-white border border-zinc-200 rounded-xl p-5">
+            <p class="text-xs text-zinc-500 uppercase tracking-wide mb-1">Rechazados</p>
+            <p class="text-3xl font-bold text-red-600">{{ $counts['rechazado'] }}</p>
         </div>
     </div>
 
@@ -30,7 +30,7 @@
         <div>
             <label class="text-xs text-zinc-500 block mb-1">Solicitud</label>
             <select wire:model.live="assignmentFilter"
-                class="border border-zinc-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
+                class="border border-zinc-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
                 <option value="">Todas las solicitudes</option>
                 @foreach ($allAssignments as $a)
                     <option value="{{ $a->id }}">{{ $a->title }}</option>
@@ -75,11 +75,11 @@
 
                 {{-- Barra de progreso mini --}}
                 <div class="flex items-center gap-3 shrink-0 ml-4">
-                    <div class="w-24 h-1.5 bg-zinc-100 rounded-full overflow-hidden hidden sm:block">
-                        @php $pct = $totalBecarios > 0 ? round(($assignment->total_documents_count / $totalBecarios) * 100) : 0; @endphp
+                    @php $pct = $totalBecarios > 0 ? round(($assignment->total_documents_count / $totalBecarios) * 100) : 0; @endphp
+                    <div class="w-16 sm:w-24 h-1.5 bg-zinc-100 rounded-full overflow-hidden">
                         <div class="h-full bg-primary-500 rounded-full" style="width: {{ $pct }}%"></div>
                     </div>
-                    <span class="text-xs text-zinc-400 hidden sm:inline">{{ $pct }}%</span>
+                    <span class="text-xs text-zinc-400">{{ $pct }}%</span>
                     <svg class="w-5 h-5 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>

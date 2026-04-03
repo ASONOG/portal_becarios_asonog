@@ -1,4 +1,4 @@
-<div class="p-6 max-w-4xl mx-auto space-y-8">
+<div class="p-4 sm:p-6 max-w-4xl mx-auto space-y-8">
 
     {{-- Header --}}
     <div>
@@ -14,7 +14,7 @@
 
     {{-- Solicitudes activas --}}
     <div class="space-y-4">
-        <h2 class="text-sm font-semibold text-zinc-700 uppercase tracking-wide">Solicitudes Activas</h2>
+        <h2 class="text-base font-semibold text-zinc-700 uppercase tracking-wide">Solicitudes Activas</h2>
 
         @forelse ($assignments as $assignment)
             @php $submission = $assignment->documents->first() @endphp
@@ -50,7 +50,7 @@
                                 <span class="px-3 py-1.5 rounded-full text-xs font-semibold bg-red-100 text-red-700">Rechazado</span>
                                 @unless ($assignment->isOverdue())
                                     <button wire:click="openUpload({{ $assignment->id }})"
-                                        class="flex items-center gap-1.5 px-4 py-2 bg-secondary-600 text-white text-sm font-semibold rounded-lg hover:bg-secondary-700 transition">
+                                        class="flex items-center gap-1.5 px-4 py-2.5 bg-secondary-600 text-white text-sm font-semibold rounded-lg hover:bg-secondary-700 transition">
                                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
                                         </svg>
@@ -63,7 +63,7 @@
                                 <span class="px-3 py-1.5 rounded-full text-xs font-semibold bg-red-100 text-red-700">Vencida</span>
                             @else
                                 <button wire:click="openUpload({{ $assignment->id }})"
-                                    class="flex items-center gap-1.5 px-4 py-2 bg-primary-600 text-white text-sm font-semibold rounded-lg hover:bg-primary-700 transition">
+                                    class="flex items-center gap-1.5 px-4 py-2.5 bg-primary-600 text-white text-sm font-semibold rounded-lg hover:bg-primary-700 transition">
                                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
                                     </svg>
@@ -76,16 +76,14 @@
 
                 {{-- Detalle de entrega existente --}}
                 @if ($submission)
-                    <div class="px-5 py-3 border-t border-zinc-100 bg-zinc-50 flex items-center justify-between gap-3 flex-wrap">
+                    <div class="px-5 py-3 border-t border-zinc-100 bg-zinc-50 space-y-2">
                         <div class="flex items-center gap-2 text-sm text-zinc-600">
                             <svg class="w-4 h-4 text-zinc-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                             </svg>
-                            <a href="{{ $submission->download_url }}" target="_blank" class="truncate max-w-55 text-primary-600 hover:underline font-medium">{{ $submission->file_name }}</a>
-                            <span class="text-zinc-400">·</span>
-                            <span class="text-zinc-400 text-xs">{{ $submission->file_size_formatted }}</span>
-                            <span class="text-zinc-400">·</span>
-                            <span class="text-zinc-400 text-xs">{{ $submission->created_at->format('d/m/Y') }}</span>
+                            <a href="{{ $submission->download_url }}" target="_blank" class="truncate max-w-[200px] sm:max-w-xs text-primary-600 hover:underline font-medium">{{ $submission->file_name }}</a>
+                            <span class="text-zinc-400 text-xs shrink-0">{{ $submission->file_size_formatted }}</span>
+                            <span class="text-zinc-400 text-xs shrink-0">{{ $submission->created_at->format('d/m/Y') }}</span>
                         </div>
                         @if ($submission->admin_notes)
                             <p class="text-xs text-primary-600 bg-primary-50 px-2.5 py-1 rounded">
@@ -95,7 +93,7 @@
                         @if ($submission->status === 'pendiente')
                             <button wire:click="deleteSubmission({{ $submission->id }})"
                                 wire:confirm="¿Eliminar esta entrega? Podrás subir el archivo nuevamente."
-                                class="text-xs text-red-500 hover:text-red-700 transition">
+                                class="text-xs text-red-600 font-medium px-3 py-2 rounded-lg hover:bg-red-50 transition">
                                 Eliminar entrega
                             </button>
                         @endif
@@ -125,13 +123,13 @@
                             </div>
                             <div class="flex items-center gap-3">
                                 <button type="submit"
-                                    class="px-4 py-2 bg-primary-600 text-white text-sm font-semibold rounded-lg hover:bg-primary-700 transition"
+                                    class="px-4 py-2.5 bg-primary-600 text-white text-sm font-semibold rounded-lg hover:bg-primary-700 transition"
                                     wire:loading.attr="disabled" wire:target="submit">
                                     <span wire:loading.remove wire:target="submit">Enviar archivo</span>
                                     <span wire:loading wire:target="submit">Enviando...</span>
                                 </button>
                                 <button type="button" wire:click="cancelUpload"
-                                    class="px-4 py-2 bg-white text-zinc-700 text-sm font-semibold rounded-lg border border-zinc-300 hover:bg-zinc-50 transition">
+                                    class="px-4 py-2.5 bg-white text-zinc-700 text-sm font-semibold rounded-lg border border-zinc-300 hover:bg-zinc-50 transition">
                                     Cancelar
                                 </button>
                             </div>
@@ -153,7 +151,7 @@
     {{-- Historial de entregas --}}
     @if ($submissions->isNotEmpty())
     <div class="space-y-4">
-        <h2 class="text-sm font-semibold text-zinc-700 uppercase tracking-wide">Historial de Entregas</h2>
+        <h2 class="text-base font-semibold text-zinc-700 uppercase tracking-wide">Historial de Entregas</h2>
         <div class="bg-white border border-zinc-200 rounded-xl overflow-hidden">
             <table class="w-full text-sm">
                 <thead class="bg-zinc-50 border-b border-zinc-200">
