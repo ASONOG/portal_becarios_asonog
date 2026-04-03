@@ -19,7 +19,7 @@
                        class="inline-block bg-primary-600 hover:bg-primary-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors">
                         Ver programas
                     </a>
-                    <a href="{{ route('about') }}"
+                    <a href="{{ route('gallery') }}"
                        class="inline-block border border-zinc-300 hover:border-zinc-400 text-zinc-700 font-medium px-6 py-3 rounded-lg transition-colors">
                         Conocer más
                     </a>
@@ -73,7 +73,7 @@
                     ASONOG ha acompañado de manera constante a sus poblaciones meta, impulsando la educación y el fortalecimiento integral como caminos para transformar vidas. A través de oportunidades de aprendizaje y crecimiento, promovemos el desarrollo de capacidades, el liderazgo y la esperanza en un futuro con más posibilidades para todas las personas.
                 </p>
                
-                <a href="{{ route('about') }}"
+                <a href="{{ route('gallery') }}"
                    class="mt-6 inline-flex items-center gap-2 text-primary-600 font-medium hover:text-primary-800 transition-colors">
                     Conocer más sobre ASONOG
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -269,7 +269,7 @@
                 Explora nuestra galería fotográfica: becarios, comunidades y voluntariados que dan vida a la misión de ASONOG.
             </p>
             <div class="mt-8">
-                <a href="{{ route('about') }}"
+                <a href="{{ route('gallery') }}"
                    class="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-8 py-3.5 rounded-lg transition-colors">
                     Ver galería
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

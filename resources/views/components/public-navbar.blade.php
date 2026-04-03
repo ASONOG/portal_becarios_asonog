@@ -19,9 +19,9 @@
                    class="text-zinc-600 hover:text-primary-600 transition-colors {{ request()->routeIs('home') ? 'text-primary-600' : '' }}">
                     Inicio
                 </a>
-                <a href="{{ route('about') }}"
-                   class="text-zinc-600 hover:text-primary-600 transition-colors {{ request()->routeIs('about') ? 'text-primary-600' : '' }}">
-                    Nosotros
+                <a href="{{ route('gallery') }}"
+                   class="text-zinc-600 hover:text-primary-600 transition-colors {{ request()->routeIs('gallery') ? 'text-primary-600' : '' }}">
+                    Galería
                 </a>
                 <a href="{{ route('programs') }}"
                    class="text-zinc-600 hover:text-primary-600 transition-colors {{ request()->routeIs('programs') ? 'text-primary-600' : '' }}">
@@ -77,7 +77,7 @@
     <div x-show="open" x-transition class="md:hidden border-t border-zinc-100 bg-white">
         <div class="px-4 py-3 space-y-1 text-sm font-medium">
             <a href="{{ route('home') }}" class="block py-2 text-zinc-700 hover:text-primary-600">Inicio</a>
-            <a href="{{ route('about') }}" class="block py-2 text-zinc-700 hover:text-primary-600">Nosotros</a>
+            <a href="{{ route('gallery') }}" class="block py-2 text-zinc-700 hover:text-primary-600">Galería</a>
             <a href="{{ route('programs') }}" class="block py-2 text-zinc-700 hover:text-primary-600">Becas</a>
             <a href="{{ route('internships') }}" class="block py-2 text-zinc-700 hover:text-primary-600">Prácticas</a>
             <a href="{{ route('donate') }}" class="block py-2 text-zinc-700 hover:text-primary-600">Donar</a>

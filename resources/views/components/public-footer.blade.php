@@ -18,7 +18,7 @@
                 <h3 class="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-3">Navegación</h3>
                 <ul class="space-y-2 text-sm">
                     <li><a href="{{ route('home') }}" class="hover:text-white transition-colors">Inicio</a></li>
-                    <li><a href="{{ route('about') }}" class="hover:text-white transition-colors">Sobre ASONOG</a></li>
+                    <li><a href="{{ route('gallery') }}" class="hover:text-white transition-colors">Galería</a></li>
                     <li><a href="{{ route('programs') }}" class="hover:text-white transition-colors">Becas</a></li>
                     <li><a href="{{ route('internships') }}" class="hover:text-white transition-colors">Prácticas</a></li>
                     <li><a href="{{ route('donate') }}" class="hover:text-white transition-colors">Donar</a></li>
