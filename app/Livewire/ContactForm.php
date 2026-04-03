@@ -28,6 +28,8 @@ class ContactForm extends Component
 
     public function submit(): void
     {
+        $this->rateLimit(5);
+
         $validated = $this->validate();
 
         Mail::to(config('mail.from.address'))->send(new ContactoMensaje($validated));

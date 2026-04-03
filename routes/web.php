@@ -27,8 +27,8 @@ Route::view('/donar', 'pages.donate')->name('donate');
 // -------------------------
 // PayPal (donaciones)
 // -------------------------
-Route::post('/paypal/create-order', [PayPalController::class, 'createOrder'])->name('paypal.create-order');
-Route::post('/paypal/capture-order', [PayPalController::class, 'captureOrder'])->name('paypal.capture-order');
+Route::post('/paypal/create-order', [PayPalController::class, 'createOrder'])->middleware('throttle:10,1')->name('paypal.create-order');
+Route::post('/paypal/capture-order', [PayPalController::class, 'captureOrder'])->middleware('throttle:10,1')->name('paypal.capture-order');
 
 // -------------------------
 // Redirección post-login según rol

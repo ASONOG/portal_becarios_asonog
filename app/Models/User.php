@@ -57,6 +57,11 @@ class User extends Authenticatable
         return $this->hasMany(Document::class);
     }
 
+    public function assignments(): HasMany
+    {
+        return $this->hasMany(Assignment::class, 'created_by');
+    }
+
     public function profileCompletionPercentage(): int
     {
         $fields = ['name', 'email', 'phone', 'national_id', 'institution', 'career'];

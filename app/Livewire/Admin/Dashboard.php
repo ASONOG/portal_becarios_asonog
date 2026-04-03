@@ -12,7 +12,7 @@ class Dashboard extends Component
 {
     public function render()
     {
-        return view('admin.dashboard', [
+        return view('livewire.admin.dashboard', [
             'totalBecarios'  => User::where('role', 'becario')->count(),
             'totalDocs'      => Document::count(),
             'pendientes'     => Document::where('status', 'pendiente')->count(),

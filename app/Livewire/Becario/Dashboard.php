@@ -14,7 +14,7 @@ class Dashboard extends Component
 
         $documents = $user->documents();
 
-        return view('becario.dashboard', [
+        return view('livewire.becario.dashboard', [
             'completion'      => $user->profileCompletionPercentage(),
             'docs'            => $user->documents()->latest()->take(5)->get(),
             'pendingCount'    => (clone $documents)->where('status', 'pendiente')->count(),
