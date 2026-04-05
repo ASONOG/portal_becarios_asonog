@@ -23,6 +23,14 @@ class BecarioCreate extends Component
         $this->validate([
             'name'  => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
+        ], 
+        [
+            'name.required'  => 'El nombre es obligatorio.',
+            'name.max'       => 'El nombre no debe exceder 255 caracteres.',
+            'email.required' => 'El correo es obligatorio.',
+            'email.email'    => 'El correo debe ser una dirección válida.',
+            'email.max'      => 'El correo no debe exceder 255 caracteres.',
+            'email.unique'   => 'Este correo ya está registrado.',
         ]);
 
         $user = User::create([

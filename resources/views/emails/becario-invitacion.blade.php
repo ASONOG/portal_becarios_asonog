@@ -1,9 +1,9 @@
 <x-mail::message>
-# Bienvenido al Portal ASONOG
+# Bienvenido al Portal de Becarios de {{ config('app.name') }}
 
 Hola **{{ $user->name }}**,
 
-Se ha creado una cuenta para ti en el Portal de Becarios de ASONOG.
+Se ha creado una cuenta para ti en el Portal de Becarios de {{ config('app.name') }}.
 
 Para acceder por primera vez, necesitas establecer tu contraseña haciendo clic en el siguiente botón:
 

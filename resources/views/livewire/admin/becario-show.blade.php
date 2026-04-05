@@ -14,6 +14,12 @@
                     <p class="text-zinc-400 text-sm">{{ $user->email }}</p>
                 </div>
             </div>
+
+            <div class="ml-auto">
+                <flux:modal.trigger name="confirm-delete-becario">
+                    <flux:button variant="danger" size="sm" icon="trash-2">Eliminar</flux:button>
+                </flux:modal.trigger>
+            </div>
         </div>
 
         @if (session('success'))
@@ -153,5 +159,25 @@
                 </div>
             </div>
         </div>
+
+        {{-- Modal de confirmación para eliminar becario --}}
+        <flux:modal name="confirm-delete-becario" focusable class="max-w-md">
+            <div class="space-y-6">
+                <div>
+                    <flux:heading size="lg">¿Eliminar a {{ $user->name }}?</flux:heading>
+                    <flux:subheading class="mt-2">
+                        Esta acción eliminará permanentemente la cuenta del becario, junto con todos sus documentos y datos asociados. Esta operación no se puede deshacer.
+                    </flux:subheading>
+                </div>
+
+                <div class="flex justify-end gap-2">
+                    <flux:modal.close>
+                        <flux:button variant="filled">Cancelar</flux:button>
+                    </flux:modal.close>
+
+                    <flux:button variant="danger" wire:click="deleteBecario">Eliminar becario</flux:button>
+                </div>
+            </div>
+        </flux:modal>
     </div>
 </div>

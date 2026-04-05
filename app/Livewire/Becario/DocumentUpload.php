@@ -37,6 +37,12 @@ class DocumentUpload extends Component
         $this->validate([
             'file'  => 'required|file|mimes:pdf,doc,docx,jpg,jpeg,png|max:5120',
             'notes' => 'nullable|string|max:500',
+        ], [
+            'file.required' => 'Debe seleccionar un archivo.',
+            'file.file'     => 'El archivo no es válido.',
+            'file.mimes'    => 'El archivo debe ser PDF, DOC, DOCX, JPG o PNG.',
+            'file.max'      => 'El archivo no debe pesar más de 5 MB.',
+            'notes.max'     => 'Las notas no deben exceder 500 caracteres.',
         ]);
 
         $assignment = Assignment::where('id', $this->activeAssignmentId)

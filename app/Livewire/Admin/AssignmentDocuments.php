@@ -40,6 +40,10 @@ class AssignmentDocuments extends Component
         $this->validate([
             'reviewStatus' => 'required|in:aprobado,rechazado',
             'adminNotes'   => 'nullable|string|max:1000',
+        ], [
+            'reviewStatus.required' => 'Debe seleccionar un estado de revisión.',
+            'reviewStatus.in'       => 'El estado debe ser aprobado o rechazado.',
+            'adminNotes.max'        => 'Las notas no deben exceder 1000 caracteres.',
         ]);
 
         Document::where('id', $this->reviewingDocId)->update([

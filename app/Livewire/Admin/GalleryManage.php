@@ -50,6 +50,8 @@ class GalleryManage extends Component
             'category'    => 'required|in:becarios,voluntariados,eventos,comunidades',
             'size'        => 'required|in:landscape,portrait,landscape-lg',
             'photo'       => 'required|image|max:2048',
+        ], $this->validationMessages() + [
+            'photo.required' => 'La foto es obligatoria.',
         ]);
 
         $path = $this->storeAsWebp($this->photo);
@@ -90,7 +92,7 @@ class GalleryManage extends Component
             'category'    => 'required|in:becarios,voluntariados,eventos,comunidades',
             'size'        => 'required|in:landscape,portrait,landscape-lg',
             'photo'       => 'nullable|image|max:2048',
-        ]);
+        ], $this->validationMessages());
 
         $galleryPhoto = GalleryPhoto::findOrFail($this->editingId);
 
@@ -142,6 +144,21 @@ class GalleryManage extends Component
         Storage::disk('public')->put($path, $encoded->toStream());
 
         return $path;
+    }
+
+    private function validationMessages(): array
+    {
+        return [
+            'title.required'    => 'El título es obligatorio.',
+            'title.max'         => 'El título no debe exceder 255 caracteres.',
+            'description.max'   => 'La descripción no debe exceder 500 caracteres.',
+            'category.required' => 'La categoría es obligatoria.',
+            'category.in'       => 'La categoría seleccionada no es válida.',
+            'size.required'     => 'El tamaño es obligatorio.',
+            'size.in'           => 'El tamaño seleccionado no es válido.',
+            'photo.image'       => 'El archivo debe ser una imagen.',
+            'photo.max'         => 'La imagen no debe pesar más de 2 MB.',
+        ];
     }
 
     public function render()

@@ -31,7 +31,7 @@ class AssignmentManage extends Component
             'type'        => 'required|in:informe,documento,otro',
             'description' => 'nullable|string|max:1000',
             'due_date'    => 'nullable|date',
-        ]);
+        ], $this->validationMessages());
 
         Assignment::create([
             'title'       => $this->title,
@@ -64,7 +64,7 @@ class AssignmentManage extends Component
             'type'        => 'required|in:informe,documento,otro',
             'description' => 'nullable|string|max:1000',
             'due_date'    => 'nullable|date',
-        ]);
+        ], $this->validationMessages());
 
         $assignment = Assignment::findOrFail($this->editingId);
         $assignment->update([
@@ -95,6 +95,18 @@ class AssignmentManage extends Component
     {
         Assignment::findOrFail($id)->delete();
         session()->flash('success', 'Solicitud eliminada.');
+    }
+
+    private function validationMessages(): array
+    {
+        return [
+            'title.required'   => 'El título es obligatorio.',
+            'title.max'        => 'El título no debe exceder 255 caracteres.',
+            'type.required'    => 'El tipo es obligatorio.',
+            'type.in'          => 'El tipo debe ser informe, documento u otro.',
+            'description.max'  => 'La descripción no debe exceder 1000 caracteres.',
+            'due_date.date'    => 'La fecha límite debe ser una fecha válida.',
+        ];
     }
 
     public function render()
