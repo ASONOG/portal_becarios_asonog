@@ -13,11 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        if (! app()->isLocal()) {
-            $this->command->warn('Seeder omitido: solo se ejecuta en entorno local.');
-            return;
-        }
-
         // Administrador ASONOG
         User::firstOrCreate(
             ['email' => 'admin@asonog.hn'],

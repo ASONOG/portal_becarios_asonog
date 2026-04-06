@@ -21,7 +21,7 @@
             <p class="text-3xl font-bold text-secondary-600">{{ $totalPendientes }}</p>
         </div>
         <div class="bg-white border border-zinc-200 rounded-xl p-5">
-            <p class="text-xs text-zinc-500 uppercase tracking-wide mb-1">Monto Recaudado</p>
+            <p class="text-xs text-zinc-500 uppercase tracking-wide mb-1">Monto Recaudado Bruto</p>
             <p class="text-3xl font-bold text-primary-600">
                 ${{ number_format($montoTotal, 2) }}
             </p>
