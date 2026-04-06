@@ -2,8 +2,11 @@
 
 namespace App\Livewire;
 
+use App\Mail\InteresContacto;
+use App\Mail\TransferenciaBancaria;
 use App\Models\BankTransferDonation;
 use App\Models\InterestDonation;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\RateLimiter;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -66,13 +69,15 @@ class DonationPage extends Component
 
         $path = $this->bank_receipt->store('comprobantes', 'public');
 
-        BankTransferDonation::create([
+        $donation = BankTransferDonation::create([
             'donor_name'   => $this->bank_donor_name,
             'amount'       => $this->bank_amount,
             'bank_name'    => $this->bank_name,
             'receipt_path' => $path,
             'receipt_name' => $this->bank_receipt->getClientOriginalName(),
         ]);
+
+        Mail::to(config('mail.from.address'))->send(new TransferenciaBancaria($donation));
 
         $this->reset(['bank_donor_name', 'bank_amount', 'bank_name', 'bank_receipt']);
         $this->bankSent = true;
@@ -105,12 +110,14 @@ class DonationPage extends Component
             'interest_message.max'      => 'El mensaje no debe exceder 2000 caracteres.',
         ]);
 
-        InterestDonation::create([
+        $interest = InterestDonation::create([
             'name'    => $this->interest_name,
             'email'   => $this->interest_email,
             'phone'   => $this->interest_phone ?: null,
             'message' => $this->interest_message,
         ]);
+
+        Mail::to(config('mail.from.address'))->send(new InteresContacto($interest));
 
         $this->reset(['interest_name', 'interest_email', 'interest_phone', 'interest_message']);
         $this->interestSent = true;
