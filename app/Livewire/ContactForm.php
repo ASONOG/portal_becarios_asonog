@@ -40,7 +40,7 @@ class ContactForm extends Component
 
         $validated = $this->validate();
 
-        Mail::to(config('mail.from.address'))->send(new ContactoMensaje($validated));
+        Mail::to(config('mail.contact_email', config('mail.from.address')))->send(new ContactoMensaje($validated));
 
         $this->reset(['name', 'last_name', 'email', 'subject', 'message']);
         $this->sent = true;
