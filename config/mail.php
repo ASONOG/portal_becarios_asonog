@@ -117,14 +117,15 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Contact Form Email
+    | Notification Email
     |--------------------------------------------------------------------------
     |
-    | Dirección de correo que recibirá los mensajes enviados desde el
-    | formulario de contacto. Si no se define, se usa la dirección "from".
+    | Dirección de correo que recibirá todas las notificaciones
+    | administrativas (contacto, donaciones, transferencias).
+    | Si no se define, se usa la dirección "from".
     |
     */
 
-    'contact_email' => env('CONTACT_EMAIL'),
+    'notification_email' => env('NOTIFICATION_EMAIL'),
 
 ];

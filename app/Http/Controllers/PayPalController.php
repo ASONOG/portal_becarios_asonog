@@ -83,7 +83,7 @@ class PayPalController extends Controller
                 'paid_at' => now(),
             ]);
 
-            Mail::to(config('mail.from.address'))->send(new DonacionInteres([
+            Mail::to(config('mail.notification_email', config('mail.from.address')))->send(new DonacionInteres([
                 'donor_name' => $donation->anonymous ? 'Anónimo' : $donation->donor_name,
                 'donor_email' => $donation->donor_email,
                 'amount' => $donation->amount,

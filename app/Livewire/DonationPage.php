@@ -77,7 +77,7 @@ class DonationPage extends Component
             'receipt_name' => $this->bank_receipt->getClientOriginalName(),
         ]);
 
-        Mail::to(config('mail.from.address'))->send(new TransferenciaBancaria($donation));
+        Mail::to(config('mail.notification_email', config('mail.from.address')))->send(new TransferenciaBancaria($donation));
 
         $this->reset(['bank_donor_name', 'bank_amount', 'bank_name', 'bank_receipt']);
         $this->bankSent = true;
@@ -117,7 +117,7 @@ class DonationPage extends Component
             'message' => $this->interest_message,
         ]);
 
-        Mail::to(config('mail.from.address'))->send(new InteresContacto($interest));
+        Mail::to(config('mail.notification_email', config('mail.from.address')))->send(new InteresContacto($interest));
 
         $this->reset(['interest_name', 'interest_email', 'interest_phone', 'interest_message']);
         $this->interestSent = true;
