@@ -45,7 +45,7 @@
                 <p class="text-sm text-zinc-500 mt-1">Años de experiencia</p>
             </div>
             <div data-aos="fade-up" data-aos-delay="100">
-                <p class="text-3xl font-bold text-primary-600">200+</p>
+                <p class="text-3xl font-bold text-primary-600">100+</p>
                 <p class="text-sm text-zinc-500 mt-1">Becarios activos</p>
             </div>
             <div data-aos="fade-up" data-aos-delay="200">
