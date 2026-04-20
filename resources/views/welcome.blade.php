@@ -26,11 +26,23 @@
                 </div>
             </div>
 
-            {{-- Imagen hero --}}
-            <div data-aos="fade-left" data-aos-delay="200" class="hidden lg:block">
-                <img src="{{ asset('img/hero-img.webp') }}"
-                     alt="Becarios de ASONOG"
-                     class="w-full rounded-2xl shadow-xl object-cover aspect-4/3">
+            {{-- Mosaico de becarios --}}
+            <div data-aos="fade-left" data-aos-delay="200" class="hidden lg:grid grid-cols-3 gap-3 items-center">
+                <div class="translate-y-10">
+                    <img src="{{ asset('img/becario-2_hero.webp') }}"
+                         alt="Becario de ASONOG recibiendo equipo"
+                         class="w-full rounded-2xl shadow-lg object-cover aspect-9/16">
+                </div>
+                <div class="-translate-y-10">
+                    <img src="{{ asset('img/becario-3_hero.webp') }}"
+                         alt="Becaria de ASONOG con su computadora"
+                         class="w-full rounded-2xl shadow-lg object-cover aspect-9/16">
+                </div>
+                <div class="translate-y-10">
+                    <img src="{{ asset('img/becario-1_hero.webp') }}"
+                         alt="Entrega de computadoras a becarios"
+                         class="w-full rounded-2xl shadow-lg object-cover aspect-9/16">
+                </div>
             </div>
         </div>
     </div>

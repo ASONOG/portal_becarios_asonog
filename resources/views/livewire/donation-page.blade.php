@@ -83,15 +83,11 @@
                     <div class="space-y-2 text-sm text-blue-700">
                         <div class="flex justify-between items-center bg-white/60 rounded-lg px-3 py-2">
                             <span class="font-medium">Banco:</span>
-                            <span>[NOMBRE DEL BANCO]</span>
+                            <span>Banco de Occidente</span>
                         </div>
                         <div class="flex justify-between items-center bg-white/60 rounded-lg px-3 py-2">
                             <span class="font-medium">Cuenta (Lempiras):</span>
-                            <span>[NÚMERO DE CUENTA HNL]</span>
-                        </div>
-                        <div class="flex justify-between items-center bg-white/60 rounded-lg px-3 py-2">
-                            <span class="font-medium">Cuenta (Dólares):</span>
-                            <span>[NÚMERO DE CUENTA USD]</span>
+                            <span>11-101-003738-3</span>
                         </div>
                         <div class="flex justify-between items-center bg-white/60 rounded-lg px-3 py-2">
                             <span class="font-medium">A nombre de:</span>
