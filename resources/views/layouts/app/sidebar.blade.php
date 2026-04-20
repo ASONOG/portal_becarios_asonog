@@ -36,6 +36,9 @@
                             <flux:sidebar.item icon="currency-dollar" :href="route('admin.donations.index')" :current="request()->routeIs('admin.donations.*')" wire:navigate>
                                 Donaciones
                             </flux:sidebar.item>
+                            <flux:sidebar.item icon="academic-cap" :href="route('admin.internships.index')" :current="request()->routeIs('admin.internships.*')" wire:navigate>
+                                Prácticas
+                            </flux:sidebar.item>
                         </flux:sidebar.group>
                         <flux:sidebar.group heading="Cuenta" class="grid">
                             <flux:sidebar.item icon="user" :href="route('profile.edit')" :current="request()->routeIs('profile.edit')" wire:navigate>

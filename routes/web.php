@@ -10,6 +10,8 @@ use App\Livewire\Admin\BecarioShow;
 use App\Livewire\Admin\BecariosList;
 use App\Livewire\Admin\Dashboard as AdminDashboard;
 use App\Livewire\Admin\DocumentsReview;
+use App\Livewire\Admin\InternshipApplicationsList;
+use App\Livewire\Admin\InternshipApplicationShow;
 use App\Livewire\Becario\Dashboard as BecarioDashboard;
 use App\Livewire\Becario\DocumentUpload;
 use Illuminate\Support\Facades\Route;
@@ -68,6 +70,8 @@ Route::middleware(['auth', 'verified', 'role:admin'])
         Route::livewire('documentos/{assignment}', AssignmentDocuments::class)->name('documents.show');
         Route::livewire('galeria', GalleryManage::class)->name('gallery.index');
         Route::livewire('donaciones', DonationsList::class)->name('donations.index');
+        Route::livewire('practicas', InternshipApplicationsList::class)->name('internships.index');
+        Route::livewire('practicas/{application}', InternshipApplicationShow::class)->name('internships.show');
     });
 
 require __DIR__.'/settings.php';

@@ -255,9 +255,7 @@
         </div>
     </section>
 
-    {{-- Mecanismo de Inscripción --}}
-    @php $form_url = 'https://forms.gle/BRgEWw3ZpVq24R7JA'; @endphp
-
+    {{-- Formulario de Inscripción --}}
     <section class="py-20 bg-zinc-50" id="inscripcion">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -265,8 +263,8 @@
                 <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Inscripción</span>
                 <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">¿Cómo aplicar?</h2>
                 <p class="mt-3 text-zinc-500 max-w-xl mx-auto text-left md:text-center">
-                    El proceso es sencillo: completa el formulario en línea con tus datos y documentos,
-                    y nuestro equipo se pondrá en contacto contigo.
+                    Completa el formulario con tus datos y documentos, y nuestro equipo se pondrá en contacto contigo
+                    en un plazo de 5 días hábiles.
                 </p>
             </div>
 
@@ -287,34 +285,9 @@
                 @endforeach
             </div>
 
-            {{-- Form card --}}
-            <div data-aos="fade-up" data-aos-delay="160"
-                 class="bg-white border border-zinc-200 rounded-2xl p-8 shadow-sm text-center">
-
-                <div class="w-14 h-14 rounded-xl bg-primary-50 border border-primary-100 flex items-center justify-center mx-auto mb-5">
-                    <svg class="w-7 h-7 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"
-                              d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
-                    </svg>
-                </div>
-
-                <h3 class="text-lg font-bold text-zinc-900 mb-1">Formulario de Inscripción</h3>
-                <p class="text-sm text-zinc-500 mb-6 max-w-sm mx-auto">
-                    Tendrás que indicar el tipo de vinculación que te interesa, tu carrera, disponibilidad
-                    y adjuntar tu hoja de vida.
-                </p>
-
-                <a href="{{ $form_url }}" target="_blank" rel="noopener noreferrer"
-                   class="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-7 py-3 rounded-xl transition-colors shadow-sm">
-                    Llenar formulario
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                    </svg>
-                </a>
-
-                <p class="mt-4 text-xs text-zinc-400">
-                    El formulario abre en una nueva pestaña &middot; Respuesta en un plazo de 5 días hábiles
-                </p>
+            {{-- Formulario embebido --}}
+            <div data-aos="fade-up" data-aos-delay="160">
+                <livewire:internship-form />
             </div>
 
         </div>
@@ -343,11 +316,11 @@
 
             <div data-aos="fade-up" data-aos-delay="150" data-aos-duration="600"
                  class="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
-                <a href="{{ $form_url }}" target="_blank" rel="noopener noreferrer"
+                <a href="#inscripcion"
                    class="inline-flex items-center justify-center gap-2 bg-white text-primary-700 font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-primary-50 hover:-translate-y-0.5 hover:shadow-xl transition-all duration-200 text-base">
                     Llenar formulario
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                     </svg>
                 </a>
                 <a href="{{ route('contact') }}"
