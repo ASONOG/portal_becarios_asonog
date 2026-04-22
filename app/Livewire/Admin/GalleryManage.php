@@ -58,7 +58,7 @@ class GalleryManage extends Component
         try {
             $path = $this->storeAsWebp($this->photo);
         } catch (Throwable $e) {
-            $this->addError('photo', 'No se pudo procesar la imagen. Verifica que el formato esté soportado por el servidor.');
+            $this->addError('photo', $this->photoProcessingErrorMessage($this->photo));
             return;
         }
 
@@ -113,7 +113,7 @@ class GalleryManage extends Component
             try {
                 $data['image_path'] = $this->storeAsWebp($this->photo);
             } catch (Throwable $e) {
-                $this->addError('photo', 'No se pudo procesar la imagen. Verifica que el formato esté soportado por el servidor.');
+                $this->addError('photo', $this->photoProcessingErrorMessage($this->photo));
                 return;
             }
 
@@ -156,6 +156,17 @@ class GalleryManage extends Component
         Storage::disk('public')->put($path, $encoded->toStream());
 
         return $path;
+    }
+
+    private function photoProcessingErrorMessage(\Livewire\Features\SupportFileUploads\TemporaryUploadedFile $file): string
+    {
+        $mimeType = strtolower((string) $file->getMimeType());
+
+        if (str_contains($mimeType, 'heic') || str_contains($mimeType, 'heif')) {
+            return 'No pudimos procesar este archivo HEIC/HEIF en el servidor actual. Sube la imagen en JPG, PNG o WebP, o en iPhone cambia Camara > Formatos > Mas compatible.';
+        }
+
+        return 'No se pudo procesar la imagen seleccionada. Intenta con otro archivo JPG, PNG o WebP.';
     }
 
     private function validationMessages(): array
