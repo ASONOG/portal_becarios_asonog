@@ -10,6 +10,7 @@ use Intervention\Image\Laravel\Facades\Image;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Throwable;
 
 #[Title('Galería de Fotos')]
 class GalleryManage extends Component
@@ -49,12 +50,17 @@ class GalleryManage extends Component
             'description' => 'nullable|string|max:500',
             'category'    => 'required|in:becarios,voluntariados,eventos,comunidades',
             'size'        => 'required|in:landscape,portrait,landscape-lg',
-            'photo'       => 'required|image|max:2048',
+            'photo'       => 'required|file|mimetypes:image/jpeg,image/png,image/webp,image/heic,image/heif|max:2048',
         ], $this->validationMessages() + [
             'photo.required' => 'La foto es obligatoria.',
         ]);
 
-        $path = $this->storeAsWebp($this->photo);
+        try {
+            $path = $this->storeAsWebp($this->photo);
+        } catch (Throwable $e) {
+            $this->addError('photo', 'No se pudo procesar la imagen. Verifica que el formato esté soportado por el servidor.');
+            return;
+        }
 
         GalleryPhoto::create([
             'title'       => $this->title,
@@ -91,7 +97,7 @@ class GalleryManage extends Component
             'description' => 'nullable|string|max:500',
             'category'    => 'required|in:becarios,voluntariados,eventos,comunidades',
             'size'        => 'required|in:landscape,portrait,landscape-lg',
-            'photo'       => 'nullable|image|max:2048',
+            'photo'       => 'nullable|file|mimetypes:image/jpeg,image/png,image/webp,image/heic,image/heif|max:2048',
         ], $this->validationMessages());
 
         $galleryPhoto = GalleryPhoto::findOrFail($this->editingId);
@@ -104,8 +110,14 @@ class GalleryManage extends Component
         ];
 
         if ($this->photo) {
+            try {
+                $data['image_path'] = $this->storeAsWebp($this->photo);
+            } catch (Throwable $e) {
+                $this->addError('photo', 'No se pudo procesar la imagen. Verifica que el formato esté soportado por el servidor.');
+                return;
+            }
+
             Storage::disk('public')->delete($galleryPhoto->image_path);
-            $data['image_path'] = $this->storeAsWebp($this->photo);
             $data['image_name'] = pathinfo($this->photo->getClientOriginalName(), PATHINFO_FILENAME) . '.webp';
         }
 
@@ -156,7 +168,7 @@ class GalleryManage extends Component
             'category.in'       => 'La categoría seleccionada no es válida.',
             'size.required'     => 'El tamaño es obligatorio.',
             'size.in'           => 'El tamaño seleccionado no es válido.',
-            'photo.image'       => 'El archivo debe ser una imagen.',
+            'photo.mimetypes'   => 'La imagen debe estar en formato JPG, PNG, WebP o HEIC.',
             'photo.max'         => 'La imagen no debe pesar más de 2 MB.',
         ];
     }
