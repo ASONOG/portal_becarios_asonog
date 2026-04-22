@@ -89,7 +89,14 @@
                 <p class="text-xs text-zinc-400 mt-1">JPG, PNG, WebP o HEIC. Máximo 2 MB.</p>
                 @error('photo') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
 
-                <div wire:loading wire:target="photo" class="text-xs text-primary-600 mt-1">Subiendo imagen...</div>
+                <div wire:loading.flex wire:target="photo" role="status" aria-live="polite"
+                    class="mt-2 inline-flex items-center gap-2 rounded-md border border-primary-200 bg-primary-50 px-3 py-2 text-sm font-medium text-primary-700 shadow-sm">
+                    <svg class="h-4 w-4 animate-spin text-primary-600" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-90" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+                    </svg>
+                    <span>Subiendo imagen, por favor espera...</span>
+                </div>
             </div>
 
             <div class="flex items-center gap-3 pt-2">
