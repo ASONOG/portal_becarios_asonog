@@ -340,7 +340,7 @@
                         {{-- Estadísticas --}}
                         <div class="mt-7 flex gap-0 divide-x divide-zinc-200 border-t border-zinc-200 pt-6">
                             <div class="pr-7">
-                                <span class="block text-3xl font-extrabold text-zinc-900">+500</span>
+                                <span class="block text-3xl font-extrabold text-zinc-900">+100</span>
                                 <span
                                     class="text-xs text-zinc-400 mt-0.5 block leading-tight">Becarios<br>apoyados</span>
                             </div>
@@ -406,6 +406,82 @@
     {{-- Historias de Éxito --}}
     <x-historias-exito :flechas="true" :progreso="true" />
 
+    {{-- Agradecimiento a Aliados --}}
+    <section class="py-20 bg-zinc-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+
+                {{-- Bloque visual: impacto humano --}}
+                <div data-aos="fade-right" class="lg:col-span-5">
+                    <div class="relative h-full min-h-[430px] overflow-hidden rounded-3xl shadow-xl ring-1 ring-zinc-900/5">
+                        <img src="{{ asset('img/becario-aliados.webp') }}" alt="Becarios recibiendo computadoras gracias al apoyo de aliados"
+                            class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-zinc-900/35 to-zinc-900/10"></div>
+
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <p class="text-white font-semibold leading-snug text-base sm:text-lg">
+                                Su apoyo se convierte en oportunidades reales para becarios y sus comunidades.
+                            </p>
+                            <p class="text-zinc-200 text-xs mt-2 uppercase tracking-wide">Programa de becas · ASONOG</p>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Bloque de contenido y logos --}}
+                <div class="lg:col-span-7">
+                    <div data-aos="fade-up" class="mb-8">
+                        <span class="text-xs font-semibold uppercase tracking-widest text-primary-600">Aliados que lo hacen posible</span>
+                        <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-zinc-900">Aliados que impulsan oportunidades</h2>
+                        <p class="mt-5 text-zinc-600 leading-relaxed text-left">
+                            Expresamos nuestro sincero agradecimiento a <strong class="text-zinc-800 font-semibold">USAID</strong>
+                            y <strong class="text-zinc-800 font-semibold">Pan Para el Mundo</strong> por su valioso apoyo en la
+                            financiación de las becas, contribuyendo significativamente al fortalecimiento de oportunidades
+                            educativas y al desarrollo de talento. Su compromiso hace posible seguir construyendo un futuro
+                            más equitativo y sostenible.
+                        </p>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="80" class="flex flex-wrap gap-2.5 mb-8">
+                        <span class="inline-flex items-center rounded-full bg-white border border-zinc-200 px-3 py-1.5 text-xs font-semibold text-zinc-700">+100 becarios apoyados</span>
+                        <span class="inline-flex items-center rounded-full bg-white border border-zinc-200 px-3 py-1.5 text-xs font-semibold text-zinc-700">18 departamentos</span>
+                        <span class="inline-flex items-center rounded-full bg-white border border-zinc-200 px-3 py-1.5 text-xs font-semibold text-zinc-700">Equipamiento tecnológico</span>
+                    </div>
+
+                    {{-- Aliados --}}
+                    <div class="grid sm:grid-cols-2 gap-5">
+
+                        {{-- USAID --}}
+                        <div data-aos="fade-up" data-aos-delay="140"
+                            class="group relative bg-white rounded-2xl border border-zinc-100 p-7 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+                            <div class="flex items-center justify-center h-24 mb-5">
+                                <img src="{{ asset('img/usaid-logo.svg') }}" alt="Logo USAID"
+                                    class="max-h-16 w-auto object-contain">
+                            </div>
+                            <div class="text-center">
+                                <h3 class="font-semibold text-zinc-900">USAID</h3>
+                                <p class="text-sm text-zinc-500 mt-1.5">Financiamiento y cooperación para el desarrollo educativo.</p>
+                            </div>
+                        </div>
+
+                        {{-- Pan Para el Mundo --}}
+                        <div data-aos="fade-up" data-aos-delay="220"
+                            class="group relative bg-white rounded-2xl border border-zinc-100 p-7 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+                            <div class="flex items-center justify-center h-24 mb-5">
+                                <img src="{{ asset('img/pan-para-el-mundo-logo.svg') }}" alt="Logo Pan Para el Mundo"
+                                    class="max-h-16 w-auto object-contain">
+                            </div>
+                            <div class="text-center">
+                                <h3 class="font-semibold text-zinc-900">Pan Para el Mundo</h3>
+                                <p class="text-sm text-zinc-500 mt-1.5">Apoyo solidario para la equidad y el desarrollo sostenible.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     {{-- CTA Final --}}
     <section class="relative py-24 overflow-hidden bg-primary-700">
         {{-- Decorative circles --}}
@@ -430,7 +506,7 @@
             <div data-aos="fade-up" data-aos-delay="150" data-aos-duration="600" class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href="{{ route('contact') }}"
                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white text-primary-700 font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-primary-50 transition-colors text-base">
-                    Postular ahora
+                    Más información
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                     </svg>
