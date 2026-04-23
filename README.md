@@ -98,13 +98,11 @@ php artisan queue:listen # procesar cola de emails
 
 | Variable | Descripción |
 |---|---|
-| `MAIL_MAILER` | Driver de correo: `smtp`, `ses`, `postmark`, `resend`, `log` |
-| `MAIL_HOST` | Servidor SMTP |
-| `MAIL_PORT` | Puerto SMTP |
-| `MAIL_USERNAME` | Usuario SMTP |
-| `MAIL_PASSWORD` | Contraseña SMTP |
-| `MAIL_FROM_ADDRESS` | Dirección remitente (también recibe mensajes de contacto y notificaciones de donación) |
+| `MAIL_MAILER` | Driver de correo: `resend` (por defecto), `smtp`, `ses`, `postmark`, `log` |
+| `MAIL_FROM_ADDRESS` | Dirección remitente de los correos salientes |
 | `MAIL_FROM_NAME` | Nombre del remitente |
+| `RESEND_API_KEY` | API key de Resend (requerida si `MAIL_MAILER=resend`) |
+| `NOTIFICATION_EMAIL` | Dirección que recibe los mensajes de contacto y notificaciones de donación |
 
 ### PayPal
 
@@ -159,45 +157,59 @@ npm run dev                   # Vite en modo watch
 
 ```
 app/
+├── Concerns/                 # Traits reutilizables (PasswordValidationRules, ProfileValidationRules)
 ├── Http/
 │   ├── Controllers/          # PayPalController (único controller, el resto es Livewire)
 │   └── Middleware/            # EnsureUserHasRole — middleware de autorización por rol
 ├── Livewire/
-│   ├── Admin/                # Componentes del panel admin (9)
+│   ├── Actions/              # Logout
+│   ├── Admin/                # Componentes del panel admin (11)
 │   │   ├── Dashboard.php
 │   │   ├── BecariosList.php, BecarioCreate.php, BecarioShow.php
 │   │   ├── AssignmentManage.php, AssignmentDocuments.php
 │   │   ├── DocumentsReview.php
 │   │   ├── GalleryManage.php
-│   │   └── DonationsList.php
+│   │   ├── DonationsList.php
+│   │   └── InternshipApplicationsList.php, InternshipApplicationShow.php
 │   ├── Becario/              # Componentes del panel becario (2)
 │   │   ├── Dashboard.php
 │   │   └── DocumentUpload.php
 │   ├── Settings/             # Perfil, seguridad y 2FA
 │   ├── ContactForm.php       # Formulario de contacto público
-│   └── DonationForm.php      # Formulario de donación público
-├── Mail/                     # Mailables: invitación becario, contacto, donación
-├── Models/                   # User, Assignment, Document, Donation, GalleryPhoto
+│   ├── DonationForm.php      # Formulario de donación público
+│   ├── DonationPage.php      # Página de donación (PayPal + transferencia)
+│   └── InternshipForm.php    # Formulario de solicitud de prácticas
+├── Mail/                     # Mailables: BecarioInvitacion, ContactoMensaje, DonacionInteres,
+│                             #            InteresContacto, SolicitudPractica, TransferenciaBancaria
+├── Models/                   # User, Assignment, Document, Donation, GalleryPhoto,
+│                             # InternshipApplication, BankTransferDonation, InterestDonation
 └── Services/                 # PayPalService — integración con API de PayPal
 
 resources/views/
 ├── components/               # Componentes Blade reutilizables (navbar, footer, logos)
 ├── layouts/
+│   ├── app/                  # Parciales del layout autenticado
 │   ├── app.blade.php         # Layout del panel autenticado (sidebar con Flux UI)
+│   ├── auth/                 # Parciales del layout de autenticación
 │   ├── auth.blade.php        # Layout de autenticación
 │   └── public.blade.php      # Layout del sitio público
 ├── livewire/
 │   ├── admin/                # Vistas de componentes Livewire del admin
 │   ├── becario/              # Vistas de componentes Livewire del becario
 │   ├── auth/                 # Vistas de login, registro, 2FA, reset password
-│   └── settings/             # Vistas de configuración de cuenta
+│   ├── settings/             # Vistas de configuración de cuenta
+│   ├── donation-page.blade.php
+│   └── internship-form.blade.php
 ├── pages/                    # Páginas públicas estáticas (galería, programas, prácticas, contacto, donar)
+├── partials/                 # Parciales globales (head, settings-heading)
 ├── emails/                   # Plantillas de correo electrónico
 └── welcome.blade.php         # Página de inicio
 
 routes/
 ├── web.php                   # Rutas públicas, PayPal, becario y admin
 └── settings.php              # Rutas de perfil y seguridad
+
+docs/                         # Documentación interna del proyecto
 
 tests/
 ├── Feature/                  # Tests de integración (PayPal, CRUD admin, documentos, galería, contacto, auth)

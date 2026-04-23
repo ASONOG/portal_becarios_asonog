@@ -12,6 +12,9 @@
 | `assignments` | Solicitudes de documentos creadas por el admin hacia los becarios | title, type, due_date, status, created_by |
 | `documents` | Archivos entregados por los becarios en respuesta a solicitudes | user_id, assignment_id, file_path, status, reviewed_by |
 | `donations` | Donaciones recibidas a través de PayPal | paypal_order_id, amount, donor_email, status |
+| `bank_transfer_donations` | Donaciones por transferencia bancaria (comprobante adjunto) | donor_name, amount, bank_name, receipt_path, status |
+| `interest_donations` | Formularios de interés en donar (pendientes de contacto) | name, email, phone, message, status |
+| `internship_applications` | Solicitudes de prácticas profesionales del sitio público | full_name, email, institution, internship_type, status |
 | `gallery_photos` | Fotos de la galería pública del sitio | title, category, image_path, size, is_active |
 | `password_reset_tokens` | Tokens temporales para restablecer contraseña | email, token |
 | `sessions` | Sesiones activas de los usuarios | user_id, ip_address, last_activity |
@@ -129,6 +132,75 @@ Fotos que se muestran en la galería pública del sitio. Tienen categoría, orde
 
 ---
 
+### `bank_transfer_donations`
+
+Donaciones enviadas mediante transferencia bancaria. El donante sube un comprobante que el admin verifica manualmente. No están vinculadas a usuarios del sistema.
+
+| Campo | Tipo | Propósito |
+|-------|------|-----------|
+| `donor_name` | string | Nombre del donante |
+| `amount` | decimal(10,2) | Monto donado |
+| `currency` | string(3) (default: `HNL`) | Moneda de la donación |
+| `bank_name` | string | Banco desde el que se realizó la transferencia |
+| `receipt_path` | string | Ruta del comprobante en storage |
+| `receipt_name` | string | Nombre original del archivo del comprobante |
+| `status` | string (default: `pendiente`) | Estado: `pendiente`, `verificado`, `rechazado` |
+
+**Modelo:** `App\Models\BankTransferDonation`
+
+---
+
+### `interest_donations`
+
+Formularios de personas que expresan interés en donar pero aún no han realizado ningún pago. El admin las contacta manualmente.
+
+| Campo | Tipo | Propósito |
+|-------|------|-----------|
+| `name` | string | Nombre del interesado |
+| `email` | string | Correo electrónico de contacto |
+| `phone` | string (nullable) | Teléfono de contacto |
+| `message` | text | Mensaje o comentario del interesado |
+| `status` | string (default: `pendiente`) | Estado: `pendiente`, `contactado` |
+
+**Modelo:** `App\Models\InterestDonation`
+
+---
+
+### `internship_applications`
+
+Solicitudes de prácticas profesionales enviadas desde el sitio público. Pasan por revisión administrativa antes de ser aceptadas o rechazadas.
+
+| Campo | Tipo | Propósito |
+|-------|------|-----------|
+| `email` | string | Correo electrónico del solicitante |
+| `full_name` | string | Nombre completo |
+| `phone` | string | Teléfono de contacto |
+| `department` | string | Departamento de residencia |
+| `municipality` | string | Municipio de residencia |
+| `academic_level` | string | Nivel académico (universitario, técnico, etc.) |
+| `academic_level_other` | string (nullable) | Especificación si el nivel es "otro" |
+| `institution` | string | Institución educativa |
+| `field_of_study` | string | Carrera o área de estudio |
+| `semester` | string (nullable) | Semestre actual (si aplica) |
+| `requires_agreement` | boolean (nullable) | Si requiere convenio institucional |
+| `internship_type` | string | Modalidad: presencial, remota, híbrida |
+| `availability` | string | Disponibilidad horaria |
+| `available_from` | date (nullable) | Fecha a partir de la cual puede iniciar |
+| `estimated_duration` | string | Duración estimada de la práctica |
+| `motivation` | text | Motivación para hacer prácticas en ASONOG |
+| `has_community_experience` | boolean (nullable) | Si tiene experiencia previa en trabajo comunitario |
+| `source` | string (nullable) | Cómo se enteró de la convocatoria |
+| `source_other` | string (nullable) | Especificación si la fuente es "otra" |
+| `cv_path` | string (nullable) | Ruta del CV adjunto en storage |
+| `status` | string (default: `pendiente`) | Estado: `pendiente`, `revisada`, `aceptada`, `rechazada` |
+| `admin_notes` | text (nullable) | Observaciones del admin |
+| `reviewed_by` | foreignId → `users` (nullable) | Admin que revisó la solicitud (null on delete) |
+| `reviewed_at` | timestamp (nullable) | Fecha y hora de la revisión |
+
+**Modelo:** `App\Models\InternshipApplication`
+
+---
+
 ### `password_reset_tokens`
 
 Tokens temporales generados cuando un usuario solicita restablecer su contraseña. También se usa para la invitación de becarios nuevos.
@@ -179,25 +251,41 @@ Sesiones activas del sistema (driver `database`). Permite invalidar sesiones y r
 
 - **Una foto fue subida por un usuario** — siempre un administrador (`GalleryPhoto → belongsTo → User` vía `uploaded_by`)
 
-### Donation (donación)
+### Donation (donación PayPal)
 
 - **Sin relaciones** — las donaciones no están vinculadas a usuarios del sistema (cualquier visitante puede donar)
+
+### BankTransferDonation (donación por transferencia)
+
+- **Sin relaciones** — tabla independiente, el donante no necesita cuenta en el sistema
+
+### InterestDonation (interés en donar)
+
+- **Sin relaciones** — tabla independiente, almacena contactos externos
+
+### InternshipApplication (solicitud de prácticas)
+
+- **Una solicitud fue revisada por un usuario** — el admin que la procesó (`InternshipApplication → belongsTo → User` vía `reviewed_by`)
 
 ---
 
 ## Diagrama de Relaciones
 
 ```
-users (1) ──────────── (N) documents          Un usuario (becario) sube muchos documentos
-users (1) ──────────── (N) assignments         Un usuario (admin) crea muchas solicitudes
-users (1) ──────────── (N) gallery_photos      Un usuario (admin) sube muchas fotos
-users (1) ──────────── (N) documents           Un usuario (admin) revisa muchos documentos
-                                               (vía reviewed_by)
+users (1) ──────────── (N) documents               Un usuario (becario) sube muchos documentos
+users (1) ──────────── (N) assignments              Un usuario (admin) crea muchas solicitudes
+users (1) ──────────── (N) gallery_photos           Un usuario (admin) sube muchas fotos
+users (1) ──────────── (N) documents                Un usuario (admin) revisa muchos documentos
+                                                    (vía reviewed_by)
+users (1) ──────────── (N) internship_applications  Un admin revisa muchas solicitudes de prácticas
+                                                    (vía reviewed_by)
 
-assignments (1) ────── (N) documents           Una solicitud recibe muchos documentos
-                                               (uno por becario)
+assignments (1) ────── (N) documents                Una solicitud recibe muchos documentos
+                                                    (uno por becario)
 
-donations                                      Tabla independiente (sin FK a users)
+donations                                           Tabla independiente (sin FK a users)
+bank_transfer_donations                             Tabla independiente (sin FK a users)
+interest_donations                                  Tabla independiente (sin FK a users)
 ```
 
 ### Flujo visual completo
@@ -224,9 +312,21 @@ donations                                      Tabla independiente (sin FK a use
      │                   │ gallery_photos│
      │                   └───────────────┘
      │
+     ├─── reviewed_by ─► ┌────────────────────────┐
+     │                   │ internship_applications │
+     │                   └────────────────────────┘
+     │
      │    ┌──────────────┐
-     │    │  donations   │  (independiente)
+     │    │  donations   │  (independiente — PayPal)
      │    └──────────────┘
+     │
+     │    ┌──────────────────────────┐
+     │    │ bank_transfer_donations  │  (independiente)
+     │    └──────────────────────────┘
+     │
+     │    ┌────────────────────┐
+     │    │ interest_donations │  (independiente)
+     │    └────────────────────┘
      │
      ├──► ┌────────────────────────┐
      │    │ password_reset_tokens  │  (por email)

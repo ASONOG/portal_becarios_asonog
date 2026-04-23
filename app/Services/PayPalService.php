@@ -11,11 +11,12 @@ class PayPalService
     private string $baseUrl;
     private string $clientId;
     private string $clientSecret;
+    private string $mode;
 
     public function __construct()
     {
-        $mode = config('services.paypal.mode', 'sandbox');
-        $this->baseUrl = $mode === 'live'
+        $this->mode = config('services.paypal.mode', 'sandbox');
+        $this->baseUrl = $this->mode === 'live'
             ? 'https://api-m.paypal.com'
             : 'https://api-m.sandbox.paypal.com';
         $this->clientId = config('services.paypal.client_id');
@@ -24,7 +25,7 @@ class PayPalService
 
     public function getAccessToken(): string
     {
-        return Cache::remember('paypal_access_token', 3200, function () {
+        return Cache::remember("paypal_access_token_{$this->mode}", 3200, function () {
             $response = Http::asForm()
                 ->withBasicAuth($this->clientId, $this->clientSecret)
                 ->post("{$this->baseUrl}/v1/oauth2/token", [
