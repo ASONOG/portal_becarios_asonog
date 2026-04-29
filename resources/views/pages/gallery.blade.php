@@ -20,7 +20,7 @@
             </h1>
 
             <p data-aos="fade-up" data-aos-delay="200" class="text-zinc-300 max-w-2xl mx-auto text-lg leading-relaxed text-left sm:text-center">
-                Imágenes de becarios, voluntarios y comunidades que construyen el futuro de Honduras.
+                Becarios, voluntarios y comunidades que construyen el futuro de Honduras.
             </p>
 
             {{-- CTAs --}}
